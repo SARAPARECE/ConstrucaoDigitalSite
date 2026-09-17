@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
 :root {
   --bg: #0a1220;
   --surface: #0f1c33;
@@ -17,9 +19,18 @@
 
 body {
   margin: 0;
-  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Montserrat", "Segoe UI", Roboto, Arial, sans-serif;
   background: radial-gradient(1000px 450px at 20% -5%, #1f3f76, var(--bg));
   color: var(--text);
+}
+
+h1,
+h2,
+h3,
+.brand,
+.tab-button,
+.btn {
+  font-family: "Montserrat", "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 .container {
@@ -112,7 +123,7 @@ p {
 
 .btn {
   display: inline-block;
-  background: linear-gradient(135deg, var(--brand), var(--brand-strong));
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
   color: #041226;
   text-decoration: none;
   font-weight: 700;

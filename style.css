@@ -1038,84 +1038,50 @@ p {
   line-height: 1.55;
 }
 
-/* Parceiros */
+/* Parceiros e instituições: grelhas de logótipos */
 
-.partners-grid {
+.logo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  max-width: 900px;
 }
 
-.partner-logo {
-  display: grid;
-  place-items: center;
-  height: 118px;
-  margin-bottom: 1.3rem;
-  padding: 1rem 1.5rem;
-  background: #ffffff;
-  border: 1px solid var(--line);
+.logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  min-height: 90px;
 }
 
-.partner-logo img {
-  max-height: 62px;
+.logo-link img {
+  max-height: 58px;
   max-width: 100%;
   width: auto;
   object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
 }
 
-.partner-desc {
-  margin-top: 0.35rem;
-  padding-right: 2rem;
-  font-size: 0.88rem;
-  line-height: 1.5;
+.logo-link:hover img,
+.logo-link:focus-visible img {
+  filter: none;
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
-.partner .card-ext {
-  top: auto;
-  bottom: 1.5rem;
+[data-theme='dark'] .logo-link img {
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
 }
 
-.partners-grid a {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  min-height: 0;
-  padding: 1.5rem;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  text-decoration: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.partners-grid strong {
-  font-size: 1.05rem;
-  font-weight: 700;
-  padding-right: 1.5rem;
-}
-
-.partners-grid .partner-desc {
-  color: var(--muted);
-}
-
-.partners-grid .card-ext {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.4rem;
-  width: 14px;
-  height: 14px;
-  background-color: var(--muted);
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.partners-grid a:hover {
-  border-color: var(--cyan);
-  box-shadow: var(--shadow-hover);
-}
-
-.partners-grid a:hover .card-ext {
-  background-color: var(--cyan);
-  transform: translate(2px, -2px);
+[data-theme='dark'] .logo-link:hover img,
+[data-theme='dark'] .logo-link:focus-visible img {
+  filter: brightness(0) invert(1);
+  opacity: 1;
 }
 
 /* Contacto */
@@ -1155,7 +1121,7 @@ p {
 /* Logótipos */
 
 .logos-band {
-  padding: 3rem 0;
+  padding: 3.5rem 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1167,41 +1133,10 @@ p {
   margin-bottom: 1.4rem;
 }
 
-.logos-strip {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  max-width: 760px;
-}
 
-.logos-strip a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 96px;
-  padding: 1rem 1.5rem;
-  border: 1px solid var(--line);
-  background: #ffffff;
-  transition: border-color 0.2s ease;
-}
 
-.logos-strip a:hover {
-  border-color: var(--line-strong);
-}
 
-.logos-strip img {
-  max-height: 40px;
-  width: auto;
-  object-fit: contain;
-  filter: grayscale(1);
-  opacity: 0.85;
-  transition: filter 0.25s ease, opacity 0.25s ease;
-}
 
-.logos-strip a:hover img {
-  filter: none;
-  opacity: 1;
-}
 
 /* ---------- Rodapé ---------- */
 
@@ -1410,9 +1345,6 @@ p {
     aspect-ratio: 16 / 9;
   }
 
-  .logos-strip {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 600px) {

@@ -54,6 +54,7 @@
         <nav class="menu" id="mainMenu" aria-label="Navegação principal">
           <a href="#programas">Programas</a>
           <a href="#especializacao">Especialização</a>
+          <a href="#noticias">Notícias</a>
           <a href="#forum">Fórum</a>
           <a href="#parceiros">Parceiros</a>
           <a class="menu-cta" href="#contacto">Contacto</a>
@@ -82,7 +83,7 @@
             ligando estudantes, docentes, formadores e parceiros numa comunidade ativa.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#programas">Explorar programas <span aria-hidden="true">→</span></a>
+            <a class="btn btn-primary" href="#programas">Explorar programas <i class="ico ico-arrow" aria-hidden="true"></i></a>
             <a class="btn btn-outline-light" href="#forum">Entrar no fórum</a>
           </div>
         </div>
@@ -95,7 +96,7 @@
             <li>Foco em sustentabilidade e inovação no setor AECO</li>
           </ul>
           <a class="link-arrow light" href="https://iscte-iul.pt/school-applied-digital-technologies" target="_blank" rel="noreferrer">
-            Escola de Tecnologias Digitais Aplicadas <span aria-hidden="true">↗</span>
+            Escola de Tecnologias Digitais Aplicadas <i class="ico ico-ext" aria-hidden="true"></i>
           </a>
         </aside>
       </div>
@@ -104,13 +105,69 @@
     <section class="stats-band" aria-label="Números">
       <div class="container stats">
         <div class="stat"><strong>2</strong><span>Programas âncora</span></div>
-        <div class="stat"><strong>5+</strong><span>Entidades parceiras</span></div>
+        <div class="stat"><strong>3</strong><span>Cursos de especialização</span></div>
         <div class="stat"><strong>100%</strong><span>Foco em competências digitais</span></div>
         <div class="stat"><strong>AECO</strong><span>Setor em transformação</span></div>
       </div>
     </section>
 
     <main id="conteudo">
+      <section id="destaques" class="section highlights" aria-labelledby="destaques-h">
+        <div class="container">
+          <div class="section-head">
+            <h2 id="destaques-h"><span class="dash">_</span> Destaques</h2>
+            <div class="carousel-nav">
+              <button class="icon-btn carousel-prev" type="button" aria-label="Destaque anterior">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+              </button>
+              <button class="icon-btn carousel-next" type="button" aria-label="Destaque seguinte">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="carousel" aria-roledescription="carrossel" aria-label="Destaques">
+            <ul class="carousel-track">
+              <li class="slide" role="group" aria-roledescription="slide" aria-label="1 de 3">
+                <article class="slide-inner">
+                  <div class="slide-media"><img src="assets/img/destaque-1.svg" alt="" loading="lazy" /></div>
+                  <div class="slide-body">
+                    <span class="tag">Licenciatura</span>
+                    <h3>Tecnologias Digitais, Edifícios e Construção Sustentável</h3>
+                    <p>Formação interdisciplinar que junta tecnologia, construção e sustentabilidade, com projetos práticos desde o primeiro ano.</p>
+                    <a class="link-arrow" href="https://iscte-iul.pt/cursos/curso/0429" target="_blank" rel="noreferrer">Ver a licenciatura <i class="ico ico-ext" aria-hidden="true"></i></a>
+                  </div>
+                </article>
+              </li>
+              <li class="slide" role="group" aria-roledescription="slide" aria-label="2 de 3">
+                <article class="slide-inner">
+                  <div class="slide-media"><img src="assets/img/destaque-2.svg" alt="" loading="lazy" /></div>
+                  <div class="slide-body">
+                    <span class="tag">Mestrado / Pós-graduação</span>
+                    <h3>Construção Digital</h3>
+                    <p>Percurso avançado em OpenBIM, interoperabilidade e desenvolvimento de software para o setor da construção.</p>
+                    <a class="link-arrow" href="https://iscte-iul.pt/cursos/curso/0536" target="_blank" rel="noreferrer">Ver o mestrado <i class="ico ico-ext" aria-hidden="true"></i></a>
+                  </div>
+                </article>
+              </li>
+              <li class="slide" role="group" aria-roledescription="slide" aria-label="3 de 3">
+                <article class="slide-inner">
+                  <div class="slide-media"><img src="assets/img/destaque-3.svg" alt="" loading="lazy" /></div>
+                  <div class="slide-body">
+                    <span class="tag">Especialização</span>
+                    <h3>Cursos curtos orientados ao mercado</h3>
+                    <p>BIM para coordenação, automação e IA, OpenBIM e interoperabilidade, com aplicação imediata em contexto real.</p>
+                    <a class="link-arrow" href="#especializacao">Ver os cursos <i class="ico ico-arrow" aria-hidden="true"></i></a>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+
+          <div class="carousel-dots" role="tablist" aria-label="Escolher destaque"></div>
+        </div>
+      </section>
+
       <section id="programas" class="section">
         <div class="container">
           <div class="section-head">
@@ -134,7 +191,7 @@
                 <li>Modelação 3D e captura da realidade</li>
                 <li>Projetos práticos multidisciplinares</li>
               </ul>
-              <a class="btn btn-dark" href="https://iscte-iul.pt/cursos/curso/0429" target="_blank" rel="noreferrer">Ver curso oficial <span aria-hidden="true">↗</span></a>
+              <a class="btn btn-dark" href="https://iscte-iul.pt/cursos/curso/0429" target="_blank" rel="noreferrer">Ver curso oficial <i class="ico ico-ext" aria-hidden="true"></i></a>
             </article>
 
             <article class="program reveal">
@@ -152,7 +209,7 @@
                 <li>Scripting e design paramétrico</li>
                 <li>Desenvolvimento de software para construção</li>
               </ul>
-              <a class="btn btn-dark" href="https://iscte-iul.pt/cursos/curso/0536" target="_blank" rel="noreferrer">Ver curso oficial <span aria-hidden="true">↗</span></a>
+              <a class="btn btn-dark" href="https://iscte-iul.pt/cursos/curso/0536" target="_blank" rel="noreferrer">Ver curso oficial <i class="ico ico-ext" aria-hidden="true"></i></a>
             </article>
           </div>
         </div>
@@ -184,7 +241,47 @@
         </div>
       </section>
 
-      <section id="forum" class="section">
+      <section id="noticias" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2><span class="dash">_</span> Notícias</h2>
+            <p>Novidades da comunidade, dos cursos e dos projetos.</p>
+          </div>
+
+          <!-- Para acrescentar uma notícia, copia um bloco <article class="news-card"> e edita a imagem, a data, o título e o texto. -->
+          <div class="news-grid">
+            <article class="news-card reveal">
+              <div class="news-media"><img src="assets/img/destaque-1.svg" alt="" loading="lazy" /></div>
+              <div class="news-body">
+                <div class="news-meta"><span class="tag">Exemplo</span><time datetime="2026-09-01">1 set 2026</time></div>
+                <h3>Título da primeira notícia</h3>
+                <p>Resumo em duas linhas do que aconteceu. Substitui este texto pelo conteúdo real da notícia.</p>
+                <a class="link-arrow" href="#noticias">Ler mais <i class="ico ico-arrow" aria-hidden="true"></i></a>
+              </div>
+            </article>
+            <article class="news-card reveal">
+              <div class="news-media"><img src="assets/img/destaque-2.svg" alt="" loading="lazy" /></div>
+              <div class="news-body">
+                <div class="news-meta"><span class="tag">Exemplo</span><time datetime="2026-09-01">1 set 2026</time></div>
+                <h3>Título da segunda notícia</h3>
+                <p>Resumo em duas linhas do que aconteceu. Substitui este texto pelo conteúdo real da notícia.</p>
+                <a class="link-arrow" href="#noticias">Ler mais <i class="ico ico-arrow" aria-hidden="true"></i></a>
+              </div>
+            </article>
+            <article class="news-card reveal">
+              <div class="news-media"><img src="assets/img/destaque-3.svg" alt="" loading="lazy" /></div>
+              <div class="news-body">
+                <div class="news-meta"><span class="tag">Exemplo</span><time datetime="2026-09-01">1 set 2026</time></div>
+                <h3>Título da terceira notícia</h3>
+                <p>Resumo em duas linhas do que aconteceu. Substitui este texto pelo conteúdo real da notícia.</p>
+                <a class="link-arrow" href="#noticias">Ler mais <i class="ico ico-arrow" aria-hidden="true"></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="forum" class="section section-alt">
         <div class="container split">
           <article class="reveal">
             <h2><span class="dash">_</span> Fórum &amp; Ideias</h2>
@@ -208,18 +305,25 @@
         </div>
       </section>
 
-      <section id="parceiros" class="section section-alt">
+      <section id="parceiros" class="section">
         <div class="container">
           <div class="section-head">
             <h2><span class="dash">_</span> Parceiros e formadores</h2>
             <p>Rede colaborativa para elevar a qualidade da formação e empregabilidade.</p>
           </div>
           <div class="partners-grid">
-            <a href="https://audax.iscte-iul.pt/" target="_blank" rel="noreferrer"><strong>Audax</strong><span>audax.iscte-iul.pt</span><i aria-hidden="true">↗</i></a>
-            <a href="https://indeg.iscte-iul.pt/" target="_blank" rel="noreferrer"><strong>Executive Education</strong><span>indeg.iscte-iul.pt</span><i aria-hidden="true">↗</i></a>
-            <a href="https://conhecimentoinovacao.iscte-iul.pt/" target="_blank" rel="noreferrer"><strong>Knowledge &amp; Innovation</strong><span>conhecimentoinovacao.iscte-iul.pt</span><i aria-hidden="true">↗</i></a>
-            <a href="https://isctemetadigital.pt/" target="_blank" rel="noreferrer"><strong>Meta Digital</strong><span>isctemetadigital.pt</span><i aria-hidden="true">↗</i></a>
-            <a href="https://ipps.iscte-iul.pt/" target="_blank" rel="noreferrer"><strong>IPPS</strong><span>ipps.iscte-iul.pt</span><i aria-hidden="true">↗</i></a>
+            <a class="partner" href="https://secclass.pt/" target="_blank" rel="noreferrer">
+              <span class="partner-logo"><img src="https://secclass.pt/wp-content/uploads/2020/11/SECClasS-Logo-Website.png" alt="Logótipo SECClasS" loading="lazy" /></span>
+              <strong>SECClasS</strong>
+              <span class="partner-desc">Sistema de classificação para a construção orientado à sustentabilidade.</span>
+              <i class="ico ico-ext card-ext" aria-hidden="true"></i>
+            </a>
+            <a class="partner" href="https://zumer.io/" target="_blank" rel="noreferrer">
+              <span class="partner-logo"><img src="https://cdn.prod.website-files.com/69455a6370fdce8165b52e02/69455bb58e42a9ff7d261b20_Logo.png" alt="Logótipo Zumer" loading="lazy" /></span>
+              <strong>Zumer</strong>
+              <span class="partner-desc">Produtos digitais para otimizar processos e equipas na construção.</span>
+              <i class="ico ico-ext card-ext" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </section>
@@ -260,6 +364,7 @@
           <h3>Navegação</h3>
           <a href="#programas">Programas</a>
           <a href="#especializacao">Especialização</a>
+          <a href="#noticias">Notícias</a>
           <a href="#forum">Fórum</a>
           <a href="#parceiros">Parceiros</a>
         </nav>
@@ -271,14 +376,14 @@
         </div>
         <nav aria-label="Ligações externas">
           <h3>Iscte</h3>
-          <a href="https://iscte-iul.pt/" target="_blank" rel="noreferrer">Iscte ↗</a>
-          <a href="https://iscte-iul.pt/school-applied-digital-technologies" target="_blank" rel="noreferrer">Iscte-Sintra ↗</a>
-          <a href="https://isctemetadigital.pt/" target="_blank" rel="noreferrer">Iscte-Meta Digital ↗</a>
+          <a href="https://iscte-iul.pt/" target="_blank" rel="noreferrer">Iscte <i class="ico ico-ext" aria-hidden="true"></i></a>
+          <a href="https://iscte-iul.pt/school-applied-digital-technologies" target="_blank" rel="noreferrer">Iscte-Sintra <i class="ico ico-ext" aria-hidden="true"></i></a>
+          <a href="https://isctemetadigital.pt/" target="_blank" rel="noreferrer">Iscte-Meta Digital <i class="ico ico-ext" aria-hidden="true"></i></a>
         </nav>
       </div>
       <div class="container footer-bottom">
         <small>© <span id="year"></span> Comunidade Construção Digital</small>
-        <a href="#topo">Voltar ao topo ↑</a>
+        <a href="#topo">Voltar ao topo <i class="ico ico-up" aria-hidden="true"></i></a>
       </div>
     </footer>
 

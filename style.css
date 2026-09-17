@@ -973,26 +973,34 @@ p {
 
 .teachers {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
 .teacher {
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
-  gap: 1.5rem;
-  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
   border: 1px solid var(--line);
   border-top: 3px solid var(--ink);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.teacher:hover {
+  border-top-color: var(--cyan);
+  box-shadow: var(--shadow-hover);
 }
 
 .teacher-photo {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
   object-fit: cover;
-  filter: grayscale(1);
   transition: filter 0.3s ease;
+}
+
+.teacher-photo:not([src$='.svg']) {
+  filter: grayscale(1);
 }
 
 .teacher:hover .teacher-photo {
@@ -1002,64 +1010,32 @@ p {
 .teacher-body {
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1.4rem;
+  flex: 1;
+}
+
+.teacher-body .link-arrow {
+  margin-top: auto;
+  padding-top: 0.3rem;
 }
 
 .teacher h3 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
 .teacher-role {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
   line-height: 1.45;
   color: var(--cyan-dark);
 }
 
 .teacher p {
-  font-size: 0.95rem;
-}
-
-.bio summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  width: fit-content;
   font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text);
-  cursor: pointer;
-  list-style: none;
-  padding-bottom: 2px;
-  border-bottom: 1.5px solid var(--cyan);
-}
-
-.bio summary::-webkit-details-marker {
-  display: none;
-}
-
-.bio summary::after {
-  content: '';
-  width: 0.7em;
-  height: 0.7em;
-  background-color: currentColor;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
-  transition: transform 0.2s ease;
-}
-
-.bio[open] summary::after {
-  transform: rotate(180deg);
-}
-
-.bio summary:hover {
-  color: var(--cyan-dark);
-}
-
-.bio > p {
-  margin-top: 0.9rem;
-  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 /* Parceiros */
@@ -1340,7 +1316,8 @@ p {
   }
 
   .cards-3,
-  .news-grid {
+  .news-grid,
+  .teachers {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -1425,8 +1402,7 @@ p {
 
   .programs,
   .split,
-  .news-grid,
-  .teachers {
+  .news-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1476,19 +1452,12 @@ p {
   }
 
   .program,
-  .card,
-  .teacher {
+  .card {
     padding: 1.5rem;
   }
 
-  .teacher {
-    grid-template-columns: 1fr;
-    gap: 1.1rem;
-  }
-
-  .teacher-photo {
-    width: 110px;
-    height: 110px;
+  .teacher-body {
+    padding: 1.2rem;
   }
 
   .cards-3 {

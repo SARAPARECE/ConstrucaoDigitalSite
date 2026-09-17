@@ -347,6 +347,52 @@ main {
   background: #f6f9ff;
 }
 
+.logos-footer {
+  background: #ffffff;
+}
+
+.logos-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.logos-head h2 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #1b43b8;
+}
+
+.logos-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+
+.logos-strip a {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem;
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.logos-strip img {
+  max-width: 100%;
+  max-height: 42px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 .contact ul {
   margin: 0.8rem 0 0;
   padding-left: 1.1rem;
@@ -380,6 +426,10 @@ footer {
   }
 
   .cards-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .logos-strip {
     grid-template-columns: 1fr;
   }
 }

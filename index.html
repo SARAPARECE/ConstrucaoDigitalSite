@@ -3,58 +3,166 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Construção Digital Site</title>
+    <title>Comunidade Construção Digital</title>
     <meta
       name="description"
-      content="Site institucional da Construção Digital."
+      content="Comunidade de Construção Digital para promover licenciatura, pós-graduação, cursos de especialização, fórum e projetos futuros."
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="hero">
       <nav class="nav">
-        <strong>Construção Digital</strong>
+        <strong>Comunidade Construção Digital</strong>
         <a href="#contacto">Contacto</a>
       </nav>
 
       <section class="hero-content">
-        <h1>Bem-vindo ao seu novo site 🚀</h1>
+        <p class="eyebrow">ISCTE + Comunidade + Inovação</p>
+        <h1>Construímos o futuro da construção digital</h1>
         <p>
-          Este website está publicado com GitHub Pages e pronto para ser ligado
-          ao seu domínio OVH.
+          Um espaço interativo para divulgar formação, ligar estudantes a
+          parceiros, partilhar ideias e acompanhar projetos com impacto real no
+          setor AECO.
         </p>
-        <a class="btn" href="#contacto">Falar connosco</a>
+        <div class="hero-actions">
+          <a class="btn" href="#tabs">Explorar áreas</a>
+          <a class="btn ghost" href="https://iscte-iul.pt/school-applied-digital-technologies" target="_blank" rel="noreferrer">Escola de Tecnologias Digitais Aplicadas</a>
+        </div>
+        <div class="logo-strip">
+          <img src="https://iscte-iul.pt/assets/assets/logos/svg/iscte-sintra_en_horizontal_positive.svg" alt="Logo Escola de Tecnologias Digitais Aplicadas - Iscte" loading="lazy" />
+          <img src="https://iscte-iul.pt/assets/assets/logos/svg/iscte-iul_en_horizontal_positive.svg" alt="Logo Iscte" loading="lazy" />
+        </div>
       </section>
     </header>
 
     <main>
-      <section class="card-grid">
-        <article class="card">
-          <h2>Rápido</h2>
-          <p>Hospedagem estática com carregamento muito rápido.</p>
+      <section id="tabs" class="tabs">
+        <div class="tab-list" role="tablist" aria-label="Áreas da comunidade">
+          <button class="tab-button active" data-tab="licenciatura" role="tab" aria-selected="true">Licenciatura</button>
+          <button class="tab-button" data-tab="pos" role="tab" aria-selected="false">Pós-graduação</button>
+          <button class="tab-button" data-tab="especializacao" role="tab" aria-selected="false">Especialização</button>
+          <button class="tab-button" data-tab="forum" role="tab" aria-selected="false">Fórum & Ideias</button>
+          <button class="tab-button" data-tab="parceiros" role="tab" aria-selected="false">Parceiros & Formadores</button>
+          <button class="tab-button" data-tab="futuros" role="tab" aria-selected="false">Trabalhos Futuros</button>
+        </div>
+
+        <article class="tab-panel active" data-panel="licenciatura" role="tabpanel">
+          <h2>Licenciatura em Tecnologias Digitais e Construção Sustentável</h2>
+          <p>
+            Formação interdisciplinar com foco em BIM, programação,
+            inteligência artificial, automação e sustentabilidade aplicadas ao
+            ambiente construído.
+          </p>
+          <ul>
+            <li>BIM e modelos digitais 3D</li>
+            <li>Programação e automação de processos</li>
+            <li>Projetos práticos com ligação ao mercado</li>
+          </ul>
+          <a class="link" href="https://iscte-iul.pt/cursos/curso/0429" target="_blank" rel="noreferrer">Ver página oficial da licenciatura</a>
         </article>
-        <article class="card">
-          <h2>Seguro</h2>
-          <p>HTTPS automático quando o domínio estiver ligado.</p>
+
+        <article class="tab-panel" data-panel="pos" role="tabpanel" hidden>
+          <h2>Pós-graduação e Mestrado em Construção Digital</h2>
+          <p>
+            Percurso avançado para profissionais que querem liderar a
+            transformação digital na construção.
+          </p>
+          <ul>
+            <li>Interoperabilidade e OpenBIM</li>
+            <li>Scripting e desenho paramétrico</li>
+            <li>Desenvolvimento de software para construção</li>
+          </ul>
+          <a class="link" href="https://iscte-iul.pt/cursos/curso/0536" target="_blank" rel="noreferrer">Ver página oficial do mestrado</a>
         </article>
-        <article class="card">
-          <h2>Escalável</h2>
-          <p>Pronto para evoluir para várias páginas e secções.</p>
+
+        <article class="tab-panel" data-panel="especializacao" role="tabpanel" hidden>
+          <h2>Cursos de Especialização</h2>
+          <p>
+            Programas de curta e média duração com aplicação imediata em
+            contexto profissional.
+          </p>
+          <div class="card-grid">
+            <article class="card">
+              <h3>BIM para Coordenação</h3>
+              <p>Coordenação multidisciplinar, clash detection e qualidade da informação.</p>
+            </article>
+            <article class="card">
+              <h3>Automação e IA no Estaleiro</h3>
+              <p>Fluxos com dados, sensores e apoio à decisão em obra.</p>
+            </article>
+            <article class="card">
+              <h3>OpenBIM e Interoperabilidade</h3>
+              <p>Boas práticas para colaboração entre plataformas e equipas.</p>
+            </article>
+          </div>
+          <p class="muted">Formadores e parceiros podem ser apresentados aqui com bio, experiência e calendário.</p>
+        </article>
+
+        <article class="tab-panel" data-panel="forum" role="tabpanel" hidden>
+          <h2>Fórum & Ideias</h2>
+          <p>
+            Espaço para perguntas, partilha de desafios reais, brainstorm de
+            soluções e networking entre estudantes, docentes e profissionais.
+          </p>
+          <div class="pill-wrap">
+            <span class="pill">Discussões BIM</span>
+            <span class="pill">Casos Reais</span>
+            <span class="pill">Q&A com Docentes</span>
+            <span class="pill">Ideias de Startups</span>
+          </div>
+        </article>
+
+        <article class="tab-panel" data-panel="parceiros" role="tabpanel" hidden>
+          <h2>Parceiros, Formadores e Professores</h2>
+          <p>
+            Área dedicada aos parceiros de formação e ao corpo docente ligado à
+            licenciatura e ao mestrado em construção digital.
+          </p>
+          <div class="partners-grid">
+            <a href="https://audax.iscte-iul.pt/" target="_blank" rel="noreferrer">Audax</a>
+            <a href="https://indeg.iscte-iul.pt/" target="_blank" rel="noreferrer">Executive Education</a>
+            <a href="https://conhecimentoinovacao.iscte-iul.pt/" target="_blank" rel="noreferrer">Knowledge & Innovation</a>
+            <a href="https://isctemetadigital.pt/" target="_blank" rel="noreferrer">Meta Digital</a>
+            <a href="https://ipps.iscte-iul.pt/" target="_blank" rel="noreferrer">IPPS</a>
+          </div>
+          <p class="muted">
+            Exemplo de docentes de referência: direção da licenciatura e do mestrado no Iscte, com ligação direta às páginas oficiais dos cursos.
+          </p>
+        </article>
+
+        <article class="tab-panel" data-panel="futuros" role="tabpanel" hidden>
+          <h2>Trabalhos Futuros</h2>
+          <p>
+            Roadmap da comunidade para evoluir o site e as atividades nos
+            próximos meses.
+          </p>
+          <ol>
+            <li>Área privada para estudantes e alumni</li>
+            <li>Calendário de eventos, workshops e defesas</li>
+            <li>Biblioteca de recursos técnicos (BIM, IA, interoperabilidade)</li>
+            <li>Vitrine de projetos de alunos e empresas parceiras</li>
+          </ol>
         </article>
       </section>
 
       <section id="contacto" class="contact">
         <h2>Contacto</h2>
-        <p>Substitua este texto pelos seus dados reais: email, telefone e morada.</p>
+        <p>
+          Queres colaborar, lecionar um módulo, propor um curso ou partilhar um
+          desafio real do setor? Fala connosco.
+        </p>
+        <ul>
+          <li>Email: geral@construcaodigital.com</li>
+          <li>Sintra · Lisboa</li>
+        </ul>
       </section>
     </main>
 
     <footer>
-      <small>© <span id="year"></span> Construção Digital</small>
+      <small>© <span id="year"></span> Comunidade Construção Digital</small>
     </footer>
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

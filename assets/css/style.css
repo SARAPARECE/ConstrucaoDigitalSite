@@ -1467,8 +1467,23 @@ p {
     padding: 1.5rem;
   }
 
+  .teachers {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .teacher-photo {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
   .teacher-body {
-    padding: 1.2rem;
+    padding: 1.1rem 1.2rem;
   }
 
   .cards-3 {

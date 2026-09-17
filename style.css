@@ -6,8 +6,8 @@
   --surface-soft: #f3f6fc;
   --text: #1e2738;
   --muted: #5e6a82;
-  --brand: #35c5ff;
-  --brand-2: #5a8dff;
+  --brand: #c8102e;
+  --brand-2: #a50d26;
   --ok: #12844f;
   --border: #d8e0ef;
   --shadow: 0 10px 24px rgba(19, 36, 74, 0.08);
@@ -123,25 +123,31 @@ p {
 
 .btn {
   display: inline-block;
-  background: linear-gradient(135deg, var(--brand), var(--brand-2));
-  color: #041226;
+  background: #ffffff;
+  color: #111827;
   text-decoration: none;
-  font-weight: 700;
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.65rem 0.95rem;
+  border-radius: 8px;
+  border: 1px solid #d5ddea;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(76, 201, 240, 0.3);
+  background: #f8fafc;
+  border-color: #c6d0e2;
 }
 
 .btn.ghost {
   background: transparent;
-  color: var(--text);
-  border-color: var(--border);
+  color: #23314b;
+  border-color: #cfd8e6;
+}
+
+.btn.ghost:hover {
+  background: #f8fafc;
+  color: #101828;
 }
 
 .hero-panel {

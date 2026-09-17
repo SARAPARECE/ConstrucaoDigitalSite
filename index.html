@@ -13,8 +13,13 @@
   <body>
     <header class="hero" id="topo">
       <nav class="nav container">
-        <a class="brand" href="#topo">Comunidade de Construção Digital</a>
+        <a class="brand" href="#topo" aria-label="Comunidade de Construção Digital">
+          <img class="brand-logo logo-light" src="assets/logos/construcao-digital_logo.svg" alt="Logo Construção Digital" loading="lazy" />
+          <img class="brand-logo logo-dark" src="assets/logos/construcao-digital_logo_negativo.svg" alt="Logo Construção Digital" loading="lazy" />
+          <span>Comunidade de Construção Digital</span>
+        </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mainMenu">Menu</button>
+        <button class="theme-toggle" type="button" aria-label="Mudar tema" title="Mudar tema">🌙</button>
         <div class="menu" id="mainMenu">
           <a href="#programas">Programas</a>
           <a href="#especializacao">Especialização</a>
@@ -171,7 +176,8 @@
         </div>
         <div class="logos-strip">
           <a href="https://construcaodigital.com" target="_blank" rel="noreferrer" aria-label="Construção Digital">
-            <img src="assets/logos/construcao-digital_logo_negativo.svg" alt="Logo Construção Digital" loading="lazy" />
+            <img class="logo-light" src="assets/logos/construcao-digital_logo.svg" alt="Logo Construção Digital" loading="lazy" />
+            <img class="logo-dark" src="assets/logos/construcao-digital_logo_negativo.svg" alt="Logo Construção Digital" loading="lazy" />
           </a>
           <a href="https://iscte-iul.pt/" target="_blank" rel="noreferrer" aria-label="ISCTE">
             <img src="https://iscte-iul.pt/assets/assets/logos/svg/iscte-sintra_en_horizontal_positive.svg" alt="Logo ISCTE" loading="lazy" />

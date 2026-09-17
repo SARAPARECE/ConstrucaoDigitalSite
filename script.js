@@ -2,6 +2,7 @@ const tabButtons = Array.from(document.querySelectorAll('.tab-button'));
 const tabPanels = Array.from(document.querySelectorAll('.tab-panel'));
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
+const themeToggle = document.querySelector('.theme-toggle');
 
 function activateTab(tabId) {
   tabButtons.forEach((button) => {
@@ -65,6 +66,26 @@ const observer = new IntersectionObserver(
 );
 
 revealElements.forEach((el) => observer.observe(el));
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+
+  if (themeToggle) {
+    themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+  }
+}
+
+const storedTheme = localStorage.getItem('theme');
+const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+applyTheme(storedTheme || preferredTheme);
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const nextTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme);
+    localStorage.setItem('theme', nextTheme);
+  });
+}
 
 activateTab('licenciatura');
 document.getElementById('year').textContent = new Date().getFullYear();

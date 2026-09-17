@@ -507,47 +507,54 @@ p {
 /* ---------- Números ---------- */
 
 .stats-band {
-  margin-top: -2.5rem;
   position: relative;
   z-index: 2;
+  padding: clamp(2rem, 4vw, 3.2rem) 0 clamp(1rem, 2vw, 2rem);
 }
 
 .stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  background: var(--surface);
-  border: 1px solid var(--line);
-  box-shadow: 0 20px 40px rgba(10, 15, 31, 0.07);
+  gap: 0;
 }
 
 .stat {
-  padding: 1.6rem 1.8rem;
-  border-left: 1px solid var(--line);
+  position: relative;
+  padding: 0.6rem 2rem 0.6rem 0;
 }
 
-.stat:first-child {
-  border-left: 0;
+.stat + .stat {
+  padding-left: 2rem;
+  border-left: 1px solid var(--line);
 }
 
 .stat strong {
   display: block;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1;
+  letter-spacing: -0.02em;
   color: var(--text);
+  font-variant-numeric: tabular-nums;
 }
 
 .stat strong::after {
   content: '';
   display: block;
-  width: 24px;
+  width: 34px;
   height: 3px;
-  margin: 0.7rem 0 0.6rem;
+  margin: 0.9rem 0 0.8rem;
   background: var(--cyan);
+  transition: width 0.45s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.stat:hover strong::after {
+  width: 64px;
 }
 
 .stat span {
-  font-size: 0.88rem;
+  display: block;
+  font-size: 0.9rem;
   color: var(--muted);
   font-weight: 500;
 }
@@ -1291,14 +1298,12 @@ p {
 
   .stats {
     grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 0;
   }
 
   .stat:nth-child(3) {
+    padding-left: 0;
     border-left: 0;
-  }
-
-  .stat:nth-child(n + 3) {
-    border-top: 1px solid var(--line);
   }
 
   .programs,
@@ -1341,8 +1346,17 @@ p {
     justify-content: center;
   }
 
-  .stat {
-    padding: 1.2rem;
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat,
+  .stat + .stat {
+    padding: 0.4rem 1rem 0.4rem 0;
+  }
+
+  .stat:nth-child(2n) {
+    padding-left: 1.2rem;
   }
 
   .program,

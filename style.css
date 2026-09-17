@@ -1,0 +1,98 @@
+:root {
+  --bg: #0b1220;
+  --bg-soft: #111a2e;
+  --text: #e8eefc;
+  --muted: #b8c4e6;
+  --brand: #6ea8ff;
+  --brand-strong: #4f8cff;
+  --card: #121d33;
+  --border: #253252;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 20% -10%, #1a2950, var(--bg));
+  color: var(--text);
+}
+
+.hero {
+  padding: 1.2rem 1.2rem 2.5rem;
+}
+
+.nav {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.hero-content {
+  max-width: 980px;
+  margin: 3rem auto 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  margin-bottom: 0.8rem;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: linear-gradient(135deg, var(--brand), var(--brand-strong));
+  color: #041226;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+}
+
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.2rem 2rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.contact {
+  margin-top: 1.2rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1.4rem;
+  color: var(--muted);
+}

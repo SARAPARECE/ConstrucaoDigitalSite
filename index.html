@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Construção Digital Site</title>
+    <meta
+      name="description"
+      content="Site institucional da Construção Digital."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav">
+        <strong>Construção Digital</strong>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <section class="hero-content">
+        <h1>Bem-vindo ao seu novo site 🚀</h1>
+        <p>
+          Este website está publicado com GitHub Pages e pronto para ser ligado
+          ao seu domínio OVH.
+        </p>
+        <a class="btn" href="#contacto">Falar connosco</a>
+      </section>
+    </header>
+
+    <main>
+      <section class="card-grid">
+        <article class="card">
+          <h2>Rápido</h2>
+          <p>Hospedagem estática com carregamento muito rápido.</p>
+        </article>
+        <article class="card">
+          <h2>Seguro</h2>
+          <p>HTTPS automático quando o domínio estiver ligado.</p>
+        </article>
+        <article class="card">
+          <h2>Escalável</h2>
+          <p>Pronto para evoluir para várias páginas e secções.</p>
+        </article>
+      </section>
+
+      <section id="contacto" class="contact">
+        <h2>Contacto</h2>
+        <p>Substitua este texto pelos seus dados reais: email, telefone e morada.</p>
+      </section>
+    </main>
+
+    <footer>
+      <small>© <span id="year"></span> Construção Digital</small>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

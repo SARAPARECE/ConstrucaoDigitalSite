@@ -12,13 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <script>
+      /* O site abre sempre em tema claro, independentemente do sistema do visitante.
+         Quem carregar no botão da lua fica em escuro só durante a visita. */
       (function () {
         var theme;
-        try { theme = localStorage.getItem('theme'); } catch (e) {}
-        if (!theme) {
-          theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
-        document.documentElement.setAttribute('data-theme', theme);
+        try { theme = sessionStorage.getItem('theme'); } catch (e) {}
+        document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
       })();
     </script>
   </head>

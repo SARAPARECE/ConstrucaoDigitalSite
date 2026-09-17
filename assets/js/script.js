@@ -88,7 +88,7 @@ if (themeToggle) {
     const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     applyTheme(nextTheme);
     try {
-      localStorage.setItem('theme', nextTheme);
+      sessionStorage.setItem('theme', nextTheme);
     } catch (e) {
       /* armazenamento indisponível */
     }

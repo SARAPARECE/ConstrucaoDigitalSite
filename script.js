@@ -1,5 +1,7 @@
 const tabButtons = Array.from(document.querySelectorAll('.tab-button'));
 const tabPanels = Array.from(document.querySelectorAll('.tab-panel'));
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
 
 function activateTab(tabId) {
   tabButtons.forEach((button) => {
@@ -35,6 +37,34 @@ tabButtons.forEach((button, index) => {
     activateTab(tabButtons[nextIndex].dataset.tab);
   });
 });
+
+if (menuToggle && menu) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  menu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+revealElements.forEach((el) => observer.observe(el));
 
 activateTab('licenciatura');
 document.getElementById('year').textContent = new Date().getFullYear();

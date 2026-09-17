@@ -1061,7 +1061,8 @@ p {
   max-width: 260px;
   width: auto;
   object-fit: contain;
-  transition: opacity 0.25s ease;
+  filter: grayscale(1) brightness(0.72) contrast(1.1);
+  transition: filter 0.3s ease;
 }
 
 .logo-link:hover {
@@ -1070,10 +1071,15 @@ p {
 
 .logo-link:hover img,
 .logo-link:focus-visible img {
-  opacity: 0.85;
+  filter: none;
 }
 
 [data-theme='dark'] .logo-link img {
+  filter: brightness(0) invert(1) opacity(0.85);
+}
+
+[data-theme='dark'] .logo-link:hover img,
+[data-theme='dark'] .logo-link:focus-visible img {
   filter: brightness(0) invert(1);
 }
 

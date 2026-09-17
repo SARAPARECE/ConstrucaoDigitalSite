@@ -1411,3 +1411,50 @@ p {
     font-size: 2.3rem;
   }
 }
+
+/* Páginas interiores */
+
+.hero-sm {
+  min-height: 0;
+  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(4rem, 7vw, 6rem);
+}
+
+.hero-sm .h1-brand {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+}
+
+.hero-sm .lead {
+  margin-top: 1rem;
+  max-width: 52ch;
+}
+
+.roadmap-list {
+  list-style: none;
+  counter-reset: step;
+  margin: 1.4rem 0 1.8rem;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.roadmap-list li {
+  counter-increment: step;
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.roadmap-list li::before {
+  content: counter(step, decimal-leading-zero);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--cyan-dark);
+  min-width: 1.6rem;
+}
+
+.card .link-arrow {
+  margin-top: 1rem;
+}

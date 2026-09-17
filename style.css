@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --bg: #0a1220;
-  --surface: #0f1c33;
-  --surface-soft: #142542;
-  --text: #edf2ff;
-  --muted: #bcc9e8;
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-soft: #f3f6fc;
+  --text: #1e2738;
+  --muted: #5e6a82;
   --brand: #35c5ff;
   --brand-2: #5a8dff;
-  --ok: #6de0a7;
-  --border: #29426f;
-  --shadow: 0 12px 30px rgba(5, 12, 25, 0.35);
+  --ok: #12844f;
+  --border: #d8e0ef;
+  --shadow: 0 10px 24px rgba(19, 36, 74, 0.08);
 }
 
 * {
@@ -20,7 +20,7 @@
 body {
   margin: 0;
   font-family: "Montserrat", "Segoe UI", Roboto, Arial, sans-serif;
-  background: radial-gradient(1000px 450px at 20% -5%, #1f3f76, var(--bg));
+  background: var(--bg);
   color: var(--text);
 }
 
@@ -51,10 +51,10 @@ h3,
   top: 0;
   z-index: 15;
   padding: 0.75rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
   border-radius: 14px;
   backdrop-filter: blur(10px);
-  background: rgba(6, 12, 24, 0.65);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .brand {
@@ -147,7 +147,7 @@ p {
 .hero-panel {
   border: 1px solid var(--border);
   border-radius: 16px;
-  background: linear-gradient(180deg, rgba(18, 34, 60, 0.9), rgba(15, 27, 49, 0.9));
+  background: #ffffff;
   padding: 1rem;
   box-shadow: var(--shadow);
 }
@@ -172,7 +172,7 @@ p {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 0.8rem;
-  background: rgba(17, 32, 58, 0.85);
+  background: #ffffff;
 }
 
 .stats strong {
@@ -206,7 +206,7 @@ main {
 
 .section {
   margin-top: 1.4rem;
-  background: rgba(13, 24, 43, 0.76);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 1rem;
@@ -231,7 +231,7 @@ main {
 .tab-button {
   appearance: none;
   border: 1px solid var(--border);
-  background: #0f1b31;
+  background: #f4f7fd;
   color: var(--muted);
   border-radius: 999px;
   padding: 0.55rem 0.9rem;
@@ -246,7 +246,7 @@ main {
 }
 
 .tab-button.active {
-  color: #031527;
+  color: #0b1b3f;
   background: linear-gradient(135deg, #86e4ff, #7ba3ff);
   border-color: transparent;
 }
@@ -309,7 +309,7 @@ main {
 }
 
 .partners-grid a:hover {
-  border-color: #5b7fc0;
+  border-color: #9bb2de;
   transform: translateY(-2px);
 }
 
@@ -330,7 +330,7 @@ main {
 }
 
 .link {
-  color: #8fd6ff;
+  color: #2d59cc;
 }
 
 .muted {
@@ -338,7 +338,7 @@ main {
 }
 
 .contact {
-  background: linear-gradient(180deg, rgba(20, 39, 70, 0.95), rgba(14, 26, 47, 0.95));
+  background: #f6f9ff;
 }
 
 .contact ul {
@@ -388,7 +388,7 @@ footer {
     position: absolute;
     right: 1rem;
     top: 58px;
-    background: #0c172c;
+    background: #ffffff;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 0.65rem;

@@ -16,35 +16,35 @@ window.CONTEUDO.site = {
   menu: [
     {
       texto: 'Cursos',
-      href: 'index.html#especializacao',
+      href: '#especializacao',
       sub: [
-        { texto: 'Modelação BIM: Revit', href: 'curso-revit.html' },
-        { texto: 'Modelação BIM: Archicad', href: 'curso-archicad.html' },
-        { texto: 'BIM para Obra', href: 'curso-bim-obra.html' },
-        { texto: 'Software para Construção', href: 'curso-software-construcao.html' },
-        { texto: 'Avaliação do Ciclo de Vida com BIM', href: 'curso-ciclo-vida-bim.html' }
+        { texto: 'Modelação BIM: Revit', href: 'curso-revit/' },
+        { texto: 'Modelação BIM: Archicad', href: 'curso-archicad/' },
+        { texto: 'BIM para Obra', href: 'curso-bim-obra/' },
+        { texto: 'Software para Construção', href: 'curso-software-construcao/' },
+        { texto: 'Avaliação do Ciclo de Vida com BIM', href: 'curso-ciclo-vida-bim/' }
       ]
     },
     {
       texto: 'Ensino superior',
-      href: 'index.html#programas',
+      href: '#programas',
       sub: [
-        { texto: 'Licenciatura', href: 'index.html#licenciatura' },
-        { texto: 'Mestrado e pós-graduação', href: 'index.html#mestrado' }
+        { texto: 'Licenciatura', href: '#licenciatura' },
+        { texto: 'Mestrado e pós-graduação', href: '#mestrado' }
       ]
     },
-    { texto: 'Notícias', href: 'noticias.html' },
-    { texto: 'Formadores', href: 'index.html#formadores' },
+    { texto: 'Notícias', href: 'noticias/' },
+    { texto: 'Formadores', href: '#formadores' },
     {
       texto: 'Recursos',
-      href: 'recursos.html',
+      href: 'recursos/',
       sub: [
-        { texto: 'Trabalhos de antigos alunos', href: 'trabalhos.html' },
-        { texto: 'Biblioteca', href: 'biblioteca.html' }
+        { texto: 'Trabalhos de antigos alunos', href: 'trabalhos/' },
+        { texto: 'Biblioteca', href: 'biblioteca/' }
       ]
     },
-    { texto: 'Parceiros', href: 'index.html#parceiros' },
-    { texto: 'Contacto', href: 'index.html#contacto', destaque: true }
+    { texto: 'Parceiros', href: '#parceiros' },
+    { texto: 'Contacto', href: '#contacto', destaque: true }
   ],
 
   rodape: {

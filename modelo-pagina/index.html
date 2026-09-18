@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-PT" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modelo de página | Construção Digital</title>
+    <meta name="description" content="Modelo para criar uma página nova no site da Comunidade de Construção Digital." />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="../assets/logos/construcao-digital_logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body data-base="../">
+    <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+
+    <header class="site-header" id="topo" data-componente="cabecalho"></header>
+
+    <section class="hero hero-sm" aria-labelledby="page-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dash">_</span> Comunidade</p>
+          <h1 id="page-title">
+            <span class="h1-brand">Título</span>
+            <span class="h1-tail">subtítulo da página</span>
+          </h1>
+          <p class="lead">Uma ou duas linhas a explicar do que trata esta página.</p>
+        </div>
+      </div>
+    </section>
+
+    <main id="conteudo">
+      <!-- Copia este ficheiro, muda o nome (exemplo: eventos.html) e edita daqui para baixo.
+           Depois acrescenta a página ao menu em conteudo/site.js. -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2><span class="dash">_</span> Secção</h2>
+            <p>Descrição curta da secção.</p>
+          </div>
+          <div class="cards-3">
+            <article class="card reveal">
+              <span class="card-num">01</span>
+              <h3>Cartão</h3>
+              <p>Texto do cartão.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-componente="rodape"></footer>
+
+    <!-- Conteúdo do site. Para mudar textos ou acrescentar itens, edita estes ficheiros. -->
+    <script src="../conteudo/site.js"></script>
+
+    <script src="../assets/js/render.js"></script>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>

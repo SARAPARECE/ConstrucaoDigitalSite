@@ -16,7 +16,19 @@
       .replace(/"/g, '&quot;');
   }
 
-  const paginaAtual = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  /* Páginas interiores vivem em pastas (ex.: /noticias/), por isso os caminhos
+     relativos precisam de subir um nível. O <body data-base="../"> diz qual. */
+  const base = (document.body && document.body.dataset.base) || '';
+
+  function caminho(endereco) {
+    if (!endereco) return endereco;
+    if (/^(https?:|mailto:|tel:|\/)/i.test(endereco)) return endereco;
+    return base + endereco;
+  }
+
+  const partes = location.pathname.split('/').filter(Boolean);
+  const ultima = (partes[partes.length - 1] || '').toLowerCase();
+  const paginaAtual = (ultima === 'index.html' ? partes[partes.length - 2] || '' : ultima).toLowerCase();
 
   /* Páginas de curso indicam qual é com <main data-curso="revit"> */
   const elementoCurso = document.querySelector('[data-curso]');
@@ -27,8 +39,9 @@
   function ehAtual(href) {
     /* Só marca como página atual as ligações a páginas, não as âncoras
        dentro da mesma página: essas ficam a cargo do script.js. */
-    if (!href || href.indexOf('#') !== -1) return false;
-    return href.toLowerCase() === paginaAtual;
+    if (!href || href.indexOf('#') !== -1 || /^https?:/i.test(href)) return false;
+    const alvo = href.replace(/index\.html$/, '').replace(/\/$/, '').replace(/\.html$/, '').toLowerCase();
+    return alvo !== '' && alvo === paginaAtual;
   }
 
   function externo(href) {
@@ -48,25 +61,25 @@
         if (item.sub && item.sub.length) {
           const subAtivo = item.sub.some((s) => ehAtual(s.href));
           const sub = item.sub
-            .map((s) => `<a href="${esc(s.href)}"${ehAtual(s.href) ? ' class="active"' : ''}>${esc(s.texto)}</a>`)
+            .map((s) => `<a href="${esc(caminho(s.href))}"${ehAtual(s.href) ? ' class="active"' : ''}>${esc(s.texto)}</a>`)
             .join('');
             return `<div class="menu-item has-sub">
-              <a class="${ativo || subAtivo ? 'active' : ''}" href="${esc(item.href)}" aria-haspopup="true" aria-expanded="false">${esc(item.texto)} <i class="ico ico-chevron" aria-hidden="true"></i></a>
+              <a class="${ativo || subAtivo ? 'active' : ''}" href="${esc(caminho(item.href))}" aria-haspopup="true" aria-expanded="false">${esc(item.texto)} <i class="ico ico-chevron" aria-hidden="true"></i></a>
               <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="Abrir submenu ${esc(item.texto)}"><i class="ico ico-chevron" aria-hidden="true"></i></button>
               <div class="submenu">${sub}</div>
             </div>`;
         }
         if (item.destaque) {
-          return `<a class="menu-cta" href="${esc(item.href)}">${esc(item.texto)}</a>`;
+          return `<a class="menu-cta" href="${esc(caminho(item.href))}">${esc(item.texto)}</a>`;
         }
-        return `<a class="${ativo}" href="${esc(item.href)}">${esc(item.texto)}</a>`;
+        return `<a class="${ativo}" href="${esc(caminho(item.href))}">${esc(item.texto)}</a>`;
       })
       .join('\n');
 
     return `<div class="container nav">
-        <a class="brand" href="index.html" aria-label="${esc(site.nome)}, início">
-          <img class="brand-logo logo-light" src="assets/logos/construcao-digital_logo.svg" alt="" width="1665" height="363" />
-          <img class="brand-logo logo-dark" src="assets/logos/construcao-digital_logo_negativo_transparente.svg" alt="" width="1665" height="363" />
+        <a class="brand" href="${base || 'index.html'}" aria-label="${esc(site.nome)}, início">
+          <img class="brand-logo logo-light" src="${base}assets/logos/construcao-digital_logo.svg" alt="" width="1665" height="363" />
+          <img class="brand-logo logo-dark" src="${base}assets/logos/construcao-digital_logo_negativo_transparente.svg" alt="" width="1665" height="363" />
           <span class="brand-divider" aria-hidden="true"></span>
           <span class="brand-label">${esc(site.etiqueta || '')}</span>
         </a>
@@ -85,12 +98,12 @@
 
   function rodape() {
     const ligacoes = (site.rodape && site.rodape.ligacoes ? site.rodape.ligacoes : [])
-      .map((l) => `<a href="${esc(l.href)}"${atributosLink(l.href)}>${esc(l.texto)} <i class="ico ico-ext" aria-hidden="true"></i></a>`)
+      .map((l) => `<a href="${esc(caminho(l.href))}"${atributosLink(l.href)}>${esc(l.texto)} <i class="ico ico-ext" aria-hidden="true"></i></a>`)
       .join('');
 
     return `<div class="container footer-grid">
         <div class="footer-brand">
-          <img src="assets/logos/construcao-digital_logo_negativo_transparente.svg" alt="${esc(site.nome)}" width="1665" height="363" loading="lazy" />
+          <img src="${base}assets/logos/construcao-digital_logo_negativo_transparente.svg" alt="${esc(site.nome)}" width="1665" height="363" loading="lazy" />
           <p>${esc(site.rodape && site.rodape.descricao)}</p>
         </div>
         <div>
@@ -116,7 +129,7 @@
     if (!item.link) return '';
     const icone = externo(item.link) ? 'ico-ext' : 'ico-arrow';
     const texto = item.linkTexto || 'Saber mais';
-    return `<a class="${classe}" href="${esc(item.link)}"${atributosLink(item.link)}>${esc(texto)} <i class="ico ${icone}" aria-hidden="true"></i></a>`;
+    return `<a class="${classe}" href="${esc(caminho(item.link))}"${atributosLink(item.link)}>${esc(texto)} <i class="ico ${icone}" aria-hidden="true"></i></a>`;
   }
 
   const construtores = {
@@ -143,7 +156,7 @@
                   idVideo
                     ? `<iframe class="video-fundo" src="https://www.youtube-nocookie.com/embed/${esc(idVideo)}?autoplay=1&mute=1&loop=1&playlist=${esc(idVideo)}&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1" title="${esc(d.titulo)}" tabindex="-1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`
                     : fundo
-                      ? `<img src="${esc(fundo)}" alt="" loading="lazy" />`
+                      ? `<img src="${esc(caminho(fundo))}" alt="" loading="lazy" />`
                       : ''
                 }</div>
                 <div class="slide-conteudo">
@@ -195,7 +208,7 @@
           };
 
           return `<article class="card reveal">
-            ${item.imagem ? `<div class="card-media"><img src="${esc(item.imagem)}" alt=""${item.imagemAjuste ? ` data-ajuste="${esc(item.imagemAjuste)}"` : ''} loading="lazy" /></div>` : ''}
+            ${item.imagem ? `<div class="card-media"><img src="${esc(caminho(item.imagem))}" alt=""${item.imagemAjuste ? ` data-ajuste="${esc(item.imagemAjuste)}"` : ''} loading="lazy" /></div>` : ''}
             ${item.etiqueta ? `<span class="card-tag">${esc(item.etiqueta)}</span>` : ''}
             <h3>${esc(item.titulo)}</h3>
             <p>${esc(item.texto)}</p>
@@ -250,7 +263,7 @@
       lista
         .map(
           (n) => `<article class="news-card reveal">
-            <div class="news-media"><img src="${esc(n.imagem)}" alt="" loading="lazy" onerror="this.onerror=null;this.src='assets/img/destaque-1.svg';" /></div>
+            <div class="news-media"><img src="${esc(caminho(n.imagem))}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${base}assets/img/destaque-1.svg';" /></div>
             <div class="news-body">
               <div class="news-meta"><span class="tag">${esc(n.tag)}</span><time datetime="${esc(n.dataISO)}">${esc(n.data)}</time></div>
               <h3>${esc(n.titulo)}</h3>
@@ -265,7 +278,7 @@
       lista
         .map(
           (f) => `<article class="teacher reveal">
-            <img class="teacher-photo" src="${esc(f.foto)}" alt="${esc(f.nome)}" width="400" height="400" loading="lazy" />
+            <img class="teacher-photo" src="${esc(caminho(f.foto))}" alt="${esc(f.nome)}" width="400" height="400" loading="lazy" />
             <div class="teacher-body">
               <h3>${esc(f.nome)}</h3>
               ${f.cargo ? `<p class="teacher-role">${esc(f.cargo)}</p>` : ''}
@@ -280,7 +293,7 @@
       lista
         .map(
           (f) => `<a class="course-teacher reveal" href="${esc(f.linkedin || '#')}"${f.linkedin ? ' target="_blank" rel="noreferrer"' : ''} aria-label="${esc(f.nome)} no LinkedIn${f.linkedin ? ' (abre noutro separador)' : ''}">
-            <img src="${esc(f.foto)}" alt="${esc(f.nome)}" width="160" height="160" loading="lazy" />
+            <img src="${esc(caminho(f.foto))}" alt="${esc(f.nome)}" width="160" height="160" loading="lazy" />
             <span>${esc(f.nome)}</span>
           </a>`
         )
@@ -289,8 +302,8 @@
     logotipos: (lista) =>
       lista
         .map(
-          (p) => `<a class="logo-link" href="${esc(p.link)}" target="_blank" rel="noreferrer" aria-label="${esc(p.nome)} (abre noutro separador)">
-            <img src="${esc(p.logo)}" alt="${esc(p.nome)}" loading="lazy" />
+          (p) => `<a class="logo-link" href="${esc(caminho(p.link))}" target="_blank" rel="noreferrer" aria-label="${esc(p.nome)} (abre noutro separador)">
+            <img src="${esc(caminho(p.logo))}" alt="${esc(p.nome)}" loading="lazy" />
           </a>`
         )
         .join(''),
@@ -341,7 +354,7 @@
           config.endpoint && config.endpoint.indexOf('formsubmit') !== -1
             ? `<input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_next" value="${esc(config.obrigado || 'https://construcaodigital.com/obrigado.html')}" />
+        <input type="hidden" name="_next" value="${esc(config.obrigado || 'https://construcaodigital.com/obrigado/')}" />
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />`
             : ''
         }
@@ -432,10 +445,10 @@
   });
 
   document.querySelectorAll('[data-imagem]').forEach((alvo) => {
-    const caminho = alvo.dataset.imagem.split('.');
+    const partesChave = alvo.dataset.imagem.split('.');
     let valor = dados;
-    caminho.forEach((parte) => (valor = valor && valor[parte]));
-    if (typeof valor === 'string') alvo.setAttribute('src', valor);
+    partesChave.forEach((parte) => (valor = valor && valor[parte]));
+    if (typeof valor === 'string') alvo.setAttribute('src', caminho(valor));
     const ajuste = (dados.curso || {}).imagemAjuste;
     if (ajuste) alvo.setAttribute('data-ajuste', ajuste);
   });
@@ -451,19 +464,19 @@
   });
 
   document.querySelectorAll('[data-ligacao]').forEach((alvo) => {
-    const caminho = alvo.dataset.ligacao.split('.');
+    const partesChave = alvo.dataset.ligacao.split('.');
     let valor = dados;
-    caminho.forEach((parte) => (valor = valor && valor[parte]));
+    partesChave.forEach((parte) => (valor = valor && valor[parte]));
     if (valor && valor.href) {
-      alvo.setAttribute('href', valor.href);
+      alvo.setAttribute('href', caminho(valor.href));
       alvo.innerHTML = esc(valor.texto) + ' <i class="ico ico-arrow" aria-hidden="true"></i>';
     }
   });
 
   document.querySelectorAll('[data-texto]').forEach((alvo) => {
-    const caminho = alvo.dataset.texto.split('.');
+    const partesChave = alvo.dataset.texto.split('.');
     let valor = dados;
-    caminho.forEach((parte) => (valor = valor && valor[parte]));
+    partesChave.forEach((parte) => (valor = valor && valor[parte]));
     if (typeof valor === 'string') alvo.textContent = valor;
   });
 })();

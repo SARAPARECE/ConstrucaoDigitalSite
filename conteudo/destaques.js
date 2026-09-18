@@ -21,7 +21,7 @@ window.CONTEUDO.destaques = [
     texto:
       'Novas formações em BIM para obra, software para construção e avaliação do ciclo de vida com BIM.',
     imagem: 'assets/img/destaque-especializacao.jpg',
-    link: 'index.html#especializacao',
+    link: '#especializacao',
     linkTexto: 'Conhecer os cursos'
   }
 ];

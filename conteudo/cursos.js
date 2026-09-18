@@ -73,7 +73,7 @@ window.CONTEUDO.cursos = {
   revit: {
     nome: 'Modelação BIM: Revit',
     destaque: 'Revit',
-    pagina: 'curso-revit.html',
+    pagina: 'curso-revit/',
     /* Onde se faz a inscrição. Quando o curso tiver página no Iscte-Meta Digital,
        troca por esse endereço. */
     inscricao: 'https://isctemetadigital.pt/formacao/',
@@ -134,14 +134,14 @@ window.CONTEUDO.cursos = {
     ],
     nota:
       'Prefere trabalhar em Archicad? O curso de Modelação BIM: Archicad tem a mesma estrutura, a mesma carga horária e o mesmo módulo de conceitos BIM e ISO 19650.',
-    cursoAlternativo: { texto: 'Ver o curso de Archicad', href: 'curso-archicad.html' }
+    cursoAlternativo: { texto: 'Ver o curso de Archicad', href: 'curso-archicad/' }
   },
 
   /* -------------------------- ARCHICAD ------------------------- */
   archicad: {
     nome: 'Modelação BIM: Archicad',
     destaque: 'Archicad',
-    pagina: 'curso-archicad.html',
+    pagina: 'curso-archicad/',
     inscricao: 'https://isctemetadigital.pt/formacao/',
     cartao: 'Domine a modelação, documentação e entrega de modelos BIM em Graphisoft Archicad.',
     estado: 'Em breve',
@@ -197,13 +197,13 @@ window.CONTEUDO.cursos = {
     ],
     nota:
       'Prefere trabalhar em Revit? O curso de Modelação BIM: Revit tem a mesma estrutura, a mesma carga horária e o mesmo módulo de conceitos BIM e ISO 19650.',
-    cursoAlternativo: { texto: 'Ver o curso de Revit', href: 'curso-revit.html' }
+    cursoAlternativo: { texto: 'Ver o curso de Revit', href: 'curso-revit/' }
   },
 
   /* ------------------------- BIM PARA OBRA ------------------------ */
   obra: {
     nome: 'BIM para Obra',
-    pagina: 'curso-bim-obra.html',
+    pagina: 'curso-bim-obra/',
     inscricao: 'https://isctemetadigital.pt/formacao/',
     cartao: 'Ligue o modelo BIM ao planeamento, controlo e acompanhamento diário da obra.',
     estado: 'Em breve',
@@ -228,7 +228,7 @@ window.CONTEUDO.cursos = {
   /* ------------------- SOFTWARE PARA CONSTRUÇÃO ------------------- */
   software: {
     nome: 'Software para Construção',
-    pagina: 'curso-software-construcao.html',
+    pagina: 'curso-software-construcao/',
     inscricao: 'https://isctemetadigital.pt/formacao/',
     cartao: 'Selecione e utilize ferramentas digitais para planear, gerir e comunicar melhor em construção.',
     estado: 'Em breve',
@@ -253,7 +253,7 @@ window.CONTEUDO.cursos = {
   /* -------------------- CICLO DE VIDA COM BIM -------------------- */
   cicloVida: {
     nome: 'Avaliação do Ciclo de Vida com BIM',
-    pagina: 'curso-ciclo-vida-bim.html',
+    pagina: 'curso-ciclo-vida-bim/',
     inscricao: 'https://isctemetadigital.pt/formacao/',
     cartao: 'Use dados BIM para medir impactes ambientais e apoiar decisões de projeto mais sustentáveis.',
     estado: 'Em breve',

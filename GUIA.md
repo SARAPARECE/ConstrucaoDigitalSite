@@ -8,16 +8,24 @@ fazes Sync no VS Code e o GitHub Pages atualiza `construcaodigital.com`.
 
 ```
 index.html            página inicial
-recursos.html         índice de recursos (trabalhos, biblioteca)
-trabalhos.html        trabalhos de antigos alunos
-biblioteca.html       biblioteca de recursos
-modelo-pagina.html    modelo para criar uma página nova
+noticias/index.html   notícias          -> construcaodigital.com/noticias/
+curso-revit/          curso de Revit    -> /curso-revit/
+curso-archicad/       curso de Archicad
+curso-bim-obra/       BIM para obra
+curso-software-construcao/
+curso-ciclo-vida-bim/
+recursos/             índice de recursos
+trabalhos/            trabalhos de antigos alunos
+biblioteca/           biblioteca
+obrigado/             página de agradecimento do formulário
+modelo-pagina/        modelo para criar uma página nova
 
 conteudo/             TODO O CONTEÚDO EDITÁVEL
-  site.js             menu, contactos, rodapé, números e logótipos das instituições
+  site.js             menu, contactos, rodapé, números, formulário
   destaques.js        carrossel da página inicial
-  programas.js        licenciatura, mestrado e cursos de especialização
-  noticias.js         notícias da página inicial
+  cursos.js           cursos com página própria (programa, ficha, imagem)
+  programas.js        licenciatura, mestrado e lista de especialização
+  noticias.js         notícias
   formadores.js       formadores
   parceiros.js        logótipos dos parceiros
   trabalhos.js        trabalhos de antigos alunos
@@ -25,11 +33,20 @@ conteudo/             TODO O CONTEÚDO EDITÁVEL
 
 assets/
   css/style.css       todo o aspeto do site
-  js/script.js        menu, tema claro/escuro, carrossel, animações
+  js/script.js        menu, carrossel, faixas, formulário
   js/render.js        constrói cabeçalho, rodapé e listas a partir de conteudo/
   img/                imagens e fotografias
   logos/              logótipos da Construção Digital
 ```
+
+Cada página interior é uma pasta com um `index.html` lá dentro, para o endereço
+não ter `.html`: `/noticias/` em vez de `/noticias.html`. Os ficheiros antigos
+(`noticias.html` e companhia) ficaram como redirecionamento, para não partir
+links já partilhados.
+
+Dentro dessas pastas, os caminhos sobem um nível (`../assets/...`) e o `<body>`
+tem `data-base="../"`, que é o que diz ao `render.js` para corrigir os links do
+menu e das listas.
 
 Regra simples: **para mudar conteúdo, só mexes na pasta `conteudo/`.**
 
@@ -97,12 +114,12 @@ apareça algo diferente da página do curso.
 
 ## Criar uma página nova
 
-1. Duplica `modelo-pagina.html` e dá-lhe um nome, por exemplo `eventos.html`.
+1. Duplica a pasta `modelo-pagina` e dá-lhe um nome, por exemplo `eventos` (o ficheiro lá dentro continua a chamar-se `index.html`).
 2. Edita o título no topo do ficheiro (`<title>`) e o texto do hero.
 3. Acrescenta a página ao menu em `conteudo/site.js`:
 
 ```js
-    { texto: 'Eventos', href: 'eventos.html' },
+    { texto: 'Eventos', href: 'eventos/' },
 ```
 
 Para a página ficar dentro da lista que abre em Recursos, acrescenta-a ao `sub`

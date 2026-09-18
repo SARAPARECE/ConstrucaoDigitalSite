@@ -15,7 +15,17 @@ window.CONTEUDO.noticias = [
     link: 'https://www.linkedin.com/posts/rresende_activity-7459971433239056384-wnv1',
     linkTexto: 'Ver no LinkedIn'
   },
-
+  {
+    tag: 'Licenciatura',
+    data: '24 abr 2026',
+    dataISO: '2026-04-24',
+    titulo: 'Alunos visitam a obra do Hospital de Todos os Santos',
+    texto:
+      'Os alunos do 2.º ano conheceram a organização do projeto, a aplicação da metodologia BIM e as ferramentas internas da Mota-Engil numa sessão na obra do Hospital de Todos os Santos.',
+    imagem: 'https://media.licdn.com/dms/image/v2/D4E22AQEUYxdPhZnWAQ/feedshare-shrink_800/B4EZ28fahpJcAc-/0/1776983845274?e=2147483647&v=beta&t=BE_8TiTUoT1RMO2EMMvUSdIA5dfD383htiCHL50WKmg',
+    link: 'https://www.linkedin.com/posts/rresende_constru%C3%A7%C3%A3o-digital-bim-activity-7453340719882297345-2eWe',
+    linkTexto: 'Ver no LinkedIn'
+  },
   {
     tag: 'Licenciatura',
     data: '23 abr 2026',
@@ -25,6 +35,17 @@ window.CONTEUDO.noticias = [
       'A ALPHALINK, a HCI Construções e a LIMSEN juntaram esforços para receber os alunos da licenciatura numa obra de reabilitação, em três turnos de grupos reduzidos ao longo de uma tarde.',
     imagem: 'https://media.licdn.com/dms/image/v2/D4E22AQHmHQ-17xDdSg/feedshare-image-high-res/B4EZ28bDSgJkAU-/0/1776982701552?e=2147483647&v=beta&t=5fiN4g2S0EoLsBQ_id2fbpLn5H0efPbjRj-eFdRo4WM',
     link: 'https://www.linkedin.com/posts/rresende_bim-reabilita%C3%A7%C3%A3o-educa%C3%A7%C3%A3o-activity-7453205662236459008--pA4',
+    linkTexto: 'Ver no LinkedIn'
+  },
+  {
+    tag: 'Licenciatura',
+    data: '19 fev 2026',
+    dataISO: '2026-02-19',
+    titulo: 'Visita de estudo ao Porto e a Braga',
+    texto:
+      '57 alunos da licenciatura visitaram a BIMMS, a obra Heart of Porto, o dst group e o Grupo Casais, contactando com digitalização, sustentabilidade e construção modular.',
+    imagem: 'https://media.licdn.com/dms/image/v2/D4E22AQEl4eWlr1UfJA/feedshare-image-high-res/B4EZxl3AyDGwAU-/0/1771235446338?e=2147483647&v=beta&t=dmgdO1Fp6FSzZk9MMVkAJ0QI9xfYQbJvRw9lV2LvfVA',
+    link: 'https://www.linkedin.com/posts/rresende_activity-7430260146590613507-YRyd',
     linkTexto: 'Ver no LinkedIn'
   }
 

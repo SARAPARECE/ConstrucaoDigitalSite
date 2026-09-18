@@ -70,6 +70,61 @@ if ('IntersectionObserver' in window) {
   revealElements.forEach((el) => el.classList.add('visible'));
 }
 
+/* Destaques: rotação automática, setas e indicadores. */
+(function () {
+  const carousel = document.querySelector('.highlights .carousel');
+  if (!carousel) return;
+
+  const track = carousel.querySelector('.carousel-track');
+  const slides = Array.from(carousel.querySelectorAll('.slide'));
+  const previous = document.querySelector('.highlights .carousel-prev');
+  const next = document.querySelector('.highlights .carousel-next');
+  const dots = document.querySelector('.highlights .carousel-dots');
+  if (!track || slides.length < 2) return;
+
+  let current = 0;
+  let timer;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (dots) {
+    slides.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', `Mostrar destaque ${index + 1}`);
+      dot.addEventListener('click', () => {
+        show(index);
+        restart();
+      });
+      dots.appendChild(dot);
+    });
+  }
+
+  function show(index) {
+    current = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    if (dots) {
+      Array.from(dots.children).forEach((dot, position) => {
+        dot.setAttribute('aria-selected', String(position === current));
+      });
+    }
+  }
+
+  function restart() {
+    window.clearInterval(timer);
+    if (!reducedMotion) timer = window.setInterval(() => show(current + 1), 7000);
+  }
+
+  if (previous) previous.addEventListener('click', () => { show(current - 1); restart(); });
+  if (next) next.addEventListener('click', () => { show(current + 1); restart(); });
+  carousel.addEventListener('mouseenter', () => window.clearInterval(timer));
+  carousel.addEventListener('mouseleave', restart);
+  carousel.addEventListener('focusin', () => window.clearInterval(timer));
+  carousel.addEventListener('focusout', restart);
+  show(0);
+  restart();
+})();
+
 /* Faixas horizontais de cartões */
 (function () {
   document.querySelectorAll('.faixa').forEach((faixa) => {

@@ -623,6 +623,11 @@ p {
   background: var(--bg-alt);
 }
 
+/* Nos destaques, o fundo alternado começa depois de uma margem branca visível. */
+.highlights.section-alt {
+  background: linear-gradient(to bottom, var(--surface) 0 4rem, var(--bg-alt) 4rem 100%);
+}
+
 .section-head {
   display: flex;
   justify-content: space-between;
@@ -687,6 +692,27 @@ p {
 
 .code {
   color: var(--muted);
+}
+
+.program-status,
+.slide-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.status-tag {
+  display: inline-block;
+  padding: 0.22rem 0.55rem;
+  border: 1px solid var(--cyan);
+  border-radius: var(--radius-pill);
+  color: var(--cyan-dark);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .program h3 {
@@ -797,6 +823,24 @@ p {
 
 /* Carrossel de destaques */
 
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.highlight-card {
+  display: grid;
+  grid-template-rows: minmax(220px, 1fr) auto;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.highlight-card .slide-body {
+  min-height: 260px;
+}
+
 .carousel-nav {
   display: flex;
   gap: 0.5rem;
@@ -825,7 +869,7 @@ p {
 .slide-inner {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
-  min-height: 340px;
+  height: 340px;
 }
 
 .slide-media {
@@ -837,6 +881,13 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.slide-media iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .slide-body {
@@ -908,6 +959,42 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Notícias: cartões panorâmicos para valorizar as fotografias. */
+.faixa.faixa-noticias {
+  grid-auto-columns: calc((100% - 3rem) / 3);
+}
+
+.faixa-noticias .news-media {
+  aspect-ratio: 16 / 8;
+}
+
+.faixa-noticias .news-body {
+  gap: 0.55rem;
+  padding: 1.1rem 1.25rem 1.2rem;
+}
+
+.faixa-noticias .news-meta,
+.faixa-noticias .news-body .link-arrow {
+  font-size: 0.76rem;
+}
+
+.faixa-noticias .news-card h3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: 1.05rem;
+  overflow: hidden;
+}
+
+.faixa-noticias .news-card p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  overflow: hidden;
 }
 
 .news-body {
@@ -1071,6 +1158,50 @@ p {
 .teacher p {
   font-size: 0.88rem;
   line-height: 1.55;
+}
+
+/* Formadores nas páginas de curso */
+
+.course-teachers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.course-teacher {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  width: 160px;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+}
+
+.course-teacher img {
+  width: 132px;
+  height: 132px;
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: border-color 0.25s ease, filter 0.25s ease, transform 0.25s ease;
+}
+
+.course-teacher:hover img,
+.course-teacher:focus-visible img {
+  border-color: var(--cyan);
+  filter: none;
+  transform: scale(1.04);
+}
+
+.course-teacher:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 5px;
 }
 
 /* Parceiros e instituições: filas de logótipos */
@@ -1305,10 +1436,16 @@ p {
 
   .slide-inner {
     grid-template-columns: 1fr;
+    height: auto;
     min-height: 0;
   }
 
   .slide-media {
+    aspect-ratio: 16 / 7;
+  }
+
+  .slide-media iframe {
+    height: auto;
     aspect-ratio: 16 / 7;
   }
 
@@ -1583,6 +1720,20 @@ p {
   max-width: 52ch;
 }
 
+.course-status {
+  display: inline-block;
+  margin-left: 0.7rem;
+  padding: 0.22rem 0.62rem;
+  border: 1px solid color-mix(in srgb, var(--cyan) 70%, transparent);
+  border-radius: var(--radius-pill);
+  color: var(--cyan);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  vertical-align: middle;
+}
+
 .roadmap-list {
   list-style: none;
   counter-reset: step;
@@ -1616,6 +1767,18 @@ p {
 
 /* Etiqueta nos cartões de curso */
 
+.faixa[data-lista='especializacao'] {
+  grid-auto-columns: calc((100% - 3rem) / 3);
+}
+
+.faixa[data-lista='especializacao'] .card {
+  --card-pad: 1.25rem;
+}
+
+.faixa[data-lista='especializacao'] .card-media {
+  aspect-ratio: 16 / 8;
+}
+
 .card-num {
   display: flex;
   align-items: center;
@@ -1623,6 +1786,8 @@ p {
 }
 
 .card-tag {
+  display: inline-block;
+  margin: 0 0 1.1rem;
   font-style: normal;
   font-size: 0.68rem;
   font-weight: 700;

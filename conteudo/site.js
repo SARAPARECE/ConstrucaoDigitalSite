@@ -15,19 +15,19 @@ window.CONTEUDO.site = {
      Uma entrada com "sub" abre a lista ao passar o rato. */
   menu: [
     {
-      texto: 'Ensino superior',
-      href: 'index.html#programas',
-      sub: [
-        { texto: 'Licenciatura', href: 'index.html#licenciatura' },
-        { texto: 'Mestrado e pós-graduação', href: 'index.html#mestrado' }
-      ]
-    },
-    {
       texto: 'Cursos',
       href: 'index.html#especializacao',
       sub: [
         { texto: 'Modelação BIM: Revit', href: 'curso-revit.html' },
         { texto: 'Modelação BIM: Archicad', href: 'curso-archicad.html' }
+      ]
+    },
+    {
+      texto: 'Ensino superior',
+      href: 'index.html#programas',
+      sub: [
+        { texto: 'Licenciatura', href: 'index.html#licenciatura' },
+        { texto: 'Mestrado e pós-graduação', href: 'index.html#mestrado' }
       ]
     },
     { texto: 'Notícias', href: 'index.html#noticias' },
@@ -65,9 +65,9 @@ window.CONTEUDO.site = {
     cursos: [
       'Modelação BIM: Revit',
       'Modelação BIM: Archicad',
-      'BIM para Coordenação',
-      'Automação e IA',
-      'OpenBIM e Interoperabilidade',
+      'BIM para Obra',
+      'Software para Construção',
+      'Avaliação do Ciclo de Vida com BIM',
       'Outro assunto'
     ]
   },

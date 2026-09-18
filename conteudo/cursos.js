@@ -71,15 +71,14 @@ window.CONTEUDO.cursos = {
        troca por esse endereço. */
     inscricao: 'https://isctemetadigital.pt/formacao/',
     cartao: 'Fundamentos BIM e ISO 19650 no primeiro módulo, seguidos de modelação completa em Revit.',
-    estado: 'Inscrições abertas',
-    resumo:
-      'Curso prático de introdução à modelação BIM em Autodesk Revit. Em 32 horas, modela-se um edifício completo, da parede à paginação, com a gestão de informação segundo a ISO 19650 como base de trabalho.',
+    estado: 'Em breve',
     /* Desenho axonométrico do edifício do Iscte, do curso de Revit do ISTAR.
        Para não depender desse site, guarda o ficheiro em assets/img e troca o caminho.
        Alternativa: gráfico próprio em assets/img/curso-revit.svg */
     imagem: 'https://istar.iscte-iul.pt/cursorevit/wp-content/uploads/sites/2/2018/07/Fundo.png',
     info: infoCurso(),
     sobre: sobreCurso('Revit'),
+    formadores: ['Ricardo Resende', 'Sébastien Pinto da França Roux'],
     modulos: [
       MODULO_BIM,
       {
@@ -138,12 +137,11 @@ window.CONTEUDO.cursos = {
     pagina: 'curso-archicad.html',
     inscricao: 'https://isctemetadigital.pt/formacao/',
     cartao: 'O mesmo percurso e o mesmo módulo comum, com a modelação feita em Archicad.',
-    estado: 'Inscrições abertas',
-    resumo:
-      'Curso prático de introdução à modelação BIM em Graphisoft Archicad. A mesma estrutura do curso de Revit, com o mesmo edifício modelado do início ao fim e a mesma exigência de informação.',
-    imagem: 'assets/img/curso-archicad.svg',
+    estado: 'Em breve',
+    imagem: 'assets/img/curso-archicad.jpg',
     info: infoCurso(),
     sobre: sobreCurso('Archicad'),
+    formadores: ['Ricardo Resende', 'Sébastien Pinto da França Roux'],
     modulos: [
       MODULO_BIM,
       {

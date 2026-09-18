@@ -20,6 +20,7 @@ window.CONTEUDO.programas = [
   {
     ancora: 'mestrado',
     tag: 'Mestrado / Pós-graduação',
+    estado: 'Inscrições abertas',
     codigo: 'Curso 0536',
     titulo: 'Mestrado em Construção Digital',
     texto:
@@ -41,27 +42,27 @@ window.CONTEUDO.especializacao = [
 
   /* Cursos ainda sem página: texto e imagem aqui mesmo. */
   {
-    imagem: 'assets/img/curso-coordenacao.svg',
-    titulo: 'BIM para Coordenação',
-    texto: 'Coordenação multidisciplinar, clash detection e gestão da qualidade da informação.',
-    etiqueta: 'Em preparação',
-    link: 'candidatura.html?curso=BIM%20para%20Coordena%C3%A7%C3%A3o',
+    imagem: 'assets/img/curso-bim-obra.jpg',
+    titulo: 'BIM para Obra',
+    texto: 'Planeamento, acompanhamento de obra, controlo de qualidade e gestão de informação BIM no terreno.',
+    etiqueta: 'Em breve',
+    link: 'candidatura.html?curso=BIM%20para%20Obra',
     linkTexto: 'Estou interessado'
   },
   {
-    imagem: 'assets/img/curso-automacao.svg',
-    titulo: 'Automação e IA',
-    texto: 'Integração de dados, análise preditiva e melhoria de processos em obra.',
-    etiqueta: 'Em preparação',
-    link: 'candidatura.html?curso=Automa%C3%A7%C3%A3o%20e%20IA',
+    imagem: 'assets/img/curso-software-construcao.jpg',
+    titulo: 'Software para Construção',
+    texto: 'Ferramentas digitais para planear, gerir, comunicar e aumentar a produtividade em projetos de construção.',
+    etiqueta: 'Em breve',
+    link: 'candidatura.html?curso=Software%20para%20Constru%C3%A7%C3%A3o',
     linkTexto: 'Estou interessado'
   },
   {
     imagem: 'assets/img/curso-openbim.svg',
-    titulo: 'OpenBIM e Interoperabilidade',
-    texto: 'Colaboração entre equipas e plataformas com base em normas abertas.',
-    etiqueta: 'Em preparação',
-    link: 'candidatura.html?curso=OpenBIM%20e%20Interoperabilidade',
+    titulo: 'Avaliação do Ciclo de Vida com BIM',
+    texto: 'Integração de LCA + BIM para medir impactes ambientais e apoiar decisões de projeto mais sustentáveis.',
+    etiqueta: 'Em breve',
+    link: 'candidatura.html?curso=Avalia%C3%A7%C3%A3o%20do%20Ciclo%20de%20Vida%20com%20BIM',
     linkTexto: 'Estou interessado'
   }
 ];

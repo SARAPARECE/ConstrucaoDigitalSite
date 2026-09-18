@@ -32,28 +32,35 @@ window.CONTEUDO.formadores = [
     nome: 'Tiago Pedro Costa',
     cargo: '',
     texto: '',
-    foto: 'assets/img/formador-tiago-costa.svg',
+    foto: 'assets/img/formador-tiago-costa.png',
     linkedin: 'https://www.linkedin.com/in/tiagopedrocosta/'
   },
   {
     nome: 'Miguel Torres Curado',
     cargo: '',
     texto: '',
-    foto: 'assets/img/formador-miguel-curado.svg',
+    foto: 'assets/img/formador-miguel-curado.png',
     linkedin: 'https://www.linkedin.com/in/migueltorrescurado/'
+  },
+  {
+    nome: 'Pedro Ferreirinha',
+    cargo: '',
+    texto: '',
+    foto: 'assets/img/formador-ferreirinha.png',
+    linkedin: 'https://www.linkedin.com/in/ferreirinha/'
   },
   {
     nome: 'Sébastien Pinto da França Roux',
     cargo: '',
     texto: '',
-    foto: 'assets/img/formador-sebastien-roux.svg',
+    foto: 'assets/img/formador-sebastien-roux.png',
     linkedin: 'https://www.linkedin.com/in/s%C3%A9bastien-pinto-da-fran%C3%A7a-roux-77993486/'
   },
   {
     nome: 'Luís Ribeirinho',
     cargo: '',
     texto: '',
-    foto: 'assets/img/formador-luis-ribeirinho.svg',
+    foto: 'assets/img/formador-luis-ribeirinho.png',
     linkedin: 'https://www.linkedin.com/in/lu%C3%ADs-ribeirinho-81a011118/'
   }
 ];

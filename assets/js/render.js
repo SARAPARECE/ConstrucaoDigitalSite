@@ -136,9 +136,9 @@
             .map(
               (d, i) => `<li class="slide" role="group" aria-roledescription="slide" aria-label="${i + 1} de ${lista.length}">
               <article class="slide-inner">
-                <div class="slide-media"><img src="${esc(d.imagem)}" alt="" loading="lazy" /></div>
+                <div class="slide-media">${d.video ? `<iframe src="${esc(d.video)}?autoplay=1&mute=1&playsinline=1&rel=0" title="${esc(d.titulo)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>` : `<img src="${esc(d.imagem)}" alt="" loading="lazy" />`}</div>
                 <div class="slide-body">
-                  <span class="tag">${esc(d.tag)}</span>
+                  <div class="slide-meta"><span class="tag">${esc(d.tag)}</span>${d.estado ? `<span class="status-tag">${esc(d.estado)}</span>` : ''}</div>
                   <h3>${esc(d.titulo)}</h3>
                   <p>${esc(d.texto)}</p>
                   ${botaoLink(d, 'link-arrow')}
@@ -157,7 +157,7 @@
           (p) => `<article class="program reveal"${p.ancora ? ` id="${esc(p.ancora)}"` : ''}>
             <div class="program-meta">
               <span class="tag">${esc(p.tag)}</span>
-              <span class="code">${esc(p.codigo)}</span>
+              <span class="program-status">${p.estado ? `<span class="status-tag">${esc(p.estado)}</span>` : ''}<span class="code">${esc(p.codigo)}</span></span>
             </div>
             <h3>${esc(p.titulo)}</h3>
             <p>${esc(p.texto)}</p>
@@ -184,7 +184,7 @@
 
           return `<article class="card reveal">
             ${item.imagem ? `<div class="card-media"><img src="${esc(item.imagem)}" alt=""${item.imagemAjuste ? ` data-ajuste="${esc(item.imagemAjuste)}"` : ''} loading="lazy" /></div>` : ''}
-            <span class="card-num">${String(i + 1).padStart(2, '0')}${item.etiqueta ? `<em class="card-tag">${esc(item.etiqueta)}</em>` : ''}</span>
+            ${item.etiqueta ? `<span class="card-tag">${esc(item.etiqueta)}</span>` : ''}
             <h3>${esc(item.titulo)}</h3>
             <p>${esc(item.texto)}</p>
             ${botaoLink(item, 'link-arrow')}
@@ -237,7 +237,7 @@
       lista
         .map(
           (n) => `<article class="news-card reveal">
-            <div class="news-media"><img src="${esc(n.imagem)}" alt="" loading="lazy" /></div>
+            <div class="news-media"><img src="${esc(n.imagem)}" alt="" loading="lazy" onerror="this.onerror=null;this.src='assets/img/destaque-1.svg';" /></div>
             <div class="news-body">
               <div class="news-meta"><span class="tag">${esc(n.tag)}</span><time datetime="${esc(n.dataISO)}">${esc(n.data)}</time></div>
               <h3>${esc(n.titulo)}</h3>
@@ -260,6 +260,16 @@
               ${f.linkedin ? `<a class="link-arrow" href="${esc(f.linkedin)}" target="_blank" rel="noreferrer">LinkedIn <i class="ico ico-ext" aria-hidden="true"></i></a>` : ''}
             </div>
           </article>`
+        )
+        .join(''),
+
+    'curso-formadores': (lista) =>
+      lista
+        .map(
+          (f) => `<a class="course-teacher reveal" href="${esc(f.linkedin || '#')}"${f.linkedin ? ' target="_blank" rel="noreferrer"' : ''} aria-label="${esc(f.nome)} no LinkedIn${f.linkedin ? ' (abre noutro separador)' : ''}">
+            <img src="${esc(f.foto)}" alt="${esc(f.nome)}" width="160" height="160" loading="lazy" />
+            <span>${esc(f.nome)}</span>
+          </a>`
         )
         .join(''),
 
@@ -388,6 +398,12 @@
     if (chave === 'curso-modulos') lista = (dados.curso || {}).modulos;
     if (chave === 'curso-sobre') lista = (dados.curso || {}).sobre;
     if (chave === 'curso-percursos') lista = (dados.curso || {}).percursos;
+    if (chave === 'curso-formadores') {
+      const nomes = (dados.curso || {}).formadores || [];
+      lista = nomes
+        .map((nome) => (dados.formadores || []).find((formador) => formador.nome === nome))
+        .filter(Boolean);
+    }
 
     const construtor = construtores[tipo] || construtores[chave];
     if (!lista || !construtor) return;

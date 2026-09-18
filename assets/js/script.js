@@ -265,10 +265,7 @@ if (themeToggle) {
 })();
 
 /* Formulário de candidatura */
-(function () {
-  const form = document.querySelector('.formulario');
-  if (!form) return;
-
+document.querySelectorAll('.formulario').forEach(function (form) {
   const nota = form.querySelector('.form-nota');
   const endpoint = form.dataset.endpoint;
   const destino = form.dataset.destino;
@@ -299,7 +296,7 @@ if (themeToggle) {
     if (!form.reportValidity()) return;
 
     const dados = new FormData(form);
-    const assunto = dados.get('_subject') || 'Candidatura pelo site';
+    const assunto = dados.get('assunto') || dados.get('_subject') || 'Contacto pelo site';
     const linhas = [
       'Nome: ' + (dados.get('nome') || ''),
       'Email: ' + (dados.get('email') || ''),
@@ -321,11 +318,11 @@ if (themeToggle) {
 
     if (nota) {
       nota.textContent =
-        'Abrimos o teu programa de email com a candidatura escrita. Falta só carregares em enviar.';
+        'Abrimos o teu programa de email com a mensagem escrita. Falta só carregares em enviar.';
       nota.classList.add('visivel');
     }
   });
-})();
+});
 
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();

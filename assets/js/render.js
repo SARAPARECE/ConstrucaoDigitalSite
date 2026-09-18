@@ -294,8 +294,9 @@
       .join('');
   }
 
-  function formulario(assunto) {
+  function formulario(assunto, tipo) {
     const config = site.formulario || {};
+    const pref = tipo === 'contacto' ? 'c' : 'f';
     const opcoes = (config.cursos || [])
       .map((c) => `<option value="${esc(c)}">${esc(c)}</option>`)
       .join('');
@@ -303,18 +304,30 @@
     return `<form class="formulario" data-destino="${esc(config.destino || site.email)}" data-endpoint="${esc(config.endpoint || '')}"${config.endpoint ? ` action="${esc(config.endpoint)}" method="post"` : ''}>
         <input type="hidden" name="_subject" value="${esc(assunto || 'Contacto pelo site')}" />
         <div class="campo">
-          <label for="f-nome">Nome</label>
-          <input id="f-nome" name="nome" type="text" required autocomplete="name" />
+          <label for="${pref}-nome">Nome</label>
+          <input id="${pref}-nome" name="nome" type="text" required autocomplete="name" />
         </div>
         <div class="campo">
-          <label for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" required autocomplete="email" />
+          <label for="${pref}-email">Email</label>
+          <input id="${pref}-email" name="email" type="email" required autocomplete="email" />
         </div>
         <div class="campo">
-          <label for="f-telefone">Telefone <span class="opcional">(opcional)</span></label>
-          <input id="f-telefone" name="telefone" type="tel" autocomplete="tel" />
+          <label for="${pref}-telefone">Telefone <span class="opcional">(opcional)</span></label>
+          <input id="${pref}-telefone" name="telefone" type="tel" autocomplete="tel" />
         </div>
-        <div class="campo">
+        ${
+          tipo === 'contacto'
+            ? `<div class="campo">
+          <label for="c-assunto">Assunto</label>
+          <select id="c-assunto" name="assunto">
+            <option value="Informações sobre cursos">Informações sobre cursos</option>
+            <option value="Lecionar um módulo">Lecionar um módulo</option>
+            <option value="Propor um curso">Propor um curso</option>
+            <option value="Parceria">Parceria</option>
+            <option value="Outro assunto">Outro assunto</option>
+          </select>
+        </div>`
+            : `<div class="campo">
           <label for="f-curso">Curso</label>
           <select id="f-curso" name="curso">${opcoes}</select>
         </div>
@@ -323,18 +336,19 @@
           <select id="f-percurso" name="percurso">
             <option value="Ainda não sei">Ainda não sei</option>
             <option value="Revit">Revit</option>
-            <option value="ArchiCAD">ArchiCAD</option>
+            <option value="Archicad">Archicad</option>
           </select>
-        </div>
+        </div>`
+        }
         <div class="campo campo-largo">
-          <label for="f-mensagem">Mensagem <span class="opcional">(opcional)</span></label>
-          <textarea id="f-mensagem" name="mensagem" rows="4" placeholder="Conta-nos o teu percurso ou o que procuras."></textarea>
+          <label for="${pref}-mensagem">Mensagem${tipo === 'contacto' ? '' : ' <span class="opcional">(opcional)</span>'}</label>
+          <textarea id="${pref}-mensagem" name="mensagem" rows="4" placeholder="${tipo === 'contacto' ? 'Em que podemos ajudar?' : 'Conta-nos o teu percurso ou o que procuras.'}"${tipo === 'contacto' ? ' required' : ''}></textarea>
         </div>
         <div class="campo campo-largo consentimento">
-          <label><input type="checkbox" name="consentimento" required /> Autorizo o contacto por email sobre esta candidatura.</label>
+          <label><input type="checkbox" name="consentimento" required /> Autorizo o contacto por email sobre ${tipo === 'contacto' ? 'esta mensagem' : 'esta candidatura'}.</label>
         </div>
         <div class="campo campo-largo">
-          <button class="btn btn-primary btn-lg" type="submit">Enviar candidatura <i class="ico ico-arrow" aria-hidden="true"></i></button>
+          <button class="btn btn-primary btn-lg" type="submit">${tipo === 'contacto' ? 'Enviar mensagem' : 'Enviar candidatura'} <i class="ico ico-arrow" aria-hidden="true"></i></button>
           <p class="form-nota" role="status"></p>
         </div>
       </form>`;
@@ -348,8 +362,9 @@
   const alvoRodape = document.querySelector('[data-componente="rodape"]');
   if (alvoRodape) alvoRodape.innerHTML = rodape();
 
-  const alvoFormulario = document.querySelector('[data-componente="formulario"]');
-  if (alvoFormulario) alvoFormulario.innerHTML = formulario(alvoFormulario.dataset.assunto);
+  document.querySelectorAll('[data-componente="formulario"]').forEach((alvo) => {
+    alvo.innerHTML = formulario(alvo.dataset.assunto, alvo.dataset.tipo);
+  });
 
   document.querySelectorAll('[data-lista]').forEach((alvo) => {
     const chave = alvo.dataset.lista;

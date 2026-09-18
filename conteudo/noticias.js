@@ -26,32 +26,18 @@ window.CONTEUDO.noticias = [
     imagem: 'https://media.licdn.com/dms/image/v2/D4E22AQHmHQ-17xDdSg/feedshare-image-high-res/B4EZ28bDSgJkAU-/0/1776982701552?e=2147483647&v=beta&t=5fiN4g2S0EoLsBQ_id2fbpLn5H0efPbjRj-eFdRo4WM',
     link: 'https://www.linkedin.com/posts/rresende_bim-reabilita%C3%A7%C3%A3o-educa%C3%A7%C3%A3o-activity-7453205662236459008--pA4',
     linkTexto: 'Ver no LinkedIn'
-  },
-  {
-    tag: 'Exemplo',
-    data: '1 set 2026',
-    dataISO: '2026-09-01',
-    titulo: 'Título da primeira notícia',
-    texto: 'Resumo em duas linhas do que aconteceu. Substitui este texto pelo conteúdo real.',
-    imagem: 'assets/img/destaque-1.svg',
-    link: ''
-  },
-  {
-    tag: 'Exemplo',
-    data: '1 set 2026',
-    dataISO: '2026-09-01',
-    titulo: 'Título da segunda notícia',
-    texto: 'Resumo em duas linhas do que aconteceu. Substitui este texto pelo conteúdo real.',
-    imagem: 'assets/img/destaque-2.svg',
-    link: ''
-  },
-  {
-    tag: 'Exemplo',
-    data: '1 set 2026',
-    dataISO: '2026-09-01',
-    titulo: 'Título da terceira notícia',
-    texto: 'Resumo em duas linhas do que aconteceu. Substitui este texto pelo conteúdo real.',
-    imagem: 'assets/img/destaque-3.svg',
-    link: ''
   }
+
+  /* Modelo: copia este bloco para cima da lista e edita.
+  {
+    tag: 'Evento',
+    data: '14 out 2026',
+    dataISO: '2026-10-14',
+    titulo: 'Título da notícia',
+    texto: 'Duas linhas sobre o que aconteceu.',
+    imagem: 'assets/img/destaque-1.svg',
+    link: '',
+    linkTexto: 'Ler mais'
+  },
+  */
 ];

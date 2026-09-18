@@ -2547,6 +2547,34 @@ p {
 
 .hero-video-fundo {
   background: var(--hero-bg);
+  clip-path: none;
+  padding-bottom: clamp(5rem, 10vw, 8rem);
+}
+
+/* Passagem suave do topo para a faixa de números */
+.hero-video-fundo::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 52%;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6, 10, 20, 0) 0%,
+      rgba(6, 10, 20, 0.12) 18%,
+      rgba(6, 10, 20, 0.34) 34%,
+      rgba(6, 10, 20, 0.62) 50%,
+      rgba(6, 10, 20, 0.85) 66%,
+      rgba(70, 80, 100, 0.9) 82%,
+      var(--bg) 100%
+    );
+}
+
+.stats-band {
+  margin-top: -1px;
 }
 
 .hero-video {
@@ -2565,12 +2593,12 @@ p {
   background:
     linear-gradient(
       100deg,
-      rgba(6, 10, 20, 0.95) 0%,
-      rgba(6, 10, 20, 0.88) 38%,
-      rgba(6, 10, 20, 0.7) 70%,
-      rgba(6, 10, 20, 0.58) 100%
+      rgba(6, 10, 20, 0.82) 0%,
+      rgba(6, 10, 20, 0.6) 38%,
+      rgba(6, 10, 20, 0.2) 68%,
+      rgba(6, 10, 20, 0) 100%
     ),
-    linear-gradient(180deg, rgba(6, 10, 20, 0.5) 0%, transparent 35%);
+    radial-gradient(780px 420px at 8% 40%, rgba(6, 10, 20, 0.55), transparent 70%);
 }
 
 .hero-content {
@@ -2579,7 +2607,7 @@ p {
 
 @media (max-width: 860px) {
   .hero-veu {
-    background: linear-gradient(180deg, rgba(6, 10, 20, 0.86) 0%, rgba(6, 10, 20, 0.92) 55%, rgba(6, 10, 20, 0.96) 100%);
+    background: linear-gradient(180deg, rgba(6, 10, 20, 0.78) 0%, rgba(6, 10, 20, 0.86) 55%, rgba(6, 10, 20, 0.92) 100%);
   }
 }
 

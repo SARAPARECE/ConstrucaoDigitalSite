@@ -14,9 +14,9 @@ window.CONTEUDO.site = {
   /* Menu principal. Para acrescentar uma página, junta uma linha aqui.
      Uma entrada com "sub" abre a lista ao passar o rato. */
   menu: [
-    { texto: 'Programas', href: 'index.html#programas' },
+    { texto: 'Ensino superior', href: 'index.html#programas' },
     {
-      texto: 'Especialização',
+      texto: 'Cursos',
       href: 'index.html#especializacao',
       sub: [
         { texto: 'Modelação BIM: Revit', href: 'curso-revit.html' },

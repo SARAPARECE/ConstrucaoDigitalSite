@@ -111,6 +111,11 @@ dessa entrada em vez de criares uma nova.
 O cabeçalho e o rodapé são iguais em todas as páginas porque são construídos a
 partir de `conteudo/site.js`. Mudas o menu num sítio e muda em todo o lado.
 
+## Tema
+
+O site está fixo no tema claro. O tema escuro continua escrito no CSS, por isso
+para o voltar a ligar basta pedir: é repor o botão no cabeçalho.
+
 ## Publicar
 
 1. Abre o VS Code na pasta.

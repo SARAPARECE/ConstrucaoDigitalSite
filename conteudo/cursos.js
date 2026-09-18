@@ -143,8 +143,7 @@ window.CONTEUDO.cursos = {
     destaque: 'Archicad',
     pagina: 'curso-archicad.html',
     inscricao: 'https://isctemetadigital.pt/formacao/',
-    cartao:
-      'Modele um edifício completo em Archicad, da arquitetura aos elementos estruturais, com documentação e entrega em IFC.',
+    cartao: 'Domine a modelação, documentação e entrega de modelos BIM em Graphisoft Archicad.',
     estado: 'Em breve',
     imagem: 'assets/img/curso-archicad.jpg',
     info: infoCurso(),

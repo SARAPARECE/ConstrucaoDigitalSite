@@ -23,14 +23,14 @@ var MODULO_BIM = {
 /* Informação prática partilhada. */
 function infoCurso() {
   return [
-    { etiqueta: 'Duração', valor: '32 horas, em 8 sessões' },
-    { etiqueta: 'Regime', valor: 'Pós-laboral, presencial no Iscte-Sintra ou online em tempo real' },
-    { etiqueta: 'Datas', valor: 'A definir' },
-    { etiqueta: 'Horário', valor: 'A definir' },
-    { etiqueta: 'Preço', valor: 'A definir' },
-    { etiqueta: 'Vagas', valor: 'Máximo de 18 participantes' },
-    { etiqueta: 'Certificado', valor: 'Certificado de formação com 80% de presenças' },
-    { etiqueta: 'Pré-requisitos', valor: 'Noções de desenho técnico. Não exige experiência em BIM' }
+    { etiqueta: 'Duração', valor: '32 horas', detalhe: '8 sessões', icone: 'relogio' },
+    { etiqueta: 'Regime', valor: 'Pós-laboral', detalhe: 'Presencial no Iscte-Sintra ou online em tempo real', icone: 'local' },
+    { etiqueta: 'Datas', valor: 'A definir', detalhe: 'Próxima edição a anunciar', icone: 'calendario', porDefinir: true },
+    { etiqueta: 'Horário', valor: 'A definir', detalhe: 'Duas sessões por semana', icone: 'relogio', porDefinir: true },
+    { etiqueta: 'Preço', valor: 'A definir', detalhe: 'Com desconto para inscrições antecipadas', icone: 'euro', porDefinir: true },
+    { etiqueta: 'Vagas', valor: '18 participantes', detalhe: 'Um computador por pessoa', icone: 'pessoas' },
+    { etiqueta: 'Certificado', valor: 'Sim', detalhe: 'Com 80% de presenças', icone: 'certificado' },
+    { etiqueta: 'Pré-requisitos', valor: 'Nenhum em BIM', detalhe: 'Noções de desenho técnico', icone: 'nivel' }
   ];
 }
 

@@ -200,9 +200,13 @@
     'curso-info': (lista) =>
       lista
         .map(
-          (i) => `<div class="curso-info-item">
-            <span>${esc(i.etiqueta)}</span>
-            <strong>${esc(i.valor)}</strong>
+          (i) => `<div class="ficha-item${i.porDefinir ? ' por-definir' : ''}">
+            <i class="ico ico-${esc(i.icone || 'info')}" aria-hidden="true"></i>
+            <div>
+              <span class="ficha-etiqueta">${esc(i.etiqueta)}</span>
+              <strong>${esc(i.valor)}</strong>
+              ${i.detalhe ? `<span class="ficha-detalhe">${esc(i.detalhe)}</span>` : ''}
+            </div>
           </div>`
         )
         .join(''),

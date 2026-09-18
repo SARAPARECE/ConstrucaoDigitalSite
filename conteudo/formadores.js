@@ -25,7 +25,7 @@ window.CONTEUDO.formadores = [
     nome: 'Sara Parece',
     cargo: '',
     texto: '',
-    foto: 'assets/img/formador-sara-parece.svg',
+    foto: 'assets/img/formador-sara-parece.jpg',
     linkedin: 'https://www.linkedin.com/in/sara-parece-b0a8a1171/'
   },
   {

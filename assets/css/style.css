@@ -247,6 +247,10 @@ p {
   align-items: center;
 }
 
+.submenu-toggle {
+  display: none;
+}
+
 .submenu {
   position: absolute;
   top: 100%;
@@ -1488,6 +1492,32 @@ p {
     align-items: stretch;
   }
 
+  .menu-item.has-sub {
+    position: relative;
+  }
+
+  .submenu-toggle {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 0.55rem;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+  }
+
+  .submenu-toggle .ico-chevron {
+    display: block;
+  }
+
+  .menu-item.open .submenu-toggle .ico-chevron {
+    transform: rotate(180deg);
+  }
+
   .submenu {
     position: static;
     min-width: 0;
@@ -1495,9 +1525,14 @@ p {
     border: 0;
     box-shadow: none;
     background: transparent;
+    display: none;
     opacity: 1;
     visibility: visible;
     transform: none;
+  }
+
+  .menu-item.open .submenu {
+    display: block;
   }
 
   .submenu a {
@@ -2280,8 +2315,20 @@ p {
 }
 
 @media (max-width: 600px) {
+  .faixa[data-lista='especializacao'] {
+    margin-inline: 0;
+    padding-inline: 0;
+    grid-auto-columns: 100%;
+  }
+
+  .faixa.faixa-noticias {
+    margin-inline: 0;
+    padding-inline: 0;
+    grid-auto-columns: 100%;
+  }
+
   .faixa-formadores {
-    grid-auto-columns: minmax(250px, 85%);
+    grid-auto-columns: 100%;
   }
 
   .faixa .teacher {

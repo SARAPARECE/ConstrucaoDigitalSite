@@ -9,6 +9,11 @@ function closeMenu() {
   menu.classList.remove('open');
   menuToggle.setAttribute('aria-expanded', 'false');
   menuToggle.setAttribute('aria-label', 'Abrir menu');
+  menu.querySelectorAll('.menu-item.open').forEach((item) => item.classList.remove('open'));
+  menu.querySelectorAll('.submenu-toggle').forEach((toggle) => {
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', toggle.getAttribute('aria-label').replace('Fechar', 'Abrir'));
+  });
 }
 
 if (menuToggle && menu) {
@@ -22,6 +27,15 @@ if (menuToggle && menu) {
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeMenu();
+  });
+
+  menu.querySelectorAll('.submenu-toggle').forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const item = toggle.closest('.menu-item');
+      const aberto = item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(aberto));
+      toggle.setAttribute('aria-label', `${aberto ? 'Fechar' : 'Abrir'} submenu ${item.querySelector('a').textContent.trim()}`);
+    });
   });
 }
 

@@ -50,8 +50,9 @@
           const sub = item.sub
             .map((s) => `<a href="${esc(s.href)}"${ehAtual(s.href) ? ' class="active"' : ''}>${esc(s.texto)}</a>`)
             .join('');
-          return `<div class="menu-item has-sub">
+            return `<div class="menu-item has-sub">
               <a class="${ativo || subAtivo ? 'active' : ''}" href="${esc(item.href)}" aria-haspopup="true" aria-expanded="false">${esc(item.texto)} <i class="ico ico-chevron" aria-hidden="true"></i></a>
+              <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="Abrir submenu ${esc(item.texto)}"><i class="ico ico-chevron" aria-hidden="true"></i></button>
               <div class="submenu">${sub}</div>
             </div>`;
         }

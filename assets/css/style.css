@@ -1191,15 +1191,33 @@ p {
   padding: 3.5rem 0 2.5rem;
 }
 
+.footer-brand {
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+
 .footer-brand img {
-  height: 30px;
+  height: 52px;
   width: auto;
-  margin-bottom: 1.2rem;
+  max-width: 100%;
+  margin-bottom: 1.4rem;
 }
 
 .footer-brand p {
   color: #a3abba;
   max-width: 34ch;
+}
+
+@media (max-width: 1024px) {
+  .footer-brand {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .footer-brand img {
+    height: 42px;
+  }
 }
 
 .site-footer h3 {

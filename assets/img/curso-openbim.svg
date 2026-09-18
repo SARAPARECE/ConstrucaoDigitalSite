@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img">
+<defs><linearGradient id="o" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#08142c"/><stop offset="0.6" stop-color="#0f2f6b"/><stop offset="1" stop-color="#050a16"/></linearGradient>
+<pattern id="po" width="50" height="50" patternUnits="userSpaceOnUse">
+<path d="M50 0H0V50" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1"/></pattern></defs>
+<rect width="1600" height="900" fill="url(#o)"/><rect width="1600" height="900" fill="url(#po)"/><g fill="none" stroke="#ffffff" stroke-opacity="0.45" stroke-width="4"><rect x="160" y="300" width="330" height="300"/><rect x="1110" y="300" width="330" height="300"/></g><g fill="#00a7e1" fill-opacity="0.2" stroke="#00a7e1" stroke-width="3"><polygon points="740,330 860,400 860,540 740,610 620,540 620,400"/></g><g stroke="#00a7e1" stroke-opacity="0.75" stroke-width="4" fill="none"><path d="M490 420 H600"/><path d="M880 420 H1110"/><path d="M1110 500 H880" stroke-opacity="0.35"/><path d="M600 500 H490" stroke-opacity="0.35"/></g><g fill="#ffffff" fill-opacity="0.75"><polygon points="600,420 578,408 578,432"/><polygon points="1110,420 1088,408 1088,432"/></g></svg>

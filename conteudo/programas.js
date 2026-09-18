@@ -33,14 +33,23 @@ window.CONTEUDO.programas = [
 
 window.CONTEUDO.especializacao = [
   {
-    titulo: 'Modelação BIM: Revit ou ArchiCAD',
-    texto:
-      'Tronco comum de fundamentos BIM e ISO 19650 e, depois, percurso à escolha em Revit ou ArchiCAD.',
+    imagem: 'assets/img/curso-revit.svg',
+    titulo: 'Modelação em Revit',
+    texto: 'Fundamentos BIM e ISO 19650 no tronco comum, seguidos de modelação completa em Revit.',
     etiqueta: 'Inscrições abertas',
-    link: 'curso-modelacao.html',
+    link: 'curso-revit.html',
     linkTexto: 'Ver o programa'
   },
   {
+    imagem: 'assets/img/curso-archicad.svg',
+    titulo: 'Modelação em ArchiCAD',
+    texto: 'O mesmo percurso, com a modelação feita em ArchiCAD e entrega em IFC.',
+    etiqueta: 'Inscrições abertas',
+    link: 'curso-archicad.html',
+    linkTexto: 'Ver o programa'
+  },
+  {
+    imagem: 'assets/img/curso-coordenacao.svg',
     titulo: 'BIM para Coordenação',
     texto: 'Coordenação multidisciplinar, clash detection e gestão da qualidade da informação.',
     etiqueta: 'Em preparação',
@@ -48,6 +57,7 @@ window.CONTEUDO.especializacao = [
     linkTexto: 'Estou interessado'
   },
   {
+    imagem: 'assets/img/curso-automacao.svg',
     titulo: 'Automação e IA',
     texto: 'Integração de dados, análise preditiva e melhoria de processos em obra.',
     etiqueta: 'Em preparação',
@@ -55,6 +65,7 @@ window.CONTEUDO.especializacao = [
     linkTexto: 'Estou interessado'
   },
   {
+    imagem: 'assets/img/curso-openbim.svg',
     titulo: 'OpenBIM e Interoperabilidade',
     texto: 'Colaboração entre equipas e plataformas com base em normas abertas.',
     etiqueta: 'Em preparação',

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modelação em Revit | Construção Digital</title>
+    <meta name="description" content="Curso de introdução à modelação BIM em Autodesk Revit, com tronco comum de fundamentos e ISO 19650." />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="assets/logos/construcao-digital_logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script>
+      /* O site abre sempre em tema claro, independentemente do sistema do visitante.
+         Quem carregar no botão da lua fica em escuro só durante a visita. */
+      (function () {
+        var theme;
+        try { theme = sessionStorage.getItem('theme'); } catch (e) {}
+        document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+
+    <header class="site-header" id="topo" data-componente="cabecalho"></header>
+
+    <section class="hero hero-sm" aria-labelledby="page-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dash">_</span> Curso de especialização</p>
+          <h1 id="page-title">
+            <span class="h1-brand">Modelação em <span class="h1-accent">Revit</span></span>
+            <span class="h1-tail">introdução, com base na ISO 19650</span>
+          </h1>
+          <p class="lead" data-texto="curso.resumo"></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="candidatura.html?curso=Modela%C3%A7%C3%A3o%20em%20Revit">Estou interessado <i class="ico ico-arrow" aria-hidden="true"></i></a>
+            <a class="btn btn-outline-light" href="#programa">Ver o programa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main id="conteudo" data-curso="revit">
+      <section class="section">
+        <div class="container">
+          <figure class="curso-capa">
+            <img data-imagem="curso.imagem" src="assets/img/curso-revit.svg" alt="Modelo BIM ilustrativo do curso de Revit" loading="lazy" />
+          </figure>
+          <div class="curso-info" data-lista="curso-info"></div>
+        </div>
+      </section>
+
+      <section id="programa" class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <h2><span class="dash">_</span> Tronco comum</h2>
+            <p>Base de gestão de informação, igual nos dois cursos, antes da parte de modelação.</p>
+          </div>
+          <div data-lista="curso-comum"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2><span class="dash">_</span> Modelação em Revit</h2>
+            <p>Segunda metade do curso, já na ferramenta.</p>
+          </div>
+          <div data-lista="curso-modulos"></div>
+
+          <div class="curso-cta">
+            <p data-texto="curso.nota"></p>
+            <div class="curso-cta-acoes">
+              <a class="link-arrow" data-ligacao="curso.cursoAlternativo" href="#"></a>
+              <a class="btn btn-dark" href="candidatura.html?curso=Modela%C3%A7%C3%A3o%20em%20Revit">Estou interessado <i class="ico ico-arrow" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-componente="rodape"></footer>
+
+    <!-- Conteúdo do site. Para mudar textos ou acrescentar itens, edita estes ficheiros. -->
+    <script src="conteudo/site.js"></script>
+    <script src="conteudo/cursos.js"></script>
+
+    <script src="assets/js/render.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

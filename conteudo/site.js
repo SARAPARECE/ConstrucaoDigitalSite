@@ -19,7 +19,8 @@ window.CONTEUDO.site = {
       texto: 'Especialização',
       href: 'index.html#especializacao',
       sub: [
-        { texto: 'Modelação BIM (Revit / ArchiCAD)', href: 'curso-modelacao.html' },
+        { texto: 'Modelação em Revit', href: 'curso-revit.html' },
+        { texto: 'Modelação em ArchiCAD', href: 'curso-archicad.html' },
         { texto: 'Candidatura', href: 'candidatura.html' }
       ]
     },
@@ -57,7 +58,8 @@ window.CONTEUDO.site = {
     destino: 'geral@construcaodigital.com',
     endpoint: '',
     cursos: [
-      'Modelação BIM (Revit ou ArchiCAD)',
+      'Modelação em Revit',
+      'Modelação em ArchiCAD',
       'BIM para Coordenação',
       'Automação e IA',
       'OpenBIM e Interoperabilidade',

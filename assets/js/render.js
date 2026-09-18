@@ -18,6 +18,12 @@
 
   const paginaAtual = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
 
+  /* Páginas de curso indicam qual é com <main data-curso="revit"> */
+  const elementoCurso = document.querySelector('[data-curso]');
+  if (elementoCurso && dados.cursos) {
+    dados.curso = dados.cursos[elementoCurso.dataset.curso] || dados.curso;
+  }
+
   function ehAtual(href) {
     /* Só marca como página atual as ligações a páginas, não as âncoras
        dentro da mesma página: essas ficam a cargo do script.js. */
@@ -182,6 +188,7 @@
       lista
         .map(
           (c, i) => `<article class="card reveal">
+            ${c.imagem ? `<div class="card-media"><img src="${esc(c.imagem)}" alt="" loading="lazy" /></div>` : ''}
             <span class="card-num">${String(i + 1).padStart(2, '0')}${c.etiqueta ? `<em class="card-tag">${esc(c.etiqueta)}</em>` : ''}</span>
             <h3>${esc(c.titulo)}</h3>
             <p>${esc(c.texto)}</p>
@@ -202,6 +209,8 @@
 
     'curso-comum': (comum) =>
       `<div class="modulos">${modulos(comum.modulos)}</div>`,
+
+    'curso-modulos': (lista) => `<div class="modulos">${modulos(lista)}</div>`,
 
     'curso-percursos': (lista) =>
       lista
@@ -352,11 +361,29 @@
     if (chave === 'numeros' || chave === 'instituicoes') lista = site[chave];
     if (chave === 'curso-info') lista = (dados.curso || {}).info;
     if (chave === 'curso-comum') lista = (dados.curso || {}).comum;
+    if (chave === 'curso-modulos') lista = (dados.curso || {}).modulos;
     if (chave === 'curso-percursos') lista = (dados.curso || {}).percursos;
 
     const construtor = construtores[tipo] || construtores[chave];
     if (!lista || !construtor) return;
     alvo.innerHTML = construtor(lista);
+  });
+
+  document.querySelectorAll('[data-imagem]').forEach((alvo) => {
+    const caminho = alvo.dataset.imagem.split('.');
+    let valor = dados;
+    caminho.forEach((parte) => (valor = valor && valor[parte]));
+    if (typeof valor === 'string') alvo.setAttribute('src', valor);
+  });
+
+  document.querySelectorAll('[data-ligacao]').forEach((alvo) => {
+    const caminho = alvo.dataset.ligacao.split('.');
+    let valor = dados;
+    caminho.forEach((parte) => (valor = valor && valor[parte]));
+    if (valor && valor.href) {
+      alvo.setAttribute('href', valor.href);
+      alvo.innerHTML = esc(valor.texto) + ' <i class="ico ico-arrow" aria-hidden="true"></i>';
+    }
   });
 
   document.querySelectorAll('[data-texto]').forEach((alvo) => {

@@ -1170,18 +1170,6 @@ p {
 
 /* Logótipos */
 
-.logos-band {
-  padding: 3.5rem 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.logos-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-bottom: 1.4rem;
-}
 
 
 
@@ -2180,41 +2168,4 @@ p {
 
 .program[id] {
   scroll-margin-top: 110px;
-}
-
-/* Instituições dentro da secção de contacto */
-
-.contact-instituicoes {
-  grid-column: 1 / -1;
-  margin-top: clamp(2rem, 4vw, 3rem);
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.contact-instituicoes .logos-label {
-  color: #7f8aa3;
-  margin-bottom: 0.5rem;
-}
-
-.contact-instituicoes .logo-grid {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 220px));
-  justify-content: start;
-  gap: clamp(1.5rem, 5vw, 4rem);
-}
-
-.contact-instituicoes .logo-link {
-  min-height: 72px;
-  padding: 0;
-}
-
-.contact-instituicoes .logo-link img {
-  max-height: 46px;
-  filter: brightness(0) invert(1);
-  opacity: 0.75;
-}
-
-.contact-instituicoes .logo-link:hover img,
-.contact-instituicoes .logo-link:focus-visible img {
-  filter: brightness(0) invert(1);
-  opacity: 1;
 }

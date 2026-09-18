@@ -72,20 +72,6 @@ window.CONTEUDO.site = {
     ]
   },
 
-  /* Logótipos das instituições, no fim da página inicial */
-  instituicoes: [
-    {
-      nome: 'Iscte-Sintra',
-      logo: 'https://iscte-iul.pt/assets/assets/logos/svg/iscte-sintra_en_horizontal_positive.svg',
-      link: 'https://iscte-iul.pt/school-applied-digital-technologies'
-    },
-    {
-      nome: 'Iscte-Meta Digital',
-      logo: 'https://isctemetadigital.pt/wp-content/uploads/2024/02/rgb_meta_digital_regular_positive.svg',
-      link: 'https://isctemetadigital.pt/'
-    }
-  ],
-
   /* Números da página inicial */
   numeros: [
     { valor: '2', contar: 2, legenda: 'Cursos de ensino superior' },

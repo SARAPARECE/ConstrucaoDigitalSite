@@ -61,9 +61,9 @@ window.CONTEUDO.formadores = [
   {
     nome: 'Sébastien Pinto da França Roux',
     cargo:
-      'Docente na licenciatura em Tecnologias Digitais, Edifícios e Construção Sustentável',
+      'Professor Auxiliar Convidado no Iscte-Sintra · Sócio fundador e CTO da Limsen',
     texto:
-      'Orienta os projetos das unidades curriculares de BIM, onde os alunos desenvolvem um edifício completo, da arquitetura à estrutura e às especialidades.',
+      'Lidera estratégias BIM e de transformação digital na Limsen. Certificado BRE ISO 19650 Project Information Management Practitioner e buildingSMART Certified Professional. Professor convidado no BIM A+ European Master in BIM desde 2018 e docente de BIM na licenciatura do Iscte-Sintra desde 2024.',
     foto: 'assets/img/formador-sebastien-roux.png',
     linkedin: 'https://www.linkedin.com/in/s%C3%A9bastien-pinto-da-fran%C3%A7a-roux-77993486/'
   },

@@ -1,4 +1,4 @@
-/* Programas académicos e cursos de especialização da página inicial. */
+/* Formação superior e cursos de especialização da página inicial. */
 
 window.CONTEUDO = window.CONTEUDO || {};
 

@@ -26,7 +26,7 @@ window.CONTEUDO.site = {
       ]
     },
     {
-      texto: 'Ensino superior',
+      texto: 'Formação superior',
       href: '#programas',
       sub: [
         { texto: 'Licenciatura', href: '#licenciatura' },
@@ -81,8 +81,9 @@ window.CONTEUDO.site = {
 
   /* Números da página inicial */
   numeros: [
-    { valor: '2', contar: 2, legenda: 'Licenciatura e mestrado no Iscte' },
+    { valor: '2', contar: 2, legenda: 'Cursos de formação superior' },
     { valor: '5', contar: 5, legenda: 'Cursos de especialização' },
-    { valor: '8', contar: 8, legenda: 'Formadores do ensino e da indústria' }
+    { valor: '100%', contar: 100, sufixo: '%', legenda: 'Foco em competências digitais' },
+    { valor: 'AECO', legenda: 'Setor em transformação' }
   ]
 };

@@ -77,7 +77,7 @@ window.CONTEUDO.cursos = {
     /* Onde se faz a inscrição. Quando o curso tiver página no Iscte-Meta Digital,
        troca por esse endereço. */
     inscricao: 'https://isctemetadigital.pt/formacao/',
-    cartao: '32 horas a modelar um edifício completo em Revit, da primeira grelha à entrega em IFC.',
+    cartao: 'Domine a modelação, documentação e partilha de modelos BIM em Autodesk Revit.',
     estado: 'Em breve',
     /* Desenho axonométrico do edifício do Iscte, do curso de Revit do ISTAR.
        Para não depender desse site, guarda o ficheiro em assets/img e troca o caminho.
@@ -143,7 +143,7 @@ window.CONTEUDO.cursos = {
     destaque: 'Archicad',
     pagina: 'curso-archicad/',
     inscricao: 'https://isctemetadigital.pt/formacao/',
-    cartao: 'O mesmo percurso, em Archicad: arquitetura, documentação e entrega organizada segundo a ISO 19650.',
+    cartao: 'Domine a modelação, documentação e entrega de modelos BIM em Graphisoft Archicad.',
     estado: 'Em breve',
     imagem: 'assets/img/curso-archicad.jpg',
     info: infoCurso(),
@@ -205,7 +205,7 @@ window.CONTEUDO.cursos = {
     nome: 'BIM para Obra',
     pagina: 'curso-bim-obra/',
     inscricao: 'https://isctemetadigital.pt/formacao/',
-    cartao: 'Para quem está no terreno: ler modelos, planear frentes de trabalho e registar o que se passa na obra.',
+    cartao: 'Ligue o modelo BIM ao planeamento, controlo e acompanhamento diário da obra.',
     estado: 'Em breve',
     /* alternativa: assets/img/curso-bim-obra.svg (gráfico) */
     imagem: 'assets/img/curso-bim-obra.jpg',
@@ -230,7 +230,7 @@ window.CONTEUDO.cursos = {
     nome: 'Software para Construção',
     pagina: 'curso-software-construcao/',
     inscricao: 'https://isctemetadigital.pt/formacao/',
-    cartao: 'Que ferramentas escolher, e como pô-las a trabalhar juntas no dia a dia de uma equipa.',
+    cartao: 'Selecione e utilize ferramentas digitais para planear, gerir e comunicar melhor em construção.',
     estado: 'Em breve',
     /* alternativa: assets/img/curso-software-construcao.svg (gráfico) */
     imagem: 'assets/img/curso-software-construcao.jpg',
@@ -255,7 +255,7 @@ window.CONTEUDO.cursos = {
     nome: 'Avaliação do Ciclo de Vida com BIM',
     pagina: 'curso-ciclo-vida-bim/',
     inscricao: 'https://isctemetadigital.pt/formacao/',
-    cartao: '24 horas sobre carbono incorporado: preparar os dados do modelo e comparar soluções construtivas.',
+    cartao: 'Use dados BIM para medir impactes ambientais e apoiar decisões de projeto mais sustentáveis.',
     estado: 'Em breve',
     imagem: 'assets/img/curso-ciclo-vida-bim.svg',
     info: infoCurso('24 horas', '6 sessões'),

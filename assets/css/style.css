@@ -2513,42 +2513,14 @@ p {
   border-color: #ffffff;
 }
 
-/* Imagem do modelo no topo da página inicial */
+/* Topo da página inicial */
 
-.hero-modelo {
-  /* Ilustração do topo. Para trocar, substitui assets/img/modelo-bim.svg */
-  background:
-    url('../img/modelo-bim.svg') right -3% bottom -4% / 46% auto no-repeat,
-    var(--hero-bg);
-}
-
-.hero-veu {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      100deg,
-      rgba(6, 10, 20, 0.82) 0%,
-      rgba(6, 10, 20, 0.6) 38%,
-      rgba(6, 10, 20, 0.2) 68%,
-      rgba(6, 10, 20, 0) 100%
-    ),
-    radial-gradient(780px 420px at 8% 40%, rgba(6, 10, 20, 0.55), transparent 70%);
+.hero-liso {
+  background: var(--hero-bg);
 }
 
 .hero-content {
   z-index: 1;
-}
-
-@media (max-width: 860px) {
-  .hero-modelo {
-    background-size: 94% auto;
-    background-position: right -6% bottom 4%;
-  }
-
-  .hero-veu {
-    background: linear-gradient(180deg, rgba(6, 10, 20, 0.78) 0%, rgba(6, 10, 20, 0.86) 55%, rgba(6, 10, 20, 0.92) 100%);
-  }
 }
 
 /* Vídeo a correr no fundo do destaque */

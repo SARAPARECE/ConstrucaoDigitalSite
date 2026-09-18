@@ -1677,15 +1677,38 @@ p {
 
 .modulo header {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 0.7rem;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+
+.modulo-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan-dark);
+}
+
+.modulo-etiqueta {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  padding: 0.15rem 0.6rem;
+}
+
+.modulo .carga {
+  margin-left: auto;
 }
 
 .modulo h4 {
-  margin: 0;
-  font-size: 1.05rem;
+  margin: 0 0 0.7rem;
+  font-size: 1.15rem;
   font-weight: 700;
 }
 
@@ -1993,5 +2016,59 @@ p {
 @media (max-width: 860px) {
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+.curso-aviso {
+  margin-top: 1.2rem;
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--cyan);
+  background: var(--bg-alt);
+  font-size: 0.92rem;
+}
+
+.blocos-texto {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 3rem;
+}
+
+.bloco-texto h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.bloco-texto p {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 860px) {
+  .blocos-texto {
+    grid-template-columns: 1fr;
+  }
+}
+
+.faixa-formadores {
+  grid-auto-columns: minmax(250px, 1fr);
+}
+
+.faixa .teacher {
+  height: 100%;
+}
+
+@media (max-width: 600px) {
+  .faixa-formadores {
+    grid-auto-columns: minmax(250px, 85%);
+  }
+
+  .faixa .teacher {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faixa .teacher-photo {
+    height: auto;
+    aspect-ratio: 16 / 10;
   }
 }

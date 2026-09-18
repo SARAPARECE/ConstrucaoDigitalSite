@@ -1,153 +1,184 @@
 /* ===========================================================
    Cursos de especialização com página própria.
-   O tronco comum é partilhado pelos dois cursos: editas uma vez
-   e muda nos dois. As horas são uma proposta, ajusta à vontade.
+   Datas, horário e preço estão por definir: muda aqui quando
+   estiverem fechados e as páginas atualizam-se sozinhas.
    =========================================================== */
 
 window.CONTEUDO = window.CONTEUDO || {};
 
-/* --- Tronco comum, igual nos dois cursos --- */
-var TRONCO_COMUM = {
-  titulo: 'Tronco comum',
-  descricao: 'Base de gestão de informação, igual nos dois cursos, antes da parte de modelação.',
-  modulos: [
-    {
-      titulo: 'Fundamentos BIM',
-      carga: '4 h',
-      itens: [
-        'O que é e o que não é BIM: modelo, informação e processo',
-        'Usos BIM ao longo do ciclo de vida do edifício',
-        'Papéis na equipa e maturidade digital do setor'
-      ]
-    },
-    {
-      titulo: 'Gestão de informação segundo a ISO 19650',
-      carga: '8 h',
-      itens: [
-        'ISO 19650-1: conceitos, princípios e ciclo de entrega da informação',
-        'ISO 19650-2: fase de entrega, do concurso à entrega dos ativos',
-        'Requisitos de informação: OIR, PIR, AIR e EIR',
-        'Nível de informação necessário (LOIN) e critérios de aceitação',
-        'Ambiente Comum de Dados (CDE): estados, fluxos e aprovações',
-        'Plano de Execução BIM (BEP) e convenções de nomenclatura'
-      ]
-    },
-    {
-      titulo: 'openBIM e interoperabilidade',
-      carga: '4 h',
-      itens: [
-        'IFC: estrutura do modelo, entidades e propriedades',
-        'Exportação e verificação de modelos IFC',
-        'BCF para comunicação de problemas entre equipas'
-      ]
-    },
-    {
-      titulo: 'Classificação e organização da informação',
-      carga: '4 h',
-      itens: [
-        'Sistemas de classificação: Uniclass e SECClasS',
-        'Parâmetros, quantidades e mapas a partir do modelo',
-        'Sustentabilidade: que dados o modelo tem de ter para uma ACV'
-      ]
-    }
+/* Módulo transversal, igual nos dois cursos. Editas uma vez, muda nos dois. */
+var MODULO_BIM = {
+  titulo: 'Conceitos BIM e gestão de informação',
+  carga: '4 h',
+  etiqueta: 'Comum aos dois cursos',
+  itens: [
+    'Metodologia BIM: modelo, informação e processo de trabalho',
+    'Usos BIM ao longo do ciclo de vida do edifício',
+    'ISO 19650: requisitos de informação, LOIN e critérios de aceitação',
+    'Ambiente Comum de Dados (CDE), Plano de Execução BIM e nomenclaturas',
+    'IFC e openBIM: o que sai do modelo e como se verifica'
   ]
 };
 
-var INFO_BASE = [
-  { etiqueta: 'Duração', valor: '40 horas' },
-  { etiqueta: 'Formato', valor: 'Presencial no Iscte-Sintra, com apoio online' },
-  { etiqueta: 'Destinatários', valor: 'Arquitetura, engenharia, construção e gestão de obra' },
-  { etiqueta: 'Pré-requisitos', valor: 'Noções de desenho técnico. Não exige experiência em BIM' }
-];
+/* Informação prática partilhada. */
+function infoCurso() {
+  return [
+    { etiqueta: 'Duração', valor: '32 horas, em 8 sessões' },
+    { etiqueta: 'Regime', valor: 'Pós-laboral, presencial no Iscte-Sintra ou online em tempo real' },
+    { etiqueta: 'Datas', valor: 'A definir' },
+    { etiqueta: 'Horário', valor: 'A definir' },
+    { etiqueta: 'Preço', valor: 'A definir' },
+    { etiqueta: 'Vagas', valor: 'Máximo de 18 participantes' },
+    { etiqueta: 'Certificado', valor: 'Certificado de formação com 80% de presenças' },
+    { etiqueta: 'Pré-requisitos', valor: 'Noções de desenho técnico. Não exige experiência em BIM' }
+  ];
+}
+
+function sobreCurso(ferramenta) {
+  return [
+    {
+      titulo: 'Descrição',
+      texto:
+        'Curso prático de modelação de um edifício completo, das paredes à documentação. Não é só formação em software: cada passo é ligado à realidade construtiva e às regras de organização da informação que a obra e as restantes especialidades exigem.'
+    },
+    {
+      titulo: 'Objetivos',
+      texto:
+        'No fim do curso, cada participante é capaz de produzir um modelo de arquitetura em ' +
+        ferramenta +
+        ' com qualidade, organizar a informação segundo a ISO 19650 e entregar o modelo em IFC pronto a ser usado por outras equipas.'
+    },
+    {
+      titulo: 'A quem se destina',
+      texto:
+        'Profissionais e estudantes de arquitetura, engenharia, construção e gestão de obra que queiram entrar na metodologia BIM. É útil, mas não obrigatório, conhecer um programa de CAD.'
+    },
+    {
+      titulo: 'Metodologia',
+      texto:
+        'O curso segue um projeto-tipo do início ao fim. Cada tema é demonstrado, experimentado pelo participante e seguido de um momento de dúvidas, com ênfase nas boas práticas de modelação que dão modelos eficientes.'
+    }
+  ];
+}
 
 window.CONTEUDO.cursos = {
-  /* --- Curso de Revit --- */
+  /* --------------------------- REVIT --------------------------- */
   revit: {
     nome: 'Modelação BIM: Revit',
-    marca: 'Modelação',
     destaque: 'Revit',
-    subtitulo: 'introdução, com base em ISO 19650',
     resumo:
-      'Primeiro curso da comunidade. Começa pelo tronco comum de fundamentos BIM e gestão de informação segundo a ISO 19650 e segue para a modelação de um projeto completo em Autodesk Revit, até à entrega em IFC.',
+      'Curso prático de introdução à modelação BIM em Autodesk Revit. Em 32 horas, modela-se um edifício completo, da parede à paginação, com a gestão de informação segundo a ISO 19650 como base de trabalho.',
     imagem: 'assets/img/curso-revit.svg',
-    info: INFO_BASE,
-    comum: TRONCO_COMUM,
+    info: infoCurso(),
+    sobre: sobreCurso('Revit'),
     modulos: [
+      MODULO_BIM,
       {
-        titulo: 'Arranque e modelação',
-        carga: '8 h',
+        titulo: 'Arranque e elementos base',
+        carga: '7 h',
         itens: [
-          'Interface, templates e organização do projeto',
-          'Níveis, grelhas e elementos construtivos',
-          'Paredes, lajes, coberturas, vãos e escadas'
+          'Introdução à plataforma do Revit e conceitos BIM',
+          'Modelação de paredes',
+          'Modelação de pavimentos',
+          'Vãos: portas e janelas',
+          'Criação de níveis'
         ]
       },
       {
-        titulo: 'Famílias e documentação',
-        carga: '8 h',
+        titulo: 'Envolvente e circulações',
+        carga: '7 h',
         itens: [
-          'Famílias de sistema e famílias carregáveis',
-          'Anotação, tabelas de quantidades e folhas de desenho',
-          'Worksets e trabalho colaborativo'
+          'Curtain walls',
+          'Tetos',
+          'Coberturas',
+          'Escadas, guardas e rampas',
+          'Elevadores e coretes'
         ]
       },
       {
-        titulo: 'Entrega e verificação',
-        carga: '4 h',
+        titulo: 'Massas, famílias e informação',
+        carga: '7 h',
         itens: [
-          'Exportação IFC com mapeamento de propriedades',
-          'Verificação do modelo face aos requisitos de informação',
-          'Entrega no CDE segundo o BEP definido no tronco comum'
+          'Massas conceptuais',
+          'Renderização',
+          'Famílias e tipos',
+          'Modelação de terrenos',
+          'Anotações, áreas e rooms'
+        ]
+      },
+      {
+        titulo: 'Estrutura, documentação e entrega',
+        carga: '7 h',
+        itens: [
+          'Eixos estruturais',
+          'Pilares, vigas e lajes',
+          'Gestão gráfica: cotagem e paginação',
+          'Exportação IFC e verificação do modelo entregue'
         ]
       }
     ],
     nota:
-      'Quem preferir Archicad tem o mesmo percurso no curso de Modelação BIM: Archicad, com o mesmo tronco comum e a mesma exigência de informação.',
+      'Prefere trabalhar em Archicad? O curso de Modelação BIM: Archicad tem a mesma estrutura, a mesma carga horária e o mesmo módulo de conceitos BIM e ISO 19650.',
     cursoAlternativo: { texto: 'Ver o curso de Archicad', href: 'curso-archicad.html' }
   },
 
-  /* --- Curso de Archicad --- */
+  /* -------------------------- ARCHICAD ------------------------- */
   archicad: {
     nome: 'Modelação BIM: Archicad',
-    marca: 'Modelação',
     destaque: 'Archicad',
-    subtitulo: 'introdução, com base em ISO 19650',
     resumo:
-      'O mesmo percurso do curso de Revit, com o tronco comum de fundamentos BIM e ISO 19650, seguido da modelação de um projeto completo em Graphisoft Archicad, até à entrega em IFC.',
+      'Curso prático de introdução à modelação BIM em Graphisoft Archicad. A mesma estrutura do curso de Revit, com o mesmo edifício modelado do início ao fim e a mesma exigência de informação.',
     imagem: 'assets/img/curso-archicad.svg',
-    info: INFO_BASE,
-    comum: TRONCO_COMUM,
+    info: infoCurso(),
+    sobre: sobreCurso('Archicad'),
     modulos: [
+      MODULO_BIM,
       {
-        titulo: 'Arranque e modelação',
-        carga: '8 h',
+        titulo: 'Arranque e elementos base',
+        carga: '7 h',
         itens: [
-          'Interface, template e estrutura de pisos',
-          'Ferramentas construtivas: paredes, lajes, coberturas e vãos',
-          'Perfis complexos e elementos personalizados'
+          'Introdução à interface do Archicad e conceitos BIM',
+          'Modelação de paredes',
+          'Modelação de lajes e pavimentos',
+          'Vãos: portas e janelas',
+          'Pisos, elevações e cotas de referência'
         ]
       },
       {
-        titulo: 'Biblioteca e documentação',
-        carga: '8 h',
+        titulo: 'Envolvente e circulações',
+        carga: '7 h',
         itens: [
+          'Muros-cortina (Curtain Wall)',
+          'Tetos falsos e acabamentos',
+          'Coberturas e RoofMaker',
+          'Escadas, guardas e rampas',
+          'Elevadores e coretes'
+        ]
+      },
+      {
+        titulo: 'Massas, biblioteca e informação',
+        carga: '7 h',
+        itens: [
+          'Morph e Shell para volumetria conceptual',
+          'Renderização e materiais de superfície',
           'Objetos de biblioteca e introdução ao GDL',
-          'Vistas, layouts e o Publisher',
-          'Teamwork e trabalho em equipa'
+          'Modelação de terrenos com Mesh',
+          'Anotações, zonas e mapas de áreas'
         ]
       },
       {
-        titulo: 'Entrega e verificação',
-        carga: '4 h',
+        titulo: 'Estrutura, documentação e entrega',
+        carga: '7 h',
         itens: [
-          'Translators IFC e controlo do que é exportado',
-          'Verificação do modelo face aos requisitos de informação',
-          'Entrega no CDE segundo o BEP definido no tronco comum'
+          'Grelhas e eixos estruturais',
+          'Pilares, vigas e lajes',
+          'Layouts, cotagem e Publisher',
+          'Exportação IFC com translators e verificação do modelo entregue'
         ]
       }
     ],
     nota:
-      'Quem preferir Revit tem o mesmo percurso no curso de Modelação BIM: Revit, com o mesmo tronco comum e a mesma exigência de informação.',
+      'Prefere trabalhar em Revit? O curso de Modelação BIM: Revit tem a mesma estrutura, a mesma carga horária e o mesmo módulo de conceitos BIM e ISO 19650.',
     cursoAlternativo: { texto: 'Ver o curso de Revit', href: 'curso-revit.html' }
   }
 };

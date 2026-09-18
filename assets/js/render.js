@@ -212,6 +212,16 @@
 
     'curso-modulos': (lista) => `<div class="modulos">${modulos(lista)}</div>`,
 
+    'curso-sobre': (lista) =>
+      lista
+        .map(
+          (b) => `<article class="bloco-texto reveal">
+            <h3>${esc(b.titulo)}</h3>
+            <p>${esc(b.texto)}</p>
+          </article>`
+        )
+        .join(''),
+
     'curso-percursos': (lista) =>
       lista
         .map(
@@ -283,12 +293,14 @@
   function modulos(lista) {
     return (lista || [])
       .map(
-        (m) => `<section class="modulo">
+        (m, i) => `<section class="modulo">
           <header>
-            <h4>${esc(m.titulo)}</h4>
+            <span class="modulo-num">Módulo ${String(i + 1).padStart(2, '0')}</span>
+            ${m.etiqueta ? `<span class="modulo-etiqueta">${esc(m.etiqueta)}</span>` : ''}
             ${m.carga ? `<span class="carga">${esc(m.carga)}</span>` : ''}
           </header>
-          <ul>${(m.itens || []).map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
+          <h4>${esc(m.titulo)}</h4>
+          <ul>${(m.itens || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
         </section>`
       )
       .join('');
@@ -377,6 +389,7 @@
     if (chave === 'curso-info') lista = (dados.curso || {}).info;
     if (chave === 'curso-comum') lista = (dados.curso || {}).comum;
     if (chave === 'curso-modulos') lista = (dados.curso || {}).modulos;
+    if (chave === 'curso-sobre') lista = (dados.curso || {}).sobre;
     if (chave === 'curso-percursos') lista = (dados.curso || {}).percursos;
 
     const construtor = construtores[tipo] || construtores[chave];

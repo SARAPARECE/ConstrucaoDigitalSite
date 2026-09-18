@@ -497,7 +497,8 @@ p {
     var(--hero-bg);
   color: var(--hero-text);
   padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(4.5rem, 8vw, 7rem);
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+  --corte: 12;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--corte) * 1%), 0 100%);
 }
 
 .hero-grid {
@@ -564,6 +565,29 @@ p {
 }
 
 /* ---------- Números ---------- */
+
+.cd-desliza {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  height: clamp(34px, 4.4vw, 58px);
+  width: auto;
+  opacity: 0;
+  transform-origin: 50% 50%;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.cd-desliza.visivel {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cd-desliza {
+    transition: opacity 0.6s ease, left 0.9s cubic-bezier(0.22, 1, 0.36, 1), top 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
 
 .stats-band {
   position: relative;
@@ -1718,7 +1742,8 @@ p {
   .hero {
     min-height: calc(100vh - 64px - 290px);
     padding: 2rem 0 3.5rem;
-    clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
+    --corte: 6;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--corte) * 1%), 0 100%);
   }
 
   .hero .lead {

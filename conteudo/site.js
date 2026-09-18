@@ -33,7 +33,7 @@ window.CONTEUDO.site = {
         { texto: 'Mestrado e pós-graduação', href: 'index.html#mestrado' }
       ]
     },
-    { texto: 'Notícias', href: 'index.html#noticias' },
+    { texto: 'Notícias', href: 'noticias.html' },
     { texto: 'Formadores', href: 'index.html#formadores' },
     {
       texto: 'Recursos',
@@ -63,8 +63,12 @@ window.CONTEUDO.site = {
      caixa de correio, cria um formulário gratuito em formspree.io ou
      formsubmit.co e cola aqui o endereço que te derem. */
   formulario: {
+    /* Para as mensagens chegarem à caixa de correio sem abrir o programa de email,
+       o formulário é enviado pelo FormSubmit. A primeira mensagem enviada faz
+       chegar um email de ativação a geral@construcaodigital.com: basta clicar no
+       link uma vez. Deixando "endpoint" vazio, volta a abrir o email do visitante. */
     destino: 'geral@construcaodigital.com',
-    endpoint: '',
+    endpoint: 'https://formsubmit.co/geral@construcaodigital.com',
     cursos: [
       'Modelação BIM: Revit',
       'Modelação BIM: Archicad',

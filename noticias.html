@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recursos | Construção Digital</title>
-    <meta name="description" content="Fórum, trabalhos de antigos alunos e biblioteca de recursos da Comunidade de Construção Digital." />
+    <title>Notícias | Construção Digital</title>
+    <meta name="description" content="Notícias da Comunidade de Construção Digital: cursos, projetos, visitas de estudo e atividades com o setor." />
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" href="assets/logos/construcao-digital_logo.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,31 +23,26 @@
         <div class="hero-copy">
           <p class="eyebrow"><span class="dash">_</span> Comunidade</p>
           <h1 id="page-title">
-            <span class="h1-brand">Recursos</span>
-            <span class="h1-tail">trabalhos e biblioteca</span>
+            <span class="h1-brand">Notícias</span>
+            <span class="h1-tail">o que vai acontecendo</span>
           </h1>
-          <p class="lead">O espaço de trabalho da comunidade: discussão técnica, projetos de quem já passou pelos cursos e materiais de apoio.</p>
+          <p class="lead">
+            Cursos, visitas de estudo, projetos dos alunos e atividades com empresas e
+            instituições do setor.
+          </p>
         </div>
       </div>
     </section>
 
     <main id="conteudo">
-      <section class="section">
+      <section id="noticias" class="section">
         <div class="container">
-          <div class="cards-3">
-            <article class="card reveal">
-              <span class="card-num">01</span>
-              <h3>Trabalhos de antigos alunos</h3>
-              <p>Projetos de licenciatura, mestrado e cursos de especialização.</p>
-              <a class="link-arrow" href="trabalhos.html">Ver trabalhos <i class="ico ico-arrow" aria-hidden="true"></i></a>
-            </article>
-            <article class="card reveal">
-              <span class="card-num">02</span>
-              <h3>Biblioteca</h3>
-              <p>Normas, guias e ferramentas de apoio ao trabalho em construção digital.</p>
-              <a class="link-arrow" href="biblioteca.html">Abrir biblioteca <i class="ico ico-arrow" aria-hidden="true"></i></a>
-            </article>
+          <div class="section-head">
+            <h2><span class="dash">_</span> Todas as notícias</h2>
+            <p>Da mais recente para a mais antiga.</p>
           </div>
+          <!-- Para acrescentar uma notícia, edita o ficheiro conteudo/noticias.js -->
+          <div class="news-grid" data-lista="noticias" data-tipo="cartoes"></div>
         </div>
       </section>
     </main>
@@ -56,7 +51,7 @@
 
     <!-- Conteúdo do site. Para mudar textos ou acrescentar itens, edita estes ficheiros. -->
     <script src="conteudo/site.js"></script>
-
+    <script src="conteudo/noticias.js"></script>
     <script src="assets/js/render.js"></script>
     <script src="assets/js/script.js"></script>
   </body>

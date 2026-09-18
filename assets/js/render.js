@@ -325,6 +325,14 @@
 
     return `<form class="formulario" data-destino="${esc(config.destino || site.email)}" data-endpoint="${esc(config.endpoint || '')}"${config.endpoint ? ` action="${esc(config.endpoint)}" method="post"` : ''}>
         <input type="hidden" name="_subject" value="${esc(assunto || 'Contacto pelo site')}" />
+        ${
+          config.endpoint && config.endpoint.indexOf('formsubmit') !== -1
+            ? `<input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="${esc(config.obrigado || 'https://construcaodigital.com/obrigado.html')}" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />`
+            : ''
+        }
         <div class="campo">
           <label for="${pref}-nome">Nome</label>
           <input id="${pref}-nome" name="nome" type="text" required autocomplete="name" />

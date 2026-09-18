@@ -207,7 +207,8 @@ window.CONTEUDO.cursos = {
     inscricao: 'https://isctemetadigital.pt/formacao/',
     cartao: 'Ligue o modelo BIM ao planeamento, controlo e acompanhamento diário da obra.',
     estado: 'Em breve',
-    imagem: 'assets/img/curso-bim-obra.svg',
+    /* alternativa: assets/img/curso-bim-obra.svg (gráfico) */
+    imagem: 'assets/img/curso-bim-obra.jpg',
     info: infoCurso('24 horas', '6 sessões'),
     sobre: [
       { titulo: 'Descrição', texto: 'Formação prática para aplicar BIM no contexto de obra, ligando modelos, equipas, planeamento e controlo de execução.' },
@@ -231,7 +232,8 @@ window.CONTEUDO.cursos = {
     inscricao: 'https://isctemetadigital.pt/formacao/',
     cartao: 'Selecione e utilize ferramentas digitais para planear, gerir e comunicar melhor em construção.',
     estado: 'Em breve',
-    imagem: 'assets/img/curso-software-construcao.svg',
+    /* alternativa: assets/img/curso-software-construcao.svg (gráfico) */
+    imagem: 'assets/img/curso-software-construcao.jpg',
     info: infoCurso('24 horas', '6 sessões'),
     sobre: [
       { titulo: 'Descrição', texto: 'Curso orientado para a escolha e uso de ferramentas digitais que simplificam o trabalho em projeto, obra e gestão.' },

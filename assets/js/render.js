@@ -83,15 +83,6 @@
   /* ---------- Rodapé ---------- */
 
   function rodape() {
-    const navegacao = (site.menu || [])
-      .filter((item) => !item.destaque)
-      .map((item) => {
-        const principal = `<a href="${esc(item.href)}">${esc(item.texto)}</a>`;
-        const subs = (item.sub || []).map((s) => `<a href="${esc(s.href)}">${esc(s.texto)}</a>`).join('');
-        return principal + subs;
-      })
-      .join('');
-
     const ligacoes = (site.rodape && site.rodape.ligacoes ? site.rodape.ligacoes : [])
       .map((l) => `<a href="${esc(l.href)}"${atributosLink(l.href)}>${esc(l.texto)} <i class="ico ico-ext" aria-hidden="true"></i></a>`)
       .join('');
@@ -101,10 +92,6 @@
           <img src="assets/logos/construcao-digital_logo_negativo_transparente.svg" alt="${esc(site.nome)}" width="1665" height="363" loading="lazy" />
           <p>${esc(site.rodape && site.rodape.descricao)}</p>
         </div>
-        <nav aria-label="Navegação do rodapé">
-          <h3>Navegação</h3>
-          ${navegacao}
-        </nav>
         <div>
           <h3>Contacto</h3>
           <a href="mailto:${esc(site.email)}">${esc(site.email)}</a>

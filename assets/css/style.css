@@ -1198,9 +1198,9 @@ p {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.6fr repeat(3, 1fr);
-  gap: 2.5rem;
-  padding: 4rem 0 3rem;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 2.5rem 4rem;
+  padding: 3.5rem 0 2.5rem;
 }
 
 .footer-brand img {

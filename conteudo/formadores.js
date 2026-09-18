@@ -33,8 +33,10 @@ window.CONTEUDO.formadores = [
   },
   {
     nome: 'Tiago Pedro Costa',
-    cargo: '',
-    texto: '',
+    cargo:
+      'Professor Auxiliar Convidado no Iscte · Cofundador e COO da Zumer',
+    texto:
+      'Mais de dez anos entre arquitetura, engenharia e construção, inteligência artificial e desenvolvimento de produto. Na Zumer constrói plataformas que usam IA para melhorar a colaboração e acelerar a sustentabilidade na construção: automação de fluxos de trabalho, inteligência documental e integrações BIM.',
     foto: 'assets/img/formador-tiago-costa.png',
     linkedin: 'https://www.linkedin.com/in/tiagopedrocosta/'
   },

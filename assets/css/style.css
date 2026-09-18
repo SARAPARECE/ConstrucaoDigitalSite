@@ -2523,3 +2523,18 @@ p {
   background: rgba(6, 10, 20, 0.7);
   border-color: #ffffff;
 }
+
+/* Vídeo a correr no fundo do destaque */
+
+.slide-media .video-fundo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-height: 100%;
+  min-width: 177.78%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: 0;
+}

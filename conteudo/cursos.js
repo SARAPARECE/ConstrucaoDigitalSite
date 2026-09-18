@@ -39,24 +39,31 @@ function sobreCurso(ferramenta) {
     {
       titulo: 'Descrição',
       texto:
-        'Curso prático de modelação de um edifício completo, das paredes à documentação. Não é só formação em software: cada passo é ligado à realidade construtiva e às regras de organização da informação que a obra e as restantes especialidades exigem.'
+        'Curso prático de modelação BIM em ' +
+        ferramenta +
+        ', do arranque do projeto até à entrega. Ao longo de 32 horas modela-se um edifício completo, com arquitetura e elementos estruturais, e produz-se toda a documentação: plantas, cortes, alçados, mapas de quantidades e folhas de desenho. Cada passo é ligado à realidade construtiva e às regras de organização da informação que a obra e as restantes especialidades exigem, por isso não é apenas formação em software.'
     },
     {
       titulo: 'Objetivos',
-      texto:
-        'No fim do curso, cada participante é capaz de produzir um modelo de arquitetura em ' +
-        ferramenta +
-        ' com qualidade, organizar a informação segundo a ISO 19650 e entregar o modelo em IFC pronto a ser usado por outras equipas.'
+      texto: 'No fim do curso, cada participante é capaz de:',
+      itens: [
+        'Arrancar e organizar um projeto em ' + ferramenta + ', com níveis, grelhas e vistas',
+        'Modelar a arquitetura e os principais elementos estruturais de um edifício',
+        'Criar e adaptar famílias e objetos de biblioteca às soluções construtivas reais',
+        'Extrair áreas, quantidades e mapas diretamente do modelo',
+        'Produzir a documentação do projeto e preparar as folhas de desenho',
+        'Organizar a informação segundo a ISO 19650 e entregar o modelo em IFC, pronto a ser usado pelas restantes especialidades'
+      ]
     },
     {
       titulo: 'A quem se destina',
       texto:
-        'Profissionais e estudantes de arquitetura, engenharia, construção e gestão de obra que queiram entrar na metodologia BIM. É útil, mas não obrigatório, conhecer um programa de CAD.'
+        'Profissionais e estudantes de arquitetura, engenharia, construção e gestão de obra que queiram entrar na metodologia BIM, e a quem já usa a ferramenta mas quer trabalhar com método. É útil, mas não obrigatório, conhecer um programa de CAD.'
     },
     {
       titulo: 'Metodologia',
       texto:
-        'O curso segue um projeto-tipo do início ao fim. Cada tema é demonstrado, experimentado pelo participante e seguido de um momento de dúvidas, com ênfase nas boas práticas de modelação que dão modelos eficientes.'
+        'O curso segue um projeto-tipo do início ao fim. Cada tema é demonstrado pelo formador, experimentado pelo participante e seguido de um momento de dúvidas, com ênfase nas boas práticas que dão modelos eficientes e reutilizáveis. No fim, quem tiver 80% de presenças recebe certificado de formação.'
     }
   ];
 }
@@ -136,7 +143,8 @@ window.CONTEUDO.cursos = {
     destaque: 'Archicad',
     pagina: 'curso-archicad.html',
     inscricao: 'https://isctemetadigital.pt/formacao/',
-    cartao: 'Cria modelos BIM de arquitetura completos, coordenados e prontos a entregar em Archicad.',
+    cartao:
+      'Modele um edifício completo em Archicad, da arquitetura aos elementos estruturais, com documentação e entrega em IFC.',
     estado: 'Em breve',
     imagem: 'assets/img/curso-archicad.jpg',
     info: infoCurso(),
@@ -198,9 +206,9 @@ window.CONTEUDO.cursos = {
     nome: 'BIM para Obra',
     pagina: 'curso-bim-obra.html',
     inscricao: 'https://isctemetadigital.pt/formacao/',
-    cartao: 'Liga o modelo BIM ao planeamento, controlo e acompanhamento diário da obra.',
+    cartao: 'Ligue o modelo BIM ao planeamento, controlo e acompanhamento diário da obra.',
     estado: 'Em breve',
-    imagem: 'assets/img/curso-bim-obra.jpg',
+    imagem: 'assets/img/curso-bim-obra.svg',
     info: infoCurso('24 horas', '6 sessões'),
     sobre: [
       { titulo: 'Descrição', texto: 'Formação prática para aplicar BIM no contexto de obra, ligando modelos, equipas, planeamento e controlo de execução.' },
@@ -222,9 +230,9 @@ window.CONTEUDO.cursos = {
     nome: 'Software para Construção',
     pagina: 'curso-software-construcao.html',
     inscricao: 'https://isctemetadigital.pt/formacao/',
-    cartao: 'Seleciona e utiliza ferramentas digitais para planear, gerir e comunicar melhor em construção.',
+    cartao: 'Selecione e utilize ferramentas digitais para planear, gerir e comunicar melhor em construção.',
     estado: 'Em breve',
-    imagem: 'assets/img/curso-software-construcao.jpg',
+    imagem: 'assets/img/curso-software-construcao.svg',
     info: infoCurso('24 horas', '6 sessões'),
     sobre: [
       { titulo: 'Descrição', texto: 'Curso orientado para a escolha e uso de ferramentas digitais que simplificam o trabalho em projeto, obra e gestão.' },
@@ -246,9 +254,9 @@ window.CONTEUDO.cursos = {
     nome: 'Avaliação do Ciclo de Vida com BIM',
     pagina: 'curso-ciclo-vida-bim.html',
     inscricao: 'https://isctemetadigital.pt/formacao/',
-    cartao: 'Usa dados BIM para medir impactes ambientais e apoiar decisões de projeto mais sustentáveis.',
+    cartao: 'Use dados BIM para medir impactes ambientais e apoiar decisões de projeto mais sustentáveis.',
     estado: 'Em breve',
-    imagem: 'assets/img/curso-openbim.svg',
+    imagem: 'assets/img/curso-ciclo-vida-bim.svg',
     info: infoCurso('24 horas', '6 sessões'),
     sobre: [
       { titulo: 'Descrição', texto: 'Formação para integrar Avaliação do Ciclo de Vida (ACV) e BIM na comparação de soluções de projeto e construção.' },

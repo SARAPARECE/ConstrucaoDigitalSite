@@ -139,14 +139,20 @@
               const fundo = d.imagem || (idVideo ? `https://img.youtube.com/vi/${idVideo}/maxresdefault.jpg` : '');
               return `<li class="slide" role="group" aria-roledescription="slide" aria-label="${i + 1} de ${lista.length}">
               <article class="slide-inner"${d.video ? ` data-video="${esc(d.video)}"` : ''}>
-                <div class="slide-media">${fundo ? `<img src="${esc(fundo)}" alt="" loading="lazy" />` : ''}</div>
+                <div class="slide-media">${
+                  idVideo
+                    ? `<iframe class="video-fundo" src="https://www.youtube-nocookie.com/embed/${esc(idVideo)}?autoplay=1&mute=1&loop=1&playlist=${esc(idVideo)}&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1" title="${esc(d.titulo)}" tabindex="-1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`
+                    : fundo
+                      ? `<img src="${esc(fundo)}" alt="" loading="lazy" />`
+                      : ''
+                }</div>
                 <div class="slide-conteudo">
                   <div class="slide-meta"><span class="tag">${esc(d.tag)}</span>${d.estado ? `<span class="status-tag">${esc(d.estado)}</span>` : ''}</div>
                   <h3>${esc(d.titulo)}</h3>
                   <p>${esc(d.texto)}</p>
                   <div class="slide-acoes">
                     ${d.link ? `<a class="btn btn-primary" href="${esc(d.link)}"${atributosLink(d.link)}>${esc(d.linkTexto || 'Saber mais')} <i class="ico ${externo(d.link) ? 'ico-ext' : 'ico-arrow'}" aria-hidden="true"></i></a>` : ''}
-                    ${d.video ? `<button class="btn btn-outline-light slide-play" type="button">Ver o vídeo</button>` : ''}
+                    ${d.video ? `<button class="btn btn-outline-light slide-play" type="button">Ver com som</button>` : ''}
                   </div>
                 </div>
               </article>

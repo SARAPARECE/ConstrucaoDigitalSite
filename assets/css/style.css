@@ -2541,20 +2541,13 @@ p {
   border-color: #ffffff;
 }
 
-/* Vídeo no topo da página inicial */
+/* Imagem do modelo no topo da página inicial */
 
-.hero-video-fundo {
-  background: var(--hero-bg);
-}
-
-.hero-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 0;
-  pointer-events: none;
+.hero-modelo {
+  /* Para trocar a imagem, substitui assets/img/topo-modelo.jpg */
+  background:
+    url('../img/topo-modelo.jpg') center / cover no-repeat,
+    var(--hero-bg);
 }
 
 .hero-veu {
@@ -2578,18 +2571,6 @@ p {
 @media (max-width: 860px) {
   .hero-veu {
     background: linear-gradient(180deg, rgba(6, 10, 20, 0.78) 0%, rgba(6, 10, 20, 0.86) 55%, rgba(6, 10, 20, 0.92) 100%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-video {
-    display: none;
-  }
-
-  .hero-video-fundo {
-    background-image: url('../img/destaque-modelo.jpg');
-    background-size: cover;
-    background-position: center;
   }
 }
 

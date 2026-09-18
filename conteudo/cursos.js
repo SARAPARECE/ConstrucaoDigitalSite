@@ -70,7 +70,7 @@ window.CONTEUDO.cursos = {
     /* Onde se faz a inscrição. Quando o curso tiver página no Iscte-Meta Digital,
        troca por esse endereço. */
     inscricao: 'https://isctemetadigital.pt/formacao/',
-    cartao: 'Domina a modelação, documentação e partilha de modelos BIM em Autodesk Revit.',
+    cartao: 'Domine a modelação, documentação e partilha de modelos BIM em Autodesk Revit.',
     estado: 'Em breve',
     /* Desenho axonométrico do edifício do Iscte, do curso de Revit do ISTAR.
        Para não depender desse site, guarda o ficheiro em assets/img e troca o caminho.

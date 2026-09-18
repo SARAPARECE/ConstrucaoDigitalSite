@@ -5,6 +5,18 @@ window.CONTEUDO = window.CONTEUDO || {};
 
 window.CONTEUDO.noticias = [
   {
+    tag: 'Licenciatura',
+    data: '12 mai 2026',
+    dataISO: '2026-05-12',
+    titulo: 'Alunos da licenciatura em visita de estudo a Lisboa',
+    texto:
+      'Pelo segundo ano, os alunos visitaram um edifício num bairro histórico de Lisboa para servir de caso de estudo, com levantamento por laser scanning conduzido pelo iDEALab | FVPS e apoio da Câmara Municipal de Lisboa.',
+    imagem: 'https://media.licdn.com/dms/image/v2/D4E22AQFE_fB9k9D6Yg/feedshare-image-high-res/B4EZ4b.qwyHUAU-/0/1778585874118?e=2147483647&v=beta&t=7tMiH-gmw5v2O4J6VgmTKkEF4vE4ue0AzvV182yF9YI',
+    link: 'https://www.linkedin.com/posts/rresende_activity-7459971433239056384-wnv1',
+    linkTexto: 'Ver no LinkedIn'
+  },
+
+  {
     tag: 'Exemplo',
     data: '1 set 2026',
     dataISO: '2026-09-01',

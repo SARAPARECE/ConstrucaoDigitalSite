@@ -63,7 +63,7 @@ var INFO_BASE = [
 window.CONTEUDO.cursos = {
   /* --- Curso de Revit --- */
   revit: {
-    nome: 'Modelação em Revit',
+    nome: 'Modelação BIM: Revit',
     marca: 'Modelação',
     destaque: 'Revit',
     subtitulo: 'introdução, com base em ISO 19650',
@@ -102,18 +102,18 @@ window.CONTEUDO.cursos = {
       }
     ],
     nota:
-      'Quem preferir ArchiCAD tem o mesmo percurso no curso de Modelação em ArchiCAD, com o mesmo tronco comum e a mesma exigência de informação.',
-    cursoAlternativo: { texto: 'Ver o curso de ArchiCAD', href: 'curso-archicad.html' }
+      'Quem preferir Archicad tem o mesmo percurso no curso de Modelação BIM: Archicad, com o mesmo tronco comum e a mesma exigência de informação.',
+    cursoAlternativo: { texto: 'Ver o curso de Archicad', href: 'curso-archicad.html' }
   },
 
-  /* --- Curso de ArchiCAD --- */
+  /* --- Curso de Archicad --- */
   archicad: {
-    nome: 'Modelação em ArchiCAD',
+    nome: 'Modelação BIM: Archicad',
     marca: 'Modelação',
-    destaque: 'ArchiCAD',
+    destaque: 'Archicad',
     subtitulo: 'introdução, com base em ISO 19650',
     resumo:
-      'O mesmo percurso do curso de Revit, com o tronco comum de fundamentos BIM e ISO 19650, seguido da modelação de um projeto completo em Graphisoft ArchiCAD, até à entrega em IFC.',
+      'O mesmo percurso do curso de Revit, com o tronco comum de fundamentos BIM e ISO 19650, seguido da modelação de um projeto completo em Graphisoft Archicad, até à entrega em IFC.',
     imagem: 'assets/img/curso-archicad.svg',
     info: INFO_BASE,
     comum: TRONCO_COMUM,
@@ -147,7 +147,7 @@ window.CONTEUDO.cursos = {
       }
     ],
     nota:
-      'Quem preferir Revit tem o mesmo percurso no curso de Modelação em Revit, com o mesmo tronco comum e a mesma exigência de informação.',
+      'Quem preferir Revit tem o mesmo percurso no curso de Modelação BIM: Revit, com o mesmo tronco comum e a mesma exigência de informação.',
     cursoAlternativo: { texto: 'Ver o curso de Revit', href: 'curso-revit.html' }
   }
 };

@@ -34,7 +34,7 @@ window.CONTEUDO.programas = [
 window.CONTEUDO.especializacao = [
   {
     imagem: 'assets/img/curso-revit.svg',
-    titulo: 'Modelação em Revit',
+    titulo: 'Modelação BIM: Revit',
     texto: 'Fundamentos BIM e ISO 19650 no tronco comum, seguidos de modelação completa em Revit.',
     etiqueta: 'Inscrições abertas',
     link: 'curso-revit.html',
@@ -42,8 +42,8 @@ window.CONTEUDO.especializacao = [
   },
   {
     imagem: 'assets/img/curso-archicad.svg',
-    titulo: 'Modelação em ArchiCAD',
-    texto: 'O mesmo percurso, com a modelação feita em ArchiCAD e entrega em IFC.',
+    titulo: 'Modelação BIM: Archicad',
+    texto: 'O mesmo percurso, com a modelação feita em Archicad e entrega em IFC.',
     etiqueta: 'Inscrições abertas',
     link: 'curso-archicad.html',
     linkTexto: 'Ver o programa'

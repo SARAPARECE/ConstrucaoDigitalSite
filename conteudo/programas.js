@@ -32,23 +32,12 @@ window.CONTEUDO.programas = [
 ];
 
 window.CONTEUDO.especializacao = [
-  {
-    imagem: 'https://istar.iscte-iul.pt/cursorevit/wp-content/uploads/sites/2/2018/07/ISCTERevit.png',
-    imagemAjuste: 'contain',
-    titulo: 'Modelação BIM: Revit',
-    texto: 'Fundamentos BIM e ISO 19650 no tronco comum, seguidos de modelação completa em Revit.',
-    etiqueta: 'Inscrições abertas',
-    link: 'curso-revit.html',
-    linkTexto: 'Ver o programa'
-  },
-  {
-    imagem: 'assets/img/curso-archicad.svg',
-    titulo: 'Modelação BIM: Archicad',
-    texto: 'O mesmo percurso, com a modelação feita em Archicad e entrega em IFC.',
-    etiqueta: 'Inscrições abertas',
-    link: 'curso-archicad.html',
-    linkTexto: 'Ver o programa'
-  },
+  /* Cursos com página própria: basta referir a chave em conteudo/cursos.js.
+     O título, o texto, a imagem e o link vêm de lá, por isso muda-se num sítio só. */
+  { curso: 'revit' },
+  { curso: 'archicad' },
+
+  /* Cursos ainda sem página: texto e imagem aqui mesmo. */
   {
     imagem: 'assets/img/curso-coordenacao.svg',
     titulo: 'BIM para Coordenação',

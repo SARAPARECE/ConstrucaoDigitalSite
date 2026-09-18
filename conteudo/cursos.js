@@ -66,6 +66,9 @@ window.CONTEUDO.cursos = {
   revit: {
     nome: 'Modelação BIM: Revit',
     destaque: 'Revit',
+    pagina: 'curso-revit.html',
+    cartao: 'Fundamentos BIM e ISO 19650 no primeiro módulo, seguidos de modelação completa em Revit.',
+    estado: 'Inscrições abertas',
     resumo:
       'Curso prático de introdução à modelação BIM em Autodesk Revit. Em 32 horas, modela-se um edifício completo, da parede à paginação, com a gestão de informação segundo a ISO 19650 como base de trabalho.',
     /* Imagem do curso de Revit do ISTAR. Alternativas:
@@ -132,6 +135,9 @@ window.CONTEUDO.cursos = {
   archicad: {
     nome: 'Modelação BIM: Archicad',
     destaque: 'Archicad',
+    pagina: 'curso-archicad.html',
+    cartao: 'O mesmo percurso e o mesmo módulo comum, com a modelação feita em Archicad.',
+    estado: 'Inscrições abertas',
     resumo:
       'Curso prático de introdução à modelação BIM em Graphisoft Archicad. A mesma estrutura do curso de Revit, com o mesmo edifício modelado do início ao fim e a mesma exigência de informação.',
     imagem: 'assets/img/curso-archicad.svg',

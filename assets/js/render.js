@@ -186,15 +186,27 @@
 
     especializacao: (lista) =>
       lista
-        .map(
-          (c, i) => `<article class="card reveal">
-            ${c.imagem ? `<div class="card-media"><img src="${esc(c.imagem)}" alt=""${c.imagemAjuste ? ` data-ajuste="${esc(c.imagemAjuste)}"` : ''} loading="lazy" /></div>` : ''}
-            <span class="card-num">${String(i + 1).padStart(2, '0')}${c.etiqueta ? `<em class="card-tag">${esc(c.etiqueta)}</em>` : ''}</span>
-            <h3>${esc(c.titulo)}</h3>
-            <p>${esc(c.texto)}</p>
-            ${botaoLink(c, 'link-arrow')}
-          </article>`
-        )
+        .map((c, i) => {
+          /* Um cartão pode referir só { curso: 'revit' }: o resto vem de conteudo/cursos.js */
+          const curso = c.curso ? (dados.cursos || {})[c.curso] || {} : {};
+          const item = {
+            imagem: c.imagem || curso.imagem,
+            imagemAjuste: c.imagemAjuste || curso.imagemAjuste,
+            titulo: c.titulo || curso.nome,
+            texto: c.texto || curso.cartao || curso.resumo,
+            etiqueta: c.etiqueta || curso.estado,
+            link: c.link || curso.pagina,
+            linkTexto: c.linkTexto || (curso.pagina ? 'Ver o programa' : 'Estou interessado')
+          };
+
+          return `<article class="card reveal">
+            ${item.imagem ? `<div class="card-media"><img src="${esc(item.imagem)}" alt=""${item.imagemAjuste ? ` data-ajuste="${esc(item.imagemAjuste)}"` : ''} loading="lazy" /></div>` : ''}
+            <span class="card-num">${String(i + 1).padStart(2, '0')}${item.etiqueta ? `<em class="card-tag">${esc(item.etiqueta)}</em>` : ''}</span>
+            <h3>${esc(item.titulo)}</h3>
+            <p>${esc(item.texto)}</p>
+            ${botaoLink(item, 'link-arrow')}
+          </article>`;
+        })
         .join(''),
 
     'curso-info': (lista) =>

@@ -82,6 +82,21 @@ Em `conteudo/parceiros.js`, com o endereço do logótipo ou um ficheiro em `asse
   { nome: 'Empresa', logo: 'assets/img/logo-empresa.png', link: 'https://empresa.pt/' },
 ```
 
+## Mudar um curso que tem página própria
+
+Os cursos de Revit e Archicad vivem em `conteudo/cursos.js`. O cartão na página
+inicial vai lá buscar o título, o texto, a imagem, a etiqueta e o link:
+
+```js
+window.CONTEUDO.especializacao = [
+  { curso: 'revit' },
+  { curso: 'archicad' },
+```
+
+Ou seja, mudas a imagem ou o nome em `cursos.js` e muda nos dois sítios ao mesmo
+tempo. Só precisas de escrever `imagem` ou `titulo` no cartão se quiseres que ali
+apareça algo diferente da página do curso.
+
 ## Criar uma página nova
 
 1. Duplica `modelo-pagina.html` e dá-lhe um nome, por exemplo `eventos.html`.

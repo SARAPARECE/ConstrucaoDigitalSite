@@ -4,6 +4,7 @@ window.CONTEUDO = window.CONTEUDO || {};
 
 window.CONTEUDO.programas = [
   {
+    ancora: 'licenciatura',
     tag: 'Licenciatura',
     codigo: 'Curso 0429',
     titulo: 'Licenciatura em Tecnologias Digitais, Edifícios e Construção Sustentável',
@@ -17,6 +18,7 @@ window.CONTEUDO.programas = [
     link: 'https://iscte-iul.pt/cursos/curso/0429'
   },
   {
+    ancora: 'mestrado',
     tag: 'Mestrado / Pós-graduação',
     codigo: 'Curso 0536',
     titulo: 'Mestrado em Construção Digital',

@@ -167,7 +167,7 @@
     programas: (lista) =>
       lista
         .map(
-          (p) => `<article class="program reveal">
+          (p) => `<article class="program reveal"${p.ancora ? ` id="${esc(p.ancora)}"` : ''}>
             <div class="program-meta">
               <span class="tag">${esc(p.tag)}</span>
               <span class="code">${esc(p.codigo)}</span>

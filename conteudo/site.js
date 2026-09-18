@@ -14,7 +14,14 @@ window.CONTEUDO.site = {
   /* Menu principal. Para acrescentar uma página, junta uma linha aqui.
      Uma entrada com "sub" abre a lista ao passar o rato. */
   menu: [
-    { texto: 'Ensino superior', href: 'index.html#programas' },
+    {
+      texto: 'Ensino superior',
+      href: 'index.html#programas',
+      sub: [
+        { texto: 'Licenciatura', href: 'index.html#licenciatura' },
+        { texto: 'Mestrado e pós-graduação', href: 'index.html#mestrado' }
+      ]
+    },
     {
       texto: 'Cursos',
       href: 'index.html#especializacao',

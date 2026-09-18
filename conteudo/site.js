@@ -19,7 +19,10 @@ window.CONTEUDO.site = {
       href: 'index.html#especializacao',
       sub: [
         { texto: 'Modelação BIM: Revit', href: 'curso-revit.html' },
-        { texto: 'Modelação BIM: Archicad', href: 'curso-archicad.html' }
+        { texto: 'Modelação BIM: Archicad', href: 'curso-archicad.html' },
+        { texto: 'BIM para Obra', href: 'curso-bim-obra.html' },
+        { texto: 'Software para Construção', href: 'curso-software-construcao.html' },
+        { texto: 'Avaliação do Ciclo de Vida com BIM', href: 'curso-ciclo-vida-bim.html' }
       ]
     },
     {
@@ -75,7 +78,7 @@ window.CONTEUDO.site = {
   /* Números da página inicial */
   numeros: [
     { valor: '2', contar: 2, legenda: 'Cursos de ensino superior' },
-    { valor: '3', contar: 3, legenda: 'Cursos de especialização' },
+    { valor: '5', contar: 5, legenda: 'Cursos de especialização' },
     { valor: '100%', contar: 100, sufixo: '%', legenda: 'Foco em competências digitais' },
     { valor: 'AECO', legenda: 'Setor em transformação' }
   ]

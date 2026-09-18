@@ -33,15 +33,32 @@ window.CONTEUDO.programas = [
 
 window.CONTEUDO.especializacao = [
   {
+    titulo: 'Modelação BIM: Revit ou ArchiCAD',
+    texto:
+      'Tronco comum de fundamentos BIM e ISO 19650 e, depois, percurso à escolha em Revit ou ArchiCAD.',
+    etiqueta: 'Inscrições abertas',
+    link: 'curso-modelacao.html',
+    linkTexto: 'Ver o programa'
+  },
+  {
     titulo: 'BIM para Coordenação',
-    texto: 'Coordenação multidisciplinar, clash detection e gestão da qualidade da informação.'
+    texto: 'Coordenação multidisciplinar, clash detection e gestão da qualidade da informação.',
+    etiqueta: 'Em preparação',
+    link: 'candidatura.html?curso=BIM%20para%20Coordena%C3%A7%C3%A3o',
+    linkTexto: 'Estou interessado'
   },
   {
     titulo: 'Automação e IA',
-    texto: 'Integração de dados, análise preditiva e melhoria de processos em obra.'
+    texto: 'Integração de dados, análise preditiva e melhoria de processos em obra.',
+    etiqueta: 'Em preparação',
+    link: 'candidatura.html?curso=Automa%C3%A7%C3%A3o%20e%20IA',
+    linkTexto: 'Estou interessado'
   },
   {
     titulo: 'OpenBIM e Interoperabilidade',
-    texto: 'Colaboração entre equipas e plataformas com base em normas abertas.'
+    texto: 'Colaboração entre equipas e plataformas com base em normas abertas.',
+    etiqueta: 'Em preparação',
+    link: 'candidatura.html?curso=OpenBIM%20e%20Interoperabilidade',
+    linkTexto: 'Estou interessado'
   }
 ];

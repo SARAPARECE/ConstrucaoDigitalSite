@@ -226,5 +226,68 @@ if (themeToggle) {
   restart();
 })();
 
+/* Formulário de candidatura */
+(function () {
+  const form = document.querySelector('.formulario');
+  if (!form) return;
+
+  const nota = form.querySelector('.form-nota');
+  const endpoint = form.dataset.endpoint;
+  const destino = form.dataset.destino;
+
+  /* Curso pré-escolhido pelo link: candidatura.html?curso=... */
+  const parametros = new URLSearchParams(location.search);
+  const cursoPedido = parametros.get('curso');
+  const percursoPedido = parametros.get('percurso');
+  const campoCurso = form.querySelector('[name="curso"]');
+  const campoPercurso = form.querySelector('[name="percurso"]');
+
+  function escolher(campo, valor) {
+    if (!campo || !valor) return;
+    const opcao = Array.from(campo.options).find(
+      (o) => o.value.toLowerCase() === valor.toLowerCase()
+    );
+    if (opcao) campo.value = opcao.value;
+  }
+
+  escolher(campoCurso, cursoPedido);
+  escolher(campoPercurso, percursoPedido);
+
+  /* Sem endpoint configurado, abre o programa de email já preenchido. */
+  if (endpoint) return;
+
+  form.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const dados = new FormData(form);
+    const assunto = dados.get('_subject') || 'Candidatura pelo site';
+    const linhas = [
+      'Nome: ' + (dados.get('nome') || ''),
+      'Email: ' + (dados.get('email') || ''),
+      'Telefone: ' + (dados.get('telefone') || '')
+    ];
+    if (dados.get('curso')) linhas.push('Curso: ' + dados.get('curso'));
+    if (dados.get('percurso')) linhas.push('Percurso: ' + dados.get('percurso'));
+    if (dados.get('mensagem')) linhas.push('', dados.get('mensagem'));
+
+    const url =
+      'mailto:' +
+      destino +
+      '?subject=' +
+      encodeURIComponent(assunto) +
+      '&body=' +
+      encodeURIComponent(linhas.join('\n'));
+
+    window.location.href = url;
+
+    if (nota) {
+      nota.textContent =
+        'Abrimos o teu programa de email com a candidatura escrita. Falta só carregares em enviar.';
+      nota.classList.add('visivel');
+    }
+  });
+})();
+
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();

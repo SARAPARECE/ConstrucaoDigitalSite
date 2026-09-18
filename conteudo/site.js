@@ -15,7 +15,14 @@ window.CONTEUDO.site = {
      Uma entrada com "sub" abre a lista ao passar o rato. */
   menu: [
     { texto: 'Programas', href: 'index.html#programas' },
-    { texto: 'Especialização', href: 'index.html#especializacao' },
+    {
+      texto: 'Especialização',
+      href: 'index.html#especializacao',
+      sub: [
+        { texto: 'Modelação BIM (Revit / ArchiCAD)', href: 'curso-modelacao.html' },
+        { texto: 'Candidatura', href: 'candidatura.html' }
+      ]
+    },
     { texto: 'Notícias', href: 'index.html#noticias' },
     { texto: 'Formadores', href: 'index.html#formadores' },
     {
@@ -38,6 +45,23 @@ window.CONTEUDO.site = {
       { texto: 'Iscte', href: 'https://iscte-iul.pt/', externo: true },
       { texto: 'Iscte-Sintra', href: 'https://iscte-iul.pt/school-applied-digital-technologies', externo: true },
       { texto: 'Iscte-Meta Digital', href: 'https://isctemetadigital.pt/', externo: true }
+    ]
+  },
+
+  /* Formulário de candidatura e contacto.
+     Sem "endpoint" preenchido, o formulário abre o programa de email do
+     visitante já com tudo escrito. Para receber as respostas diretamente na
+     caixa de correio, cria um formulário gratuito em formspree.io ou
+     formsubmit.co e cola aqui o endereço que te derem. */
+  formulario: {
+    destino: 'geral@construcaodigital.com',
+    endpoint: '',
+    cursos: [
+      'Modelação BIM (Revit ou ArchiCAD)',
+      'BIM para Coordenação',
+      'Automação e IA',
+      'OpenBIM e Interoperabilidade',
+      'Outro assunto'
     ]
   },
 

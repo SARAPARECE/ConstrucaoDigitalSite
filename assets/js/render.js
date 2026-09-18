@@ -182,10 +182,35 @@
       lista
         .map(
           (c, i) => `<article class="card reveal">
-            <span class="card-num">${String(i + 1).padStart(2, '0')}</span>
+            <span class="card-num">${String(i + 1).padStart(2, '0')}${c.etiqueta ? `<em class="card-tag">${esc(c.etiqueta)}</em>` : ''}</span>
             <h3>${esc(c.titulo)}</h3>
             <p>${esc(c.texto)}</p>
             ${botaoLink(c, 'link-arrow')}
+          </article>`
+        )
+        .join(''),
+
+    'curso-info': (lista) =>
+      lista
+        .map(
+          (i) => `<div class="curso-info-item">
+            <span>${esc(i.etiqueta)}</span>
+            <strong>${esc(i.valor)}</strong>
+          </div>`
+        )
+        .join(''),
+
+    'curso-comum': (comum) =>
+      `<div class="modulos">${modulos(comum.modulos)}</div>`,
+
+    'curso-percursos': (lista) =>
+      lista
+        .map(
+          (p) => `<article class="percurso reveal">
+            <span class="tag">${esc(p.etiqueta)}</span>
+            <h3>${esc(p.nome)}</h3>
+            <p>${esc(p.descricao)}</p>
+            <div class="modulos">${modulos(p.modulos)}</div>
           </article>`
         )
         .join(''),
@@ -246,6 +271,66 @@
     passos: (lista) => lista.map((p) => `<li>${esc(p)}</li>`).join('')
   };
 
+  function modulos(lista) {
+    return (lista || [])
+      .map(
+        (m) => `<section class="modulo">
+          <header>
+            <h4>${esc(m.titulo)}</h4>
+            ${m.carga ? `<span class="carga">${esc(m.carga)}</span>` : ''}
+          </header>
+          <ul>${(m.itens || []).map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
+        </section>`
+      )
+      .join('');
+  }
+
+  function formulario(assunto) {
+    const config = site.formulario || {};
+    const opcoes = (config.cursos || [])
+      .map((c) => `<option value="${esc(c)}">${esc(c)}</option>`)
+      .join('');
+
+    return `<form class="formulario" data-destino="${esc(config.destino || site.email)}" data-endpoint="${esc(config.endpoint || '')}"${config.endpoint ? ` action="${esc(config.endpoint)}" method="post"` : ''}>
+        <input type="hidden" name="_subject" value="${esc(assunto || 'Contacto pelo site')}" />
+        <div class="campo">
+          <label for="f-nome">Nome</label>
+          <input id="f-nome" name="nome" type="text" required autocomplete="name" />
+        </div>
+        <div class="campo">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div class="campo">
+          <label for="f-telefone">Telefone <span class="opcional">(opcional)</span></label>
+          <input id="f-telefone" name="telefone" type="tel" autocomplete="tel" />
+        </div>
+        <div class="campo">
+          <label for="f-curso">Curso</label>
+          <select id="f-curso" name="curso">${opcoes}</select>
+        </div>
+        <div class="campo">
+          <label for="f-percurso">Percurso <span class="opcional">(só para Modelação BIM)</span></label>
+          <select id="f-percurso" name="percurso">
+            <option value="Ainda não sei">Ainda não sei</option>
+            <option value="Revit">Revit</option>
+            <option value="ArchiCAD">ArchiCAD</option>
+          </select>
+        </div>
+        <div class="campo campo-largo">
+          <label for="f-mensagem">Mensagem <span class="opcional">(opcional)</span></label>
+          <textarea id="f-mensagem" name="mensagem" rows="4" placeholder="Conta-nos o teu percurso ou o que procuras."></textarea>
+        </div>
+        <div class="campo campo-largo consentimento">
+          <label><input type="checkbox" name="consentimento" required /> Autorizo o contacto por email sobre esta candidatura.</label>
+        </div>
+        <div class="campo campo-largo">
+          <button class="btn btn-primary btn-lg" type="submit">Enviar candidatura <i class="ico ico-arrow" aria-hidden="true"></i></button>
+          <p class="form-nota" role="status"></p>
+        </div>
+      </form>`;
+  }
+
   /* ---------- Aplicar ---------- */
 
   const alvoCabecalho = document.querySelector('[data-componente="cabecalho"]');
@@ -253,6 +338,9 @@
 
   const alvoRodape = document.querySelector('[data-componente="rodape"]');
   if (alvoRodape) alvoRodape.innerHTML = rodape();
+
+  const alvoFormulario = document.querySelector('[data-componente="formulario"]');
+  if (alvoFormulario) alvoFormulario.innerHTML = formulario(alvoFormulario.dataset.assunto);
 
   document.querySelectorAll('[data-lista]').forEach((alvo) => {
     const chave = alvo.dataset.lista;
@@ -262,6 +350,9 @@
     if (chave === 'forum-temas') lista = (dados.forum || {}).temas;
     if (chave === 'forum-passos') lista = (dados.forum || {}).passos;
     if (chave === 'numeros' || chave === 'instituicoes') lista = site[chave];
+    if (chave === 'curso-info') lista = (dados.curso || {}).info;
+    if (chave === 'curso-comum') lista = (dados.curso || {}).comum;
+    if (chave === 'curso-percursos') lista = (dados.curso || {}).percursos;
 
     const construtor = construtores[tipo] || construtores[chave];
     if (!lista || !construtor) return;

@@ -33,7 +33,8 @@ window.CONTEUDO.programas = [
 
 window.CONTEUDO.especializacao = [
   {
-    imagem: 'assets/img/curso-revit.svg',
+    imagem: 'https://istar.iscte-iul.pt/cursorevit/wp-content/uploads/sites/2/2018/07/ISCTERevit.png',
+    imagemAjuste: 'contain',
     titulo: 'Modelação BIM: Revit',
     texto: 'Fundamentos BIM e ISO 19650 no tronco comum, seguidos de modelação completa em Revit.',
     etiqueta: 'Inscrições abertas',

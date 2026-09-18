@@ -2171,3 +2171,9 @@ p {
   padding: clamp(1.5rem, 4vw, 3rem);
   background: #ffffff;
 }
+
+.card-media img[data-ajuste='contain'] {
+  object-fit: contain;
+  padding: 1.2rem 1.5rem;
+  background: #ffffff;
+}

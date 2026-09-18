@@ -188,7 +188,7 @@
       lista
         .map(
           (c, i) => `<article class="card reveal">
-            ${c.imagem ? `<div class="card-media"><img src="${esc(c.imagem)}" alt="" loading="lazy" /></div>` : ''}
+            ${c.imagem ? `<div class="card-media"><img src="${esc(c.imagem)}" alt=""${c.imagemAjuste ? ` data-ajuste="${esc(c.imagemAjuste)}"` : ''} loading="lazy" /></div>` : ''}
             <span class="card-num">${String(i + 1).padStart(2, '0')}${c.etiqueta ? `<em class="card-tag">${esc(c.etiqueta)}</em>` : ''}</span>
             <h3>${esc(c.titulo)}</h3>
             <p>${esc(c.texto)}</p>

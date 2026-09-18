@@ -1874,3 +1874,60 @@ p {
   gap: 1.5rem;
   flex-wrap: wrap;
 }
+
+/* Faixa horizontal de cartões */
+
+.faixa {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(290px, 1fr);
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0;
+  padding-bottom: 0.8rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.faixa > * {
+  scroll-snap-align: start;
+}
+
+.faixa::-webkit-scrollbar {
+  height: 6px;
+}
+
+.faixa::-webkit-scrollbar-track {
+  background: var(--line);
+}
+
+.faixa::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+}
+
+.faixa::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan);
+}
+
+.section-head .carousel-nav {
+  margin-left: auto;
+}
+
+@media (max-width: 860px) {
+  .faixa {
+    grid-auto-columns: minmax(260px, 80%);
+    margin-inline: -1.5rem;
+    padding-inline: 1.5rem;
+  }
+}
+
+.icon-btn[disabled] {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.icon-btn[disabled]:hover {
+  background: transparent;
+  border-color: var(--line);
+}

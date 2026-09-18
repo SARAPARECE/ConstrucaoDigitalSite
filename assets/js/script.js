@@ -226,6 +226,44 @@ if (themeToggle) {
   restart();
 })();
 
+/* Faixas horizontais de cartões */
+(function () {
+  document.querySelectorAll('.faixa').forEach((faixa) => {
+    const cabecalho = faixa.previousElementSibling;
+    const anterior = cabecalho && cabecalho.querySelector('.faixa-anterior');
+    const seguinte = cabecalho && cabecalho.querySelector('.faixa-seguinte');
+
+    function passo() {
+      const primeiro = faixa.firstElementChild;
+      if (!primeiro) return faixa.clientWidth;
+      const estilo = window.getComputedStyle(faixa);
+      return primeiro.getBoundingClientRect().width + parseFloat(estilo.columnGap || estilo.gap || 24);
+    }
+
+    function mover(direcao) {
+      faixa.scrollBy({ left: direcao * passo(), behavior: 'smooth' });
+    }
+
+    if (anterior) anterior.addEventListener('click', () => mover(-1));
+    if (seguinte) seguinte.addEventListener('click', () => mover(1));
+
+    function estado() {
+      const fim = faixa.scrollWidth - faixa.clientWidth - 2;
+      if (anterior) anterior.disabled = faixa.scrollLeft <= 2;
+      if (seguinte) seguinte.disabled = faixa.scrollLeft >= fim;
+    }
+
+    faixa.addEventListener('scroll', estado, { passive: true });
+    window.addEventListener('resize', estado);
+    estado();
+
+    faixa.addEventListener('keydown', (evento) => {
+      if (evento.key === 'ArrowRight') { evento.preventDefault(); mover(1); }
+      if (evento.key === 'ArrowLeft') { evento.preventDefault(); mover(-1); }
+    });
+  });
+})();
+
 /* Formulário de candidatura */
 (function () {
   const form = document.querySelector('.formulario');

@@ -287,57 +287,31 @@ document.querySelectorAll('.formulario').forEach(function (form) {
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
-/* Monograma que desliza na diagonal entre o topo e a faixa de números.
-   A posição é calculada a partir do corte do topo (--corte), por isso
-   acompanha sempre a inclinação da diagonal, em qualquer largura. */
+/* Monograma do fundo: desliza devagar enquanto se faz scroll pelo topo. */
 (function () {
-  const marca = document.querySelector('.cd-desliza');
+  const marca = document.querySelector('.hero-marca');
   const topo = document.querySelector('.hero');
   if (!marca || !topo) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const paradoPorPreferencia = window.matchMedia
-    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    : false;
+  let pedido = null;
 
-  const REPOUSO = 0.58;   // posição de descanso ao longo da diagonal
-  const PERCURSO = 0.3;   // quanto desliza ao longo do scroll do topo
-  let entrou = false;
-
-  function colocar(fracao) {
+  function mover() {
+    pedido = null;
     const r = topo.getBoundingClientRect();
-    const corte = parseFloat(getComputedStyle(topo).getPropertyValue('--corte')) || 12;
-    const queda = (r.height * corte) / 100;
-    const margem = marca.offsetWidth * 0.75 || 60;
-    const x = Math.min(Math.max(fracao * r.width, margem), r.width - margem);
-    const t = x / r.width;
-    const y = -queda * t;                      // relativo ao topo da faixa de números
-    const angulo = (-Math.atan2(queda, r.width) * 180) / Math.PI;
-    marca.style.left = x.toFixed(1) + 'px';
-    marca.style.top = y.toFixed(1) + 'px';
-    marca.style.transform = 'translate(-50%, -50%) rotate(' + angulo.toFixed(2) + 'deg)';
-  }
-
-  function fracaoAtual() {
-    if (paradoPorPreferencia) return REPOUSO;
-    const r = topo.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > window.innerHeight) return;
     const andamento = Math.min(Math.max(-r.top / Math.max(r.height, 1), 0), 1);
-    return REPOUSO + PERCURSO * andamento;
+    marca.style.transform =
+      'translateY(calc(-50% + ' + (andamento * 70).toFixed(1) + 'px)) translateX(' +
+      (andamento * -46).toFixed(1) + 'px)';
   }
 
-  function atualizar() {
-    colocar(fracaoAtual());
-  }
-
-  /* entrada: aparece um pouco atrás e escorrega até ao lugar */
-  colocar(paradoPorPreferencia ? REPOUSO : REPOUSO - 0.22);
-  window.requestAnimationFrame(function () {
-    marca.classList.add('visivel');
-    window.setTimeout(function () {
-      atualizar();
-      entrou = true;
-    }, 120);
-  });
-
-  window.addEventListener('scroll', function () { if (entrou) atualizar(); }, { passive: true });
-  window.addEventListener('resize', atualizar);
+  window.addEventListener(
+    'scroll',
+    function () {
+      if (pedido === null) pedido = window.requestAnimationFrame(mover);
+    },
+    { passive: true }
+  );
+  mover();
 })();

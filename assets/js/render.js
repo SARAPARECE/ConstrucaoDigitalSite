@@ -416,6 +416,16 @@
     if (ajuste) alvo.setAttribute('data-ajuste', ajuste);
   });
 
+  document.querySelectorAll('[data-inscricao]').forEach((alvo) => {
+    const destino = (dados.curso || {}).inscricao;
+    if (!destino) return;
+    alvo.setAttribute('href', destino);
+    if (/^https?:/i.test(destino)) {
+      alvo.setAttribute('target', '_blank');
+      alvo.setAttribute('rel', 'noreferrer');
+    }
+  });
+
   document.querySelectorAll('[data-ligacao]').forEach((alvo) => {
     const caminho = alvo.dataset.ligacao.split('.');
     let valor = dados;

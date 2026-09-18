@@ -67,6 +67,9 @@ window.CONTEUDO.cursos = {
     nome: 'Modelação BIM: Revit',
     destaque: 'Revit',
     pagina: 'curso-revit.html',
+    /* Onde se faz a inscrição. Quando o curso tiver página no Iscte-Meta Digital,
+       troca por esse endereço. */
+    inscricao: 'https://isctemetadigital.pt/formacao/',
     cartao: 'Fundamentos BIM e ISO 19650 no primeiro módulo, seguidos de modelação completa em Revit.',
     estado: 'Inscrições abertas',
     resumo:
@@ -133,6 +136,7 @@ window.CONTEUDO.cursos = {
     nome: 'Modelação BIM: Archicad',
     destaque: 'Archicad',
     pagina: 'curso-archicad.html',
+    inscricao: 'https://isctemetadigital.pt/formacao/',
     cartao: 'O mesmo percurso e o mesmo módulo comum, com a modelação feita em Archicad.',
     estado: 'Inscrições abertas',
     resumo:

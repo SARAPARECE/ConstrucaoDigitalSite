@@ -27,8 +27,7 @@ window.CONTEUDO.site = {
       href: 'index.html#especializacao',
       sub: [
         { texto: 'Modelação BIM: Revit', href: 'curso-revit.html' },
-        { texto: 'Modelação BIM: Archicad', href: 'curso-archicad.html' },
-        { texto: 'Candidatura', href: 'candidatura.html' }
+        { texto: 'Modelação BIM: Archicad', href: 'curso-archicad.html' }
       ]
     },
     { texto: 'Notícias', href: 'index.html#noticias' },

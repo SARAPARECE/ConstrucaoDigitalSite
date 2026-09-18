@@ -2569,6 +2569,10 @@ p {
 }
 
 @media (max-width: 860px) {
+  .hero-modelo {
+    background-position: 82% center;
+  }
+
   .hero-veu {
     background: linear-gradient(180deg, rgba(6, 10, 20, 0.78) 0%, rgba(6, 10, 20, 0.86) 55%, rgba(6, 10, 20, 0.92) 100%);
   }

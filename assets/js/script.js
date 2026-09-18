@@ -117,24 +117,71 @@ if ('IntersectionObserver' in window) {
   function show(index) {
     current = (index + slides.length) % slides.length;
     track.style.transform = `translateX(-${current * 100}%)`;
+    slides.forEach((slide, position) => {
+      slide.setAttribute('aria-hidden', String(position !== current));
+      slide.querySelectorAll('a, button').forEach((alvo) => {
+        if (position === current) alvo.removeAttribute('tabindex');
+        else alvo.setAttribute('tabindex', '-1');
+      });
+    });
     if (dots) {
       Array.from(dots.children).forEach((dot, position) => {
         dot.setAttribute('aria-selected', String(position === current));
+        /* reinicia a barra de progresso do indicador ativo */
+        dot.classList.remove('sem-animacao');
+        void dot.offsetWidth;
+        if (!timer) dot.classList.add('sem-animacao');
       });
     }
   }
 
+  function parar() {
+    window.clearInterval(timer);
+    timer = null;
+    if (dots) Array.from(dots.children).forEach((dot) => dot.classList.add('sem-animacao'));
+  }
+
   function restart() {
     window.clearInterval(timer);
-    if (!reducedMotion) timer = window.setInterval(() => show(current + 1), 7000);
+    if (reducedMotion) return parar();
+    if (dots) Array.from(dots.children).forEach((dot) => dot.classList.remove('sem-animacao'));
+    timer = window.setInterval(() => show(current + 1), 6500);
   }
 
   if (previous) previous.addEventListener('click', () => { show(current - 1); restart(); });
   if (next) next.addEventListener('click', () => { show(current + 1); restart(); });
-  carousel.addEventListener('mouseenter', () => window.clearInterval(timer));
+  carousel.addEventListener('mouseenter', parar);
   carousel.addEventListener('mouseleave', restart);
-  carousel.addEventListener('focusin', () => window.clearInterval(timer));
+  carousel.addEventListener('focusin', parar);
   carousel.addEventListener('focusout', restart);
+  document.addEventListener('visibilitychange', () => (document.hidden ? parar() : restart()));
+
+  /* Ver o vídeo: troca a imagem de fundo pelo vídeo e pára a rotação */
+  carousel.addEventListener('click', (evento) => {
+    const botao = evento.target.closest('.slide-play');
+    if (!botao) return;
+    const painel = botao.closest('.slide-inner');
+    const endereco = painel && painel.dataset.video;
+    if (!painel || !endereco) return;
+    painel.querySelector('.slide-media').innerHTML =
+      '<iframe src="' + endereco + '?autoplay=1&rel=0&playsinline=1" title="Vídeo do destaque" ' +
+      'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    painel.classList.add('a-tocar');
+    parar();
+  });
+
+  /* Arrastar com o dedo */
+  let inicioX = null;
+  carousel.addEventListener('pointerdown', (evento) => { inicioX = evento.clientX; parar(); });
+  carousel.addEventListener('pointerup', (evento) => {
+    if (inicioX === null) return;
+    const delta = evento.clientX - inicioX;
+    if (Math.abs(delta) > 45) show(current + (delta < 0 ? 1 : -1));
+    inicioX = null;
+    restart();
+  });
+  carousel.addEventListener('pointercancel', () => { inicioX = null; restart(); });
+
   show(0);
   restart();
 })();

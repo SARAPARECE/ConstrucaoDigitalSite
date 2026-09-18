@@ -134,19 +134,24 @@
       `<div class="carousel" aria-roledescription="carrossel" aria-label="Destaques">
         <ul class="carousel-track">
           ${lista
-            .map(
-              (d, i) => `<li class="slide" role="group" aria-roledescription="slide" aria-label="${i + 1} de ${lista.length}">
-              <article class="slide-inner">
-                <div class="slide-media">${d.video ? `<iframe src="${esc(d.video)}?autoplay=1&mute=1&playsinline=1&rel=0" title="${esc(d.titulo)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>` : `<img src="${esc(d.imagem)}" alt="" loading="lazy" />`}</div>
-                <div class="slide-body">
+            .map((d, i) => {
+              const idVideo = d.video ? (d.video.match(/embed\/([\w-]+)/) || [])[1] : '';
+              const fundo = d.imagem || (idVideo ? `https://img.youtube.com/vi/${idVideo}/maxresdefault.jpg` : '');
+              return `<li class="slide" role="group" aria-roledescription="slide" aria-label="${i + 1} de ${lista.length}">
+              <article class="slide-inner"${d.video ? ` data-video="${esc(d.video)}"` : ''}>
+                <div class="slide-media">${fundo ? `<img src="${esc(fundo)}" alt="" loading="lazy" />` : ''}</div>
+                <div class="slide-conteudo">
                   <div class="slide-meta"><span class="tag">${esc(d.tag)}</span>${d.estado ? `<span class="status-tag">${esc(d.estado)}</span>` : ''}</div>
                   <h3>${esc(d.titulo)}</h3>
                   <p>${esc(d.texto)}</p>
-                  ${botaoLink(d, 'link-arrow')}
+                  <div class="slide-acoes">
+                    ${d.link ? `<a class="btn btn-primary" href="${esc(d.link)}"${atributosLink(d.link)}>${esc(d.linkTexto || 'Saber mais')} <i class="ico ${externo(d.link) ? 'ico-ext' : 'ico-arrow'}" aria-hidden="true"></i></a>` : ''}
+                    ${d.video ? `<button class="btn btn-outline-light slide-play" type="button">Ver o vídeo</button>` : ''}
+                  </div>
                 </div>
               </article>
-            </li>`
-            )
+            </li>`;
+            })
             .join('')}
         </ul>
       </div>
@@ -215,9 +220,10 @@
     'curso-sobre': (lista) =>
       lista
         .map(
-          (b) => `<article class="bloco-texto reveal">
+          (b) => `<article class="bloco-texto reveal${b.itens ? ' bloco-largo' : ''}">
             <h3>${esc(b.titulo)}</h3>
-            <p>${esc(b.texto)}</p>
+            ${b.texto ? `<p>${esc(b.texto)}</p>` : ''}
+            ${b.itens ? `<ul class="checks">${b.itens.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>` : ''}
           </article>`
         )
         .join(''),

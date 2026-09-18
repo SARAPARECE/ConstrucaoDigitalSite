@@ -19,6 +19,8 @@
   /* Páginas interiores vivem em pastas (ex.: /noticias/), por isso os caminhos
      relativos precisam de subir um nível. O <body data-base="../"> diz qual. */
   const base = (document.body && document.body.dataset.base) || '';
+/* Quem pede menos animação no sistema recebe a imagem fixa em vez do vídeo. */
+const comMovimento = !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
   function caminho(endereco) {
     if (!endereco) return endereco;
@@ -153,9 +155,14 @@
               return `<li class="slide" role="group" aria-roledescription="slide" aria-label="${i + 1} de ${lista.length}">
               <article class="slide-inner"${d.video ? ` data-video="${esc(d.video)}"` : ''}>
                 <div class="slide-media">${
-                  fundo
-                    ? `<img src="${esc(caminho(fundo))}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}${idVideo ? ` onerror="this.onerror=null;this.src='https://img.youtube.com/vi/${esc(idVideo)}/hqdefault.jpg'"` : ''} />`
-                    : ''
+                  d.videoFundo && comMovimento
+                    ? `<video class="video-fundo" autoplay muted loop playsinline preload="metadata" disableremoteplayback x-webkit-airplay="deny" tabindex="-1" aria-hidden="true"${fundo ? ` poster="${esc(caminho(fundo))}"` : ''}>
+                        <source src="${esc(caminho(d.videoFundo))}.webm" type="video/webm" />
+                        <source src="${esc(caminho(d.videoFundo))}.mp4" type="video/mp4" />
+                      </video>`
+                    : fundo
+                      ? `<img src="${esc(caminho(fundo))}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}${idVideo ? ` onerror="this.onerror=null;this.src='https://img.youtube.com/vi/${esc(idVideo)}/hqdefault.jpg'"` : ''} />`
+                      : ''
                 }</div>
                 <div class="slide-conteudo">
                   <div class="slide-meta"><span class="tag">${esc(d.tag)}</span>${d.estado ? `<span class="status-tag">${esc(d.estado)}</span>` : ''}</div>

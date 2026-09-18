@@ -50,9 +50,9 @@ window.CONTEUDO.formadores = [
   {
     nome: 'Pedro Ferreirinha',
     cargo:
-      'HCI Construções',
+      'Professor Auxiliar Convidado no Iscte-Sintra · Diretor de Inovação e Tecnologia na HCI Construções',
     texto:
-      'Traz para a formação a experiência de obra de uma empresa de construção. Recebeu os alunos da licenciatura numa obra de reabilitação, em turnos de grupos reduzidos, para trabalho de campo com profissionais do setor.',
+      'Arquiteto. Fundou o departamento VDC da HCI e, antes, o departamento BIM da Teixeira Duarte, onde esteve 18 anos. Coordenou a gestão de informação e a construção virtual de obras como a reabilitação do Centro de Arte Moderna da Gulbenkian, a nova sede da CGD e o EXEO Office Campus. Prémio de Excelência BIM em 2017 e 2021.',
     foto: 'assets/img/formador-ferreirinha.png',
     linkedin: 'https://www.linkedin.com/in/ferreirinha/'
   },

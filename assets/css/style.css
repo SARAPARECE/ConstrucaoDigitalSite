@@ -1941,10 +1941,10 @@ p {
 
 .curso-capa {
   margin: 0 0 1.5rem;
-  aspect-ratio: 21 / 8;
+  aspect-ratio: 21 / 9;
   overflow: hidden;
   border: 1px solid var(--line);
-  background: var(--hero-bg);
+  background: var(--surface);
 }
 
 .curso-capa img {

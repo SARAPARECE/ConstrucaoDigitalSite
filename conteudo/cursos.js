@@ -68,7 +68,9 @@ window.CONTEUDO.cursos = {
     destaque: 'Revit',
     resumo:
       'Curso prático de introdução à modelação BIM em Autodesk Revit. Em 32 horas, modela-se um edifício completo, da parede à paginação, com a gestão de informação segundo a ISO 19650 como base de trabalho.',
-    imagem: 'assets/img/curso-revit.svg',
+    /* Desenho axonométrico do edifício do Iscte, do curso de Revit do ISTAR.
+       Para não depender desse site, guarda o ficheiro em assets/img e troca o caminho. */
+    imagem: 'https://istar.iscte-iul.pt/cursorevit/wp-content/uploads/sites/2/2018/07/Fundo.png',
     info: infoCurso(),
     sobre: sobreCurso('Revit'),
     modulos: [

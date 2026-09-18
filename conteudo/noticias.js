@@ -17,6 +17,17 @@ window.CONTEUDO.noticias = [
   },
 
   {
+    tag: 'Licenciatura',
+    data: '23 abr 2026',
+    dataISO: '2026-04-23',
+    titulo: 'Alunos em obra de reabilitação com profissionais do setor',
+    texto:
+      'A ALPHALINK, a HCI Construções e a LIMSEN juntaram esforços para receber os alunos da licenciatura numa obra de reabilitação, em três turnos de grupos reduzidos ao longo de uma tarde.',
+    imagem: 'https://media.licdn.com/dms/image/v2/D4E22AQHmHQ-17xDdSg/feedshare-image-high-res/B4EZ28bDSgJkAU-/0/1776982701552?e=2147483647&v=beta&t=5fiN4g2S0EoLsBQ_id2fbpLn5H0efPbjRj-eFdRo4WM',
+    link: 'https://www.linkedin.com/posts/rresende_bim-reabilita%C3%A7%C3%A3o-educa%C3%A7%C3%A3o-activity-7453205662236459008--pA4',
+    linkTexto: 'Ver no LinkedIn'
+  },
+  {
     tag: 'Exemplo',
     data: '1 set 2026',
     dataISO: '2026-09-01',

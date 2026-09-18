@@ -406,6 +406,8 @@
     let valor = dados;
     caminho.forEach((parte) => (valor = valor && valor[parte]));
     if (typeof valor === 'string') alvo.setAttribute('src', valor);
+    const ajuste = (dados.curso || {}).imagemAjuste;
+    if (ajuste) alvo.setAttribute('data-ajuste', ajuste);
   });
 
   document.querySelectorAll('[data-ligacao]').forEach((alvo) => {

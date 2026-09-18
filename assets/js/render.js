@@ -153,11 +153,9 @@
               return `<li class="slide" role="group" aria-roledescription="slide" aria-label="${i + 1} de ${lista.length}">
               <article class="slide-inner"${d.video ? ` data-video="${esc(d.video)}"` : ''}>
                 <div class="slide-media">${
-                  idVideo
-                    ? `<iframe class="video-fundo" src="https://www.youtube-nocookie.com/embed/${esc(idVideo)}?autoplay=1&mute=1&loop=1&playlist=${esc(idVideo)}&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1" title="${esc(d.titulo)}" tabindex="-1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`
-                    : fundo
-                      ? `<img src="${esc(caminho(fundo))}" alt="" loading="lazy" />`
-                      : ''
+                  fundo
+                    ? `<img src="${esc(caminho(fundo))}" alt="" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}${idVideo ? ` onerror="this.onerror=null;this.src='https://img.youtube.com/vi/${esc(idVideo)}/hqdefault.jpg'"` : ''} />`
+                    : ''
                 }</div>
                 <div class="slide-conteudo">
                   <div class="slide-meta"><span class="tag">${esc(d.tag)}</span>${d.estado ? `<span class="status-tag">${esc(d.estado)}</span>` : ''}</div>
@@ -165,7 +163,7 @@
                   <p>${esc(d.texto)}</p>
                   <div class="slide-acoes">
                     ${d.link ? `<a class="btn btn-primary" href="${esc(d.link)}"${atributosLink(d.link)}>${esc(d.linkTexto || 'Saber mais')} <i class="ico ${externo(d.link) ? 'ico-ext' : 'ico-arrow'}" aria-hidden="true"></i></a>` : ''}
-                    ${d.video ? `<button class="btn btn-outline-light slide-play" type="button">Ver com som</button>` : ''}
+                    ${d.video ? `<button class="btn btn-outline-light slide-play" type="button">Ver o vídeo</button>` : ''}
                   </div>
                 </div>
               </article>

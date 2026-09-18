@@ -204,7 +204,7 @@
             texto: c.texto || curso.cartao || curso.resumo,
             etiqueta: c.etiqueta || curso.estado,
             link: c.link || curso.pagina,
-            linkTexto: c.linkTexto || (curso.pagina ? 'Ver o programa' : 'Estou interessado')
+            linkTexto: c.linkTexto || (curso.pagina ? 'Ver o programa' : 'Estou interessad@')
           };
 
           return `<article class="card reveal">

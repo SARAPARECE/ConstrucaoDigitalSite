@@ -24,6 +24,7 @@
   --radius-pill: 999px;
   --shadow-hover: 0 14px 30px rgba(10, 15, 31, 0.08);
   --container: 1200px;
+  --gutter: 1.5rem;
   color-scheme: light;
 }
 
@@ -97,7 +98,7 @@ p {
 }
 
 .container {
-  width: min(var(--container), calc(100% - 3rem));
+  width: min(var(--container), calc(100% - var(--gutter) * 2));
   margin-inline: auto;
 }
 
@@ -661,10 +662,16 @@ p {
   gap: 1.5rem;
 }
 
+.programs > * {
+  min-width: 0;
+}
+
 .program {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
+  min-width: 0;
+  overflow-wrap: break-word;
   padding: 2.2rem;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -1686,8 +1693,12 @@ p {
 }
 
 @media (max-width: 600px) {
+  :root {
+    --gutter: 1rem;
+  }
+
   .container {
-    width: calc(100% - 2rem);
+    width: calc(100% - var(--gutter) * 2);
   }
 
   .nav {
@@ -2287,8 +2298,8 @@ p {
 @media (max-width: 860px) {
   .faixa {
     grid-auto-columns: minmax(260px, 80%);
-    margin-inline: -1.5rem;
-    padding-inline: 1.5rem;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
   }
 }
 
@@ -2537,4 +2548,75 @@ p {
   transform: translate(-50%, -50%);
   pointer-events: none;
   border: 0;
+}
+
+/* Ecrãs pequenos: áreas de toque confortáveis e texto legível */
+
+@media (max-width: 600px) {
+  .brand {
+    min-height: 44px;
+  }
+
+  .link-arrow {
+    padding-top: 0.5rem;
+    padding-bottom: 4px;
+  }
+
+  .contact-email {
+    display: inline-block;
+    padding-block: 0.3rem;
+  }
+
+  .formulario input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+  }
+
+  .site-footer a {
+    display: inline-block;
+    padding-block: 0.4rem;
+  }
+
+  .carousel-dots button {
+    height: 32px;
+    background: transparent;
+    overflow: visible;
+  }
+
+  .carousel-dots button::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin-top: -2.5px;
+    height: 5px;
+    background: var(--line-strong);
+  }
+
+  .carousel-dots button:hover,
+  .carousel-dots button[aria-selected='true'] {
+    background: transparent;
+  }
+
+  .carousel-dots button[aria-selected='true']::after {
+    inset: 50% 0 auto 0;
+    margin-top: -2.5px;
+    height: 5px;
+  }
+
+  .status-tag,
+  .card-tag,
+  .ficha-etiqueta,
+  .modulo-etiqueta,
+  .modulo-num,
+  .course-status,
+  .site-footer small {
+    font-size: 0.78rem;
+  }
+
+  .program-meta {
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+  }
 }

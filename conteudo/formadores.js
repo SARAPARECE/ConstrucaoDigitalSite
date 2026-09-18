@@ -69,8 +69,10 @@ window.CONTEUDO.formadores = [
   },
   {
     nome: 'Luís Ribeirinho',
-    cargo: '',
-    texto: '',
+    cargo:
+      'Diretor do Centro de Inovação da TPF Consultores',
+    texto:
+      'Engenheiro civil, mestre em Geotecnia pela FEUP. Começou na Cenor, em projetos de barragens de terra e muros de suporte, e integrou a comissão que levou o BIM à empresa. No Centro de Inovação da TPF trabalha automação de processos, adoção do BIM e o uso de drones, câmaras 360 e realidade aumentada.',
     foto: 'assets/img/formador-luis-ribeirinho.png',
     linkedin: 'https://www.linkedin.com/in/lu%C3%ADs-ribeirinho-81a011118/'
   }

@@ -2544,9 +2544,9 @@ p {
 /* Imagem do modelo no topo da página inicial */
 
 .hero-modelo {
-  /* Para trocar a imagem, substitui assets/img/topo-modelo.jpg */
+  /* Para trocar a imagem, substitui assets/img/topo-modelo.webp */
   background:
-    url('../img/topo-modelo.jpg') center / cover no-repeat,
+    url('../img/topo-modelo.webp') right -3% bottom -6% / 42% auto no-repeat,
     var(--hero-bg);
 }
 
@@ -2570,7 +2570,8 @@ p {
 
 @media (max-width: 860px) {
   .hero-modelo {
-    background-position: 82% center;
+    background-size: 82% auto;
+    background-position: right -12% bottom -4%;
   }
 
   .hero-veu {

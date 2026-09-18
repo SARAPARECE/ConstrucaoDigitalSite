@@ -8,8 +8,7 @@ fazes Sync no VS Code e o GitHub Pages atualiza `construcaodigital.com`.
 
 ```
 index.html            página inicial
-recursos.html         índice de recursos (fórum, trabalhos, biblioteca)
-forum.html            fórum
+recursos.html         índice de recursos (trabalhos, biblioteca)
 trabalhos.html        trabalhos de antigos alunos
 biblioteca.html       biblioteca de recursos
 modelo-pagina.html    modelo para criar uma página nova
@@ -23,7 +22,6 @@ conteudo/             TODO O CONTEÚDO EDITÁVEL
   parceiros.js        logótipos dos parceiros
   trabalhos.js        trabalhos de antigos alunos
   biblioteca.js       recursos da biblioteca
-  forum.js            textos e passos do fórum
 
 assets/
   css/style.css       todo o aspeto do site

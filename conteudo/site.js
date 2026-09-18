@@ -30,7 +30,6 @@ window.CONTEUDO.site = {
       texto: 'Recursos',
       href: 'recursos.html',
       sub: [
-        { texto: 'Fórum & Ideias', href: 'forum.html' },
         { texto: 'Trabalhos de antigos alunos', href: 'trabalhos.html' },
         { texto: 'Biblioteca', href: 'biblioteca.html' }
       ]

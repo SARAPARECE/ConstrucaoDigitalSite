@@ -399,8 +399,6 @@
     const tipo = alvo.dataset.tipo || chave;
     let lista = dados[chave];
 
-    if (chave === 'forum-temas') lista = (dados.forum || {}).temas;
-    if (chave === 'forum-passos') lista = (dados.forum || {}).passos;
     if (chave === 'numeros' || chave === 'instituicoes') lista = site[chave];
     if (chave === 'curso-info') lista = (dados.curso || {}).info;
     if (chave === 'curso-comum') lista = (dados.curso || {}).comum;

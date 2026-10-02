@@ -506,8 +506,7 @@ p {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(900px 480px at 85% 10%, rgba(0, 167, 225, 0.22), transparent 60%),
-    radial-gradient(700px 420px at 10% 100%, rgba(13, 40, 194, 0.55), transparent 60%),
+    radial-gradient(900px 480px at 85% 10%, rgba(0, 167, 225, 0.14), transparent 60%),
     linear-gradient(90deg, rgba(10, 15, 31, 0.88) 0%, rgba(10, 15, 31, 0.7) 45%, rgba(10, 15, 31, 0.3) 100%),
     url('../img/topo-modelo.jpg') center / cover no-repeat;
   pointer-events: none;
@@ -516,7 +515,6 @@ p {
 @media (max-width: 860px) {
   .hero-modelo {
     background:
-      radial-gradient(700px 420px at 10% 100%, rgba(13, 40, 194, 0.55), transparent 60%),
       linear-gradient(180deg, rgba(10, 15, 31, 0.82) 0%, rgba(10, 15, 31, 0.72) 100%),
       url('../img/topo-modelo.jpg') center / cover no-repeat;
   }

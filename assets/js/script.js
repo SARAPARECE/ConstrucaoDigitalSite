@@ -84,10 +84,14 @@ if ('IntersectionObserver' in window) {
   revealElements.forEach((el) => el.classList.add('visible'));
 }
 
-/* Destaques: rotação automática, setas e indicadores. */
+/* Destaques: rotação automática, setas e indicadores.
+   Os destaques com imagem ficam o tempo de TEMPO_SLIDE; os que têm vídeo
+   ficam até o vídeo acabar. */
 (function () {
   const carousel = document.querySelector('.highlights .carousel');
   if (!carousel) return;
+
+  const TEMPO_SLIDE = 14000;
 
   const track = carousel.querySelector('.carousel-track');
   const slides = Array.from(carousel.querySelectorAll('.slide'));
@@ -97,8 +101,10 @@ if ('IntersectionObserver' in window) {
   if (!track || slides.length < 2) return;
 
   let current = 0;
-  let timer;
+  let timer = null;
+  let rodando = false;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const videos = slides.map((slide) => slide.querySelector('video'));
 
   if (dots) {
     slides.forEach((_, index) => {
@@ -114,6 +120,22 @@ if ('IntersectionObserver' in window) {
     });
   }
 
+  function duracaoAtual() {
+    const video = videos[current];
+    if (video && isFinite(video.duration) && video.duration > 0) return video.duration * 1000;
+    return TEMPO_SLIDE;
+  }
+
+  function atualizarBarra() {
+    if (!dots) return;
+    Array.from(dots.children).forEach((dot, position) => {
+      dot.style.setProperty('--duracao', (position === current ? duracaoAtual() : TEMPO_SLIDE) + 'ms');
+      dot.classList.remove('sem-animacao');
+      void dot.offsetWidth;
+      if (!rodando) dot.classList.add('sem-animacao');
+    });
+  }
+
   function show(index) {
     current = (index + slides.length) % slides.length;
     track.style.transform = `translateX(-${current * 100}%)`;
@@ -124,63 +146,104 @@ if ('IntersectionObserver' in window) {
         else alvo.setAttribute('tabindex', '-1');
       });
     });
+    /* o vídeo só corre no destaque visível, sempre desde o início */
+    videos.forEach((video, position) => {
+      if (!video) return;
+      if (position === current) {
+        video.currentTime = 0;
+        if (!reducedMotion) {
+          const tocar = video.play();
+          if (tocar && tocar.catch) tocar.catch(() => {});
+        }
+      } else {
+        video.pause();
+      }
+    });
     if (dots) {
       Array.from(dots.children).forEach((dot, position) => {
         dot.setAttribute('aria-selected', String(position === current));
-        /* reinicia a barra de progresso do indicador ativo */
-        dot.classList.remove('sem-animacao');
-        void dot.offsetWidth;
-        if (!timer) dot.classList.add('sem-animacao');
       });
+      atualizarBarra();
     }
   }
 
   function parar() {
-    window.clearInterval(timer);
+    window.clearTimeout(timer);
     timer = null;
+    rodando = false;
     if (dots) Array.from(dots.children).forEach((dot) => dot.classList.add('sem-animacao'));
   }
 
   function restart() {
-    window.clearInterval(timer);
+    window.clearTimeout(timer);
     if (reducedMotion) return parar();
-    if (dots) Array.from(dots.children).forEach((dot) => dot.classList.remove('sem-animacao'));
-    timer = window.setInterval(() => show(current + 1), 6500);
+    rodando = true;
+    atualizarBarra();
+    /* destaque com vídeo: avança quando o vídeo acaba (evento "ended") */
+    if (videos[current]) return;
+    timer = window.setTimeout(() => { show(current + 1); restart(); }, TEMPO_SLIDE);
   }
+
+  videos.forEach((video, position) => {
+    if (!video) return;
+    video.addEventListener('loadedmetadata', () => { if (position === current && rodando) atualizarBarra(); });
+    video.addEventListener('ended', () => {
+      if (position !== current || !rodando) return;
+      show(current + 1);
+      restart();
+    });
+    const botaoSom = video.parentElement.querySelector('.slide-som');
+    if (botaoSom) {
+      botaoSom.addEventListener('click', () => {
+        video.muted = !video.muted;
+        botaoSom.textContent = video.muted ? 'Ativar som' : 'Desativar som';
+        botaoSom.setAttribute('aria-pressed', String(!video.muted));
+        if (video.paused) {
+          const tocar = video.play();
+          if (tocar && tocar.catch) tocar.catch(() => {});
+        }
+      });
+    }
+  });
 
   if (previous) previous.addEventListener('click', () => { show(current - 1); restart(); });
   if (next) next.addEventListener('click', () => { show(current + 1); restart(); });
-  carousel.addEventListener('mouseenter', parar);
-  carousel.addEventListener('mouseleave', restart);
-  carousel.addEventListener('focusin', parar);
-  carousel.addEventListener('focusout', restart);
-  document.addEventListener('visibilitychange', () => (document.hidden ? parar() : restart()));
-
-  /* Ver o vídeo: troca a imagem de fundo pelo vídeo e pára a rotação */
-  carousel.addEventListener('click', (evento) => {
-    const botao = evento.target.closest('.slide-play');
-    if (!botao) return;
-    const painel = botao.closest('.slide-inner');
-    const endereco = painel && painel.dataset.video;
-    if (!painel || !endereco) return;
-    painel.querySelector('.slide-media').innerHTML =
-      '<iframe src="' + endereco + '?autoplay=1&rel=0&playsinline=1" title="Vídeo do destaque" ' +
-      'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
-    painel.classList.add('a-tocar');
-    parar();
+  /* o rato por cima pára só os destaques com imagem; o vídeo segue a tocar */
+  carousel.addEventListener('mouseenter', () => { if (!videos[current]) parar(); });
+  carousel.addEventListener('mouseleave', () => { if (!videos[current]) restart(); });
+  carousel.addEventListener('focusin', () => { if (!videos[current]) parar(); });
+  carousel.addEventListener('focusout', () => { if (!videos[current]) restart(); });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      parar();
+      const video = videos[current];
+      if (video) video.pause();
+    } else {
+      const video = videos[current];
+      if (video && !reducedMotion) {
+        const tocar = video.play();
+        if (tocar && tocar.catch) tocar.catch(() => {});
+      }
+      restart();
+    }
   });
 
-  /* Arrastar com o dedo */
+  /* Arrastar com o dedo (não conta cliques em botões, como o do som) */
   let inicioX = null;
-  carousel.addEventListener('pointerdown', (evento) => { inicioX = evento.clientX; parar(); });
+  carousel.addEventListener('pointerdown', (evento) => {
+    if (evento.target.closest('button, a')) return;
+    inicioX = evento.clientX;
+  });
   carousel.addEventListener('pointerup', (evento) => {
     if (inicioX === null) return;
     const delta = evento.clientX - inicioX;
-    if (Math.abs(delta) > 45) show(current + (delta < 0 ? 1 : -1));
+    if (Math.abs(delta) > 45) {
+      show(current + (delta < 0 ? 1 : -1));
+      restart();
+    }
     inicioX = null;
-    restart();
   });
-  carousel.addEventListener('pointercancel', () => { inicioX = null; restart(); });
+  carousel.addEventListener('pointercancel', () => { inicioX = null; });
 
   show(0);
   restart();

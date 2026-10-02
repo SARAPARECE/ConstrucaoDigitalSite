@@ -148,6 +148,24 @@
         <ul class="carousel-track">
           ${lista
             .map((d, i) => {
+              if (d.video && /\.(mp4|webm)$/i.test(d.video)) {
+                return `<li class="slide" role="group" aria-roledescription="slide" aria-label="${i + 1} de ${lista.length}">
+              <article class="slide-inner com-video">
+                <div class="slide-conteudo">
+                  <div class="slide-meta"><span class="tag">${esc(d.tag)}</span>${d.estado ? `<span class="status-tag">${esc(d.estado)}</span>` : ''}</div>
+                  <h3>${esc(d.titulo)}</h3>
+                  <p>${esc(d.texto)}</p>
+                  <div class="slide-acoes">
+                    ${d.link ? `<a class="btn btn-primary" href="${esc(d.link)}"${atributosLink(d.link)}>${esc(d.linkTexto || 'Saber mais')} <i class="ico ${externo(d.link) ? 'ico-ext' : 'ico-arrow'}" aria-hidden="true"></i></a>` : ''}
+                  </div>
+                </div>
+                <div class="slide-video-caixa">
+                  <video class="slide-video" src="${esc(caminho(d.video))}"${d.imagem ? ` poster="${esc(caminho(d.imagem))}"` : ''} muted playsinline preload="metadata" aria-label="${esc(d.titulo)}"></video>
+                  <button class="slide-som" type="button" aria-pressed="false">Ativar som</button>
+                </div>
+              </article>
+            </li>`;
+              }
               const idVideo = d.video ? (d.video.match(/embed\/([\w-]+)/) || [])[1] : '';
               const fundo = d.imagem || (idVideo ? `https://img.youtube.com/vi/${idVideo}/maxresdefault.jpg` : '');
               return `<li class="slide" role="group" aria-roledescription="slide" aria-label="${i + 1} de ${lista.length}">

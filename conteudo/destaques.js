@@ -10,7 +10,8 @@ window.CONTEUDO.destaques = [
     titulo: 'Construção Digital',
     texto:
       'Percurso avançado em OpenBIM, interoperabilidade e desenvolvimento de software para o setor da construção.',
-    video: 'https://www.youtube-nocookie.com/embed/xBzATyzaaMs',
+    video: 'assets/video/graduacao-construcao-digital.mp4',
+    imagem: 'assets/img/destaque-video.jpg',
     link: 'https://iscte-iul.pt/cursos/curso/0536',
     linkTexto: 'Ver o mestrado'
   },

@@ -83,7 +83,6 @@ window.CONTEUDO.site = {
   numeros: [
     { valor: '2', contar: 2, legenda: 'Cursos de formação superior' },
     { valor: '5', contar: 5, legenda: 'Cursos de especialização' },
-    { valor: '100%', contar: 100, sufixo: '%', legenda: 'Foco em competências digitais' },
-    { valor: 'AECO', legenda: 'Setor em transformação' }
+    { valor: '100%', contar: 100, sufixo: '%', legenda: 'Foco em competências digitais para a construção' }
   ]
 };

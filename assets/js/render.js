@@ -282,7 +282,10 @@
               <h3>${esc(f.nome)}</h3>
               ${f.cargo ? `<p class="teacher-role">${esc(f.cargo)}</p>` : ''}
               ${f.texto ? `<p>${esc(f.texto)}</p>` : ''}
-              ${f.linkedin ? `<a class="link-arrow" href="${esc(f.linkedin)}" target="_blank" rel="noreferrer">LinkedIn <i class="ico ico-ext" aria-hidden="true"></i></a>` : ''}
+              <div class="teacher-links">
+                ${f.perfil ? `<a class="link-arrow" href="${esc(f.perfil)}" target="_blank" rel="noreferrer">Perfil científico <i class="ico ico-ext" aria-hidden="true"></i></a>` : ''}
+                ${f.linkedin ? `<a class="link-arrow" href="${esc(f.linkedin)}" target="_blank" rel="noreferrer">LinkedIn <i class="ico ico-ext" aria-hidden="true"></i></a>` : ''}
+              </div>
             </div>
           </article>`
         )
@@ -316,6 +319,53 @@
             <p>${esc(r.texto)}</p>
             ${botaoLink(r, 'link-arrow')}
           </article>`
+        )
+        .join(''),
+
+    factos: (lista) =>
+      lista
+        .map(
+          (f) => `<div class="facto reveal">
+            <strong>${esc(f.valor)}</strong>
+            <span>${esc(f.legenda)}</span>
+          </div>`
+        )
+        .join(''),
+
+    casos: (lista) =>
+      lista
+        .map(
+          (c) => `<article class="card caso reveal">
+            <span class="card-tag">${esc(c.tipo)}</span>
+            <p class="caso-meta"><strong>${esc(c.entidade)}</strong> · ${esc(c.ano)}</p>
+            <h3>${esc(c.titulo)}</h3>
+            <p>${esc(c.texto)}</p>
+            ${botaoLink(c, 'link-arrow')}
+          </article>`
+        )
+        .join(''),
+
+    linhas: (lista) =>
+      lista
+        .map(
+          (l, i) => `<article class="card reveal">
+            <span class="card-num">${String(i + 1).padStart(2, '0')}</span>
+            <h3>${esc(l.titulo)}</h3>
+            <p>${esc(l.texto)}</p>
+          </article>`
+        )
+        .join(''),
+
+    publicacoes: (lista) =>
+      lista
+        .map(
+          (p) => `<li class="publicacao reveal">
+            <span class="publicacao-ano">${esc(p.ano)}</span>
+            <div>
+              <a href="${esc(p.link)}" target="_blank" rel="noreferrer">${esc(p.titulo)} <i class="ico ico-ext" aria-hidden="true"></i></a>
+              <span>${esc(p.autores)} · <em>${esc(p.revista)}</em></span>
+            </div>
+          </li>`
         )
         .join(''),
 
@@ -436,6 +486,12 @@
       lista = nomes
         .map((nome) => (dados.formadores || []).find((formador) => formador.nome === nome))
         .filter(Boolean);
+    }
+
+    /* data-filtro="grupo:carreira" mostra só os itens com esse valor */
+    if (lista && alvo.dataset.filtro) {
+      const [campo, valor] = alvo.dataset.filtro.split(':');
+      lista = lista.filter((item) => String(item[campo]) === valor);
     }
 
     const construtor = construtores[tipo] || construtores[chave];

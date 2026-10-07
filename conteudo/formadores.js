@@ -1,4 +1,6 @@
-/* Formadores. A foto pode ser .jpg ou .png em assets/img.
+/* Formadores. "grupo": 'carreira' (docentes de carreira do Iscte) ou 'convidado'.
+   "perfil" (opcional): página científica, por exemplo no Ciência-Iscte.
+   A foto pode ser .jpg ou .png em assets/img.
    Sem foto, usa um avatar com as iniciais (assets/img/formador-*.svg). */
 
 window.CONTEUDO = window.CONTEUDO || {};
@@ -6,6 +8,7 @@ window.CONTEUDO = window.CONTEUDO || {};
 window.CONTEUDO.formadores = [
   {
     nome: 'Leonor Domingos',
+    grupo: 'carreira',
     cargo:
       'Professora Auxiliar no Iscte-Sintra · Diretora da licenciatura',
     texto:
@@ -15,15 +18,18 @@ window.CONTEUDO.formadores = [
   },
   {
     nome: 'Ricardo Resende',
+    grupo: 'carreira',
     cargo:
       'Professor Associado · Coordenador do Mestrado e da Pós-graduação em Construção Digital',
     texto:
       'Investigador do ISTAR-Iscte, coordenou a criação da licenciatura e é cofundador da Zumer. Coordenou o projeto SECClasS e integra o Conselho Diretivo da buildingSMART Portugal. Trabalha BIM, automação de processos e análise de ciclo de vida.',
     foto: 'assets/img/formador-ricardo-resende.jpg',
-    linkedin: 'https://www.linkedin.com/in/rresende/'
+    linkedin: 'https://www.linkedin.com/in/rresende/',
+    perfil: 'https://ciencia.iscte-iul.pt/authors/ricardo-resende/cv'
   },
   {
     nome: 'Sara Parece',
+    grupo: 'convidado',
     cargo:
       'Assistente Convidada no Iscte-Sintra · Investigadora do ISTAR-Iscte',
     texto:
@@ -33,6 +39,7 @@ window.CONTEUDO.formadores = [
   },
   {
     nome: 'Tiago Pedro Costa',
+    grupo: 'convidado',
     cargo:
       'Professor Auxiliar Convidado no Iscte · Cofundador e COO da Zumer',
     texto:
@@ -42,6 +49,7 @@ window.CONTEUDO.formadores = [
   },
   {
     nome: 'Miguel Torres Curado',
+    grupo: 'convidado',
     cargo:
       'Professor Auxiliar Convidado no Iscte-Sintra · Investigador do ISTAR-Iscte',
     texto:
@@ -51,6 +59,7 @@ window.CONTEUDO.formadores = [
   },
   {
     nome: 'Pedro Ferreirinha',
+    grupo: 'convidado',
     cargo:
       'Professor Auxiliar Convidado no Iscte-Sintra · Diretor de Inovação e Tecnologia na HCI Construções',
     texto:
@@ -60,6 +69,7 @@ window.CONTEUDO.formadores = [
   },
   {
     nome: 'Sébastien Pinto da França Roux',
+    grupo: 'convidado',
     cargo:
       'Professor Auxiliar Convidado no Iscte-Sintra · Sócio fundador e CTO da Limsen',
     texto:
@@ -69,6 +79,7 @@ window.CONTEUDO.formadores = [
   },
   {
     nome: 'Luís Ribeirinho',
+    grupo: 'convidado',
     cargo:
       'Diretor do Centro de Inovação da TPF Consultores',
     texto:

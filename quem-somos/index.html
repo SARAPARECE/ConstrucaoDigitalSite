@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-PT" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quem somos | Construção Digital</title>
+    <meta name="description" content="A Comunidade de Construção Digital do Iscte-Sintra: equipa, formação, projetos com organizações e investigação." />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="../assets/logos/construcao-digital_logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body data-base="../">
+    <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+
+    <header class="site-header" id="topo" data-componente="cabecalho"></header>
+
+    <section class="hero hero-sm" aria-labelledby="page-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dash">_</span> Comunidade</p>
+          <h1 id="page-title">
+            <span class="h1-brand">Quem somos</span>
+            <span class="h1-tail">docentes, investigadores e profissionais</span>
+          </h1>
+          <p class="lead">Uma comunidade baseada no Iscte-Sintra, que junta docentes e investigadores de carreira a profissionais convidados da indústria. Ensinamos o que praticamos: formação, projetos com organizações e investigação.</p>
+          <ul class="pill-wrap ancoras" aria-label="Nesta página">
+            <li><a class="pill" href="#equipa">Equipa</a></li>
+            <li><a class="pill" href="#formacao">Formação</a></li>
+            <li><a class="pill" href="#projetos">Projetos com organizações</a></li>
+            <li><a class="pill" href="#investigacao">Investigação</a></li>
+            <li><a class="pill" href="#parceiros">Parceiros</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <main id="conteudo">
+      <section id="equipa" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2><span class="dash">_</span> Docentes de carreira</h2>
+            <p>Professores do Iscte que coordenam os programas e a investigação da comunidade.</p>
+          </div>
+          <div class="teachers" data-lista="formadores" data-filtro="grupo:carreira"></div>
+
+          <div class="section-head subsecao">
+            <h2><span class="dash">_</span> Docentes e formadores convidados</h2>
+            <p>Profissionais e investigadores que trazem a prática das empresas para as aulas.</p>
+          </div>
+          <div class="teachers" data-lista="formadores" data-filtro="grupo:convidado"></div>
+        </div>
+      </section>
+
+      <section id="formacao" class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <h2><span class="dash">_</span> Formação</h2>
+            <p>Cursos de inscrição aberta e formação à medida para empresas, organizados pelo Iscte.</p>
+          </div>
+          <h3 class="subtitulo">Cursos de inscrição aberta</h3>
+          <div class="factos" data-lista="formacaoAberta" data-tipo="factos"></div>
+          <h3 class="subtitulo">Formação à medida</h3>
+          <div class="cards-3" data-lista="formacaoMedida" data-tipo="casos"></div>
+        </div>
+      </section>
+
+      <section id="projetos" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2><span class="dash">_</span> Projetos com organizações</h2>
+            <p>Transferência de tecnologia, consultoria e investigação aplicada com empresas e com o próprio Iscte.</p>
+          </div>
+          <div class="cards-3" data-lista="projetosOrganizacoes" data-tipo="casos"></div>
+        </div>
+      </section>
+
+      <section id="investigacao" class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <h2><span class="dash">_</span> Investigação</h2>
+            <p>Um objeto comum: a informação sobre o ambiente construído, desde que é capturada até ser usada na gestão dos edifícios.</p>
+          </div>
+          <h3 class="subtitulo">Linhas de investigação</h3>
+          <div class="cards-4" data-lista="linhasInvestigacao" data-tipo="linhas"></div>
+
+          <h3 class="subtitulo">Projetos financiados</h3>
+          <div class="cards-4" data-lista="projetosInvestigacao" data-tipo="casos"></div>
+
+          <h3 class="subtitulo">Publicações selecionadas</h3>
+          <ol class="publicacoes" data-lista="publicacoes"></ol>
+        </div>
+      </section>
+
+      <section id="parceiros" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2><span class="dash">_</span> Parceiros</h2>
+            <p>Rede colaborativa para elevar a qualidade da formação e empregabilidade.</p>
+          </div>
+          <div class="logo-grid" data-lista="parceiros" data-tipo="logotipos"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-componente="rodape"></footer>
+
+    <!-- Conteúdo do site. Para mudar textos ou acrescentar itens, edita estes ficheiros. -->
+    <script src="../conteudo/site.js"></script>
+    <script src="../conteudo/formadores.js"></script>
+    <script src="../conteudo/quemsomos.js"></script>
+    <script src="../conteudo/parceiros.js"></script>
+    <script src="../assets/js/render.js"></script>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>

@@ -33,8 +33,17 @@ window.CONTEUDO.site = {
         { texto: 'Mestrado e pós-graduação', href: '#mestrado' }
       ]
     },
+    {
+      texto: 'Quem somos',
+      href: 'quem-somos/',
+      sub: [
+        { texto: 'Equipa', href: 'quem-somos/#equipa' },
+        { texto: 'Formação e projetos', href: 'quem-somos/#projetos' },
+        { texto: 'Investigação', href: 'quem-somos/#investigacao' },
+        { texto: 'Parceiros', href: 'quem-somos/#parceiros' }
+      ]
+    },
     { texto: 'Notícias', href: 'noticias/' },
-    { texto: 'Formadores', href: '#formadores' },
     {
       texto: 'Recursos',
       href: 'recursos/',
@@ -43,7 +52,6 @@ window.CONTEUDO.site = {
         { texto: 'Biblioteca', href: 'biblioteca/' }
       ]
     },
-    { texto: 'Parceiros', href: '#parceiros' },
     { texto: 'Contacto', href: '#contacto', destaque: true }
   ],
 

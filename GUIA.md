@@ -14,6 +14,7 @@ curso-archicad/       curso de Archicad
 curso-bim-obra/       BIM para obra
 curso-software-construcao/
 curso-ciclo-vida-bim/
+quem-somos/           equipa, formação, projetos, investigação
 recursos/             índice de recursos
 trabalhos/            trabalhos de antigos alunos
 biblioteca/           biblioteca
@@ -26,7 +27,8 @@ conteudo/             TODO O CONTEÚDO EDITÁVEL
   cursos.js           cursos com página própria (programa, ficha, imagem)
   programas.js        licenciatura, mestrado e lista de especialização
   noticias.js         notícias
-  formadores.js       formadores
+  formadores.js       formadores (grupo: 'carreira' ou 'convidado')
+  quemsomos.js        formação dada, projetos com organizações, investigação, publicações
   parceiros.js        logótipos dos parceiros
   trabalhos.js        trabalhos de antigos alunos
   biblioteca.js       recursos da biblioteca

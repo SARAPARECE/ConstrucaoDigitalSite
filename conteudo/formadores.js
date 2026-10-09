@@ -44,7 +44,7 @@ window.CONTEUDO.formadores = [
       'Professor Auxiliar Convidado no Iscte · Cofundador e COO da Zumer',
     texto:
       'Mais de dez anos entre arquitetura, engenharia e construção, inteligência artificial e desenvolvimento de produto. Na Zumer constrói plataformas que usam IA para melhorar a colaboração e acelerar a sustentabilidade na construção: automação de fluxos de trabalho, inteligência documental e integrações BIM.',
-    foto: 'assets/img/formador-tiago-costa.png',
+    foto: 'assets/img/formador-tiago-costa.jpg',
     linkedin: 'https://www.linkedin.com/in/tiagopedrocosta/'
   },
   {
@@ -54,7 +54,7 @@ window.CONTEUDO.formadores = [
       'Professor Auxiliar Convidado no Iscte-Sintra · Investigador do ISTAR-Iscte',
     texto:
       'Engenheiro civil pelo Instituto Superior Técnico e mestre em Ciências Empresariais pelo Iscte, com mais de 35 anos entre consultoria e ensino. Trabalha sustentabilidade na construção, emissões de carbono, economia circular e gestão de projeto.',
-    foto: 'assets/img/formador-miguel-curado.png',
+    foto: 'assets/img/formador-miguel-curado.jpg',
     linkedin: 'https://www.linkedin.com/in/migueltorrescurado/'
   },
   {
